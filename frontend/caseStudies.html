@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YCL Case Studies - Digital Transformation Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0f0a 0%, #1a2e1a 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #0d0e0d;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            color: #a0d0a0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: #a0d0a0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, #454745 0%, #3a3b3a 100%);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #2d5a2d;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+        }
+
+        .case-study:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.1);
+            border-color: #00ff88;
+        }
+
+        .case-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .case-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .client-info {
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #2d5a2d;
+        }
+
+        .client-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .client-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .industry-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00ff88;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .requirement-item {
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 3px solid #00ff88;
+        }
+
+        .requirement-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirement-item li {
+            color: #d0f0d0;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .requirement-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .technology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .tech-item {
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 8px;
+            padding: 15px 20px;
+            border: 1px solid #2d5a2d;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: #00ff88;
+            transform: translateX(5px);
+        }
+
+        .tech-item::before {
+            content: '⚡';
+            margin-right: 10px;
+            color: #00ff88;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #2a4a2a 0%, #1a3a1a 100%);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #2d5a2d;
+            position: relative;
+        }
+
+        .highlight-card::before {
+            content: '✓';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #00ff88;
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .benefit-card {
+            background: rgba(0, 255, 136, 0.08);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #2d5a2d;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: rgba(0, 255, 136, 0.12);
+            border-color: #00ff88;
+        }
+
+        .benefit-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .benefit-description {
+            color: #c0e0c0;
+            font-size: 0.95rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #000;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 40px 20px;
+            }
+
+            .case-study {
+                padding: 30px 20px;
+            }
+
+            .case-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .case-title {
+                font-size: 1.8rem;
+            }
+
+            .requirements-grid,
+            .highlights-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">YCL</div>
+            <div class="tagline">Digital Transformation Solutions</div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="page-title">
+            <h1>Case Studies</h1>
+            <p>Discover how we've transformed businesses across industries with innovative technology solutions and strategic implementations.</p>
+        </div>
+
+        <!-- Case Study 1: Workforce Planning -->
+        <div class="case-study">
+            <div class="case-header">
+                <div>
+                    <h2 class="case-title">Workforce Planning, Financialisation and Reporting</h2>
+                </div>
+                <div class="client-info">
+                    <div class="client-label">Client</div>
+                    <div class="client-name">British Multinational Oil and Gas Company</div>
+                    <div class="industry-tag">Oil & Gas</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Requirements & Challenges</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <ul>
+                            <li>Business wanted to automate Workforce Planning across different business areas and regions</li>
+                            <li>Business was forecasting costs using Region specific Excel Workbook Templates</li>
+                            <li>Process involved manual collation and reconciliation of workforce headcount data</li>
+                        </ul>
+                    </div>
+                    <div class="requirement-item">
+                        <ul>
+                            <li>Previous process resulted in significant manual effort</li>
+                            <li>Did not provide standardised, secure, or transparent method to support data reconciliation</li>
+                            <li>Validation of results was complex and time-consuming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Technology Stack</h3>
+                <div class="technology-grid">
+                    <div class="tech-item">Workday SAP Analytics Cloud (SAC)</div>
+                    <div class="tech-item">SAC Scripting & Data Actions</div>
+                    <div class="tech-item">Azure / Databricks</div>
+                    <div class="tech-item">Data Import APIs from Workday to SAC</div>
+                    <div class="tech-item">Data Export APIs from SAC to Azure/PowerBI</div>
+                    <div class="tech-item">Cost Management Tool</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Solution Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <p>Created end-to-end automated solution to support standardised Workforce Planning and Financialisation process across the business</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Automatically scheduled and imported Workforce data and planning assumptions from Databricks into SAP Analytics Cloud using a Data Import API</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Use SAP Analytics Cloud Input Layouts (Stories) and calculation logic to generate forecasts based on different scenarios and planning assumptions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Leverage SAP Analytics Cloud based Dashboards and Reports to review, validate and reconcile local regional forecasts</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Export updated Workforce forecasts from SAP Analytics Cloud to SAP Business Warehouse and Azure/PowerBI using Data Export APIs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Business Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-title">Process Automation</div>
+                        <div class="benefit-description">Automated planning and reporting process providing better insights of current and future workforce requirements, allowing the business to anticipate and expedite changes to workforce numbers and skills mix</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">System Integration</div>
+                        <div class="benefit-description">Full integration with source system ensuring workforce data and status updates can be reflected quickly for planning and forecast purposes</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Dynamic Planning</div>
+                        <div class="benefit-description">Dynamic and flexible planning solution which supports governance and systemised controls for all Workforce Planning & Forecasting phases / activities</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">User Experience</div>
+                        <div class="benefit-description">Quick and easy access to the planning tool with a comprehensive set of Reports and Dashboards. Also supports intuitive and stable user front-end with simple navigation and customisable reporting features</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 2: Business Planning and Reporting -->
+        <div class="case-study">
+            <div class="case-header">
+                <div>
+                    <h2 class="case-title">Business Planning and Reporting</h2>
+                </div>
+                <div class="client-info">
+                    <div class="client-label">Client</div>
+                    <div class="client-name">British Multinational Oil and Gas Company</div>
+                    <div class="industry-tag">Oil & Gas</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Requirements & Challenges</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <ul>
+                            <li>Business had several distributed systems and templates for Financial planning and reporting covering P&L, Balance Sheet & Cash Flow data</li>
+                            <li>Actuals were being sourced and adjusted in flat files and without standardised data models</li>
+                        </ul>
+                    </div>
+                    <div class="requirement-item">
+                        <ul>
+                            <li>Actuals data was consolidated and predictions were being made using third-party solutions and bespoke tools</li>
+                            <li>Before data was loaded to SAP Business Warehouse for reporting and final adjustments, using planning enabled Analysis for Office workbooks</li>
+                        </ul>
+                    </div>
+                    <div class="requirement-item">
+                        <ul>
+                            <li>Existing process resulted in a lot of manual effort, including potential data gaps in reconciliation process and oversight</li>
+                            <li>Data security concerns, and non-standardised procedures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Technology Stack</h3>
+                <div class="technology-grid">
+                    <div class="tech-item">SAP Business Warehouse</div>
+                    <div class="tech-item">SAP Analytics Cloud (SAC)</div>
+                    <div class="tech-item">SAC Scripting & Data Actions</div>
+                    <div class="tech-item">Data Import APIs from SAP Business Warehouse to SAC</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Solution Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <p>Agreed with the business to fully automate the existing process based on SAP BW as the source of data and SAP Analytics Cloud for Planning, Forecasting and Reporting</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Automated workflow is used to first consolidate the data in SAP BW and then import into SAC for Forecasting and Reporting</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Uses robust process and reporting features to allow users to complete their existing planning and forecasting activities seamlessly and with full automation</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Leverages SAC calculations and prediction capabilities to enrichment data with additional KPIs, transformations and currency conversions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Business Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-title">Standardised Solution</div>
+                        <div class="benefit-description">Provide a single one-stop solution for standardising and automating Forecasting, Reconciliation and Reporting across different financial data flows</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Manual Intervention Elimination</div>
+                        <div class="benefit-description">Eliminate need for any manual intervention and provides standardised and flexible WEB UI for reviewing and adjusting P&L, Balance Sheet and Cash-flow data</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Self-Service Capability</div>
+                        <div class="benefit-description">Provides full self-service capability for users to support updating of planning assumptions, rates and master data</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Security & Governance</div>
+                        <div class="benefit-description">Security and role assignments in SAP Analytics Cloud ensures users can only review and update their own data. Audit capability allows tracking of what changes and updates a user has made. Ensures effective Governance & Compliance across the solution</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 3: Business Insights Reporting -->
+        <div class="case-study">
+            <div class="case-header">
+                <div>
+                    <h2 class="case-title">Business Insights Reporting</h2>
+                </div>
+                <div class="client-info">
+                    <div class="client-label">Client</div>
+                    <div class="client-name">British Multinational Pharmaceutical and Biotechnology Company</div>
+                    <div class="industry-tag">Pharmaceutical</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Requirements & Challenges</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <ul>
+                            <li>The customer implemented SAP PaPM solution for recharges and allocations for shared corporate cost lines</li>
+                            <li>PaPM has limited data reporting and visualisations capabilities, hence calculation and allocation results were written back to the SAP Business Warehouse on a periodic basis for user reporting</li>
+                        </ul>
+                    </div>
+                    <div class="requirement-item">
+                        <ul>
+                            <li>However, data latency in PaPM created reporting delays in SAP Business Warehouse and impacted on the month-end close schedule</li>
+                            <li>Business wanted a solution with real-time data availability where calculations and allocation results from PaPM would be available immediately for business review and month-end processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Technology Stack</h3>
+                <div class="technology-grid">
+                    <div class="tech-item">SAP PaPM</div>
+                    <div class="tech-item">SAP Hana Database & Calculation Views</div>
+                    <div class="tech-item">SAP Analytics Cloud (SAC)</div>
+                    <div class="tech-item">SAC 'Live' Connections</div>
+                    <div class="tech-item">SAC Interactive Visualisations & Dashboards</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Solution Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <p>Business decided to implement live reporting in SAP Analytics Cloud, which offers dynamic dashboards, drill-downs, and interactive visualisations</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Implemented in SAP Analytics Cloud a 'Live' connection to the SAP Hana database where calculations and allocation data generated by PaPM system was stored</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Eliminated data latency ensuring that users had access to real-time data from PaPM in a standardised and flexible reporting environment</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Provided comprehensive suite of reporting tools in SAP Analytics Cloud to support full drilldown and reconciliation capabilities</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Business Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-title">Real-Time Access</div>
+                        <div class="benefit-description">Improved user productivity and speed of month-end close as data available for business reporting 'real-time'</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Immediate Availability</div>
+                        <div class="benefit-description">Any adjustments / reruns made in PaPM immediately available in SAP Analytics Cloud ensuring that data in the two solutions are aligned and reducing need for full reconciliation</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Customisable Reporting</div>
+                        <div class="benefit-description">Customisable reporting available in SAC allowing users to define their own report layouts for analysis</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Integrated Solutions</div>
+                        <div class="benefit-description">Solution leverages key strengths of both PaPM and SAP Analytics Cloud applications (i.e. Allocations v's Reporting) and provides seamless integration ensuring data is consistent, timely and up-to-date</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 4: Power BI G/L Reconciliation -->
+        <div class="case-study">
+            <div class="case-header">
+                <div>
+                    <h2 class="case-title">Power BI G/L Reconciliation Report</h2>
+                </div>
+                <div class="client-info">
+                    <div class="client-label">Client</div>
+                    <div class="client-name">British Multinational Oil and Gas Company</div>
+                    <div class="industry-tag">Oil & Gas</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Requirements & Challenges</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <ul>
+                            <li>The customer has been loading both Genera Ledger Balance and General Ledger Line-item documents from the SAP ERP (FICO/PSEG) and S/4Hana (ACDOCA) systems into Azure for business and month-end reporting</li>
+                            <li>They were using Power BI Reports to support users with analysis of data and provide ability to drill down to appropriate level of granularity for investigation and audit queries</li>
+                        </ul>
+                    </div>
+                    <div class="requirement-item">
+                        <ul>
+                            <li>However, they found significant issues with value differences between the G/L Line Items in the source SAP ERP system and the G/L Balance and Line-Item amounts reported in the Azure tables</li>
+                            <li>The requirement from the business was to build a PBI Reconciliation report that would compare the G/L Balance & Line-Item information stored in the Azure tables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Technology Stack</h3>
+                <div class="technology-grid">
+                    <div class="tech-item">Microsoft Azure</div>
+                    <div class="tech-item">Microsoft Power BI</div>
+                    <div class="tech-item">SAP ERP</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Solution Highlights</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <p>Built a single PowerBI Reconciliation Report which sources data from the SAP G/L Balance and SAP G/L Document Line-item storage tables in Azure</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Defined standard layout in the PowerBI report to summarise key figures based on Company Code and G/L Account dimensions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Provided key figures for reconciliation such as G/L Balance Amount and Total Amount based on G/L Line Items. As per SAP convention, the G/L Line-Item total should be the same as the G/L Balance for the selections made</p>
+                    </div>
+                    <div class="highlight-card">
+                        <p>Due to the volume of data to be reconciled, filters were also provided to select data based on: Source ERP System Name, Fiscal Year, Fiscal Period and Company Code</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Business Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-title">Accessible Reconciliation</div>
+                        <div class="benefit-description">Intuitive and easily accessible Reconciliation Report allowing users to quickly identify differences between G/L Balance values and Total Line-Item amounts in Azure for their respective Company / Accounts</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Customisable Analysis</div>
+                        <div class="benefit-description">Customisable report allowing users to change dimensions in report layout and add filter values based on their specific reconciliation needs</div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-title">Comprehensive Reconciliation</div>
+                        <div class="benefit-description">Reconciliation report can be used as part of the wider reconciliation process by identifying the G/L Balance Items in the SAP ERP source system and Azure that need to be compared to identify differences. An excel workbook has been developed to upload the line-item data from SAP ERP and Azure and quickly compare, creating a list of the line items which don't match SAP ERP but missing from Azure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2 style="margin-bottom: 10px;">Our Impact</h2>
+            <p>Delivering measurable results across all implementations</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Process Automation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Time Reduction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Data Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Real-Time Access</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

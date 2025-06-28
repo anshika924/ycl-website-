@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Enterprise & Analytics Services - YCL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #10b981;
+            --dark-green: #059669;
+            --light-green: #34d399;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #000000;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #e5e7eb;
+            --text-muted: #d1d5db;
+            --border-color: #333333;
+            --shadow-color: rgba(16, 185, 129, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background-color: var(--bg-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 50%, var(--primary-green) 100%);
+            color: white;
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, var(--light-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 6rem 0;
+            background: var(--bg-dark);
+        }
+
+        .content-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .content-card h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin: 2rem 0 1rem;
+        }
+
+        .content-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .feature-item h4 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: var(--bg-darker);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 8rem 1rem 4rem;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">YCL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="whoWeAre.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="techStack.html">Technology</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>SAP Enterprise & Analytics Services</h1>
+            <p>Transform your business with advanced SAP solutions, analytics, and intelligent planning services that drive growth and operational excellence.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-card">
+                <h2>Comprehensive SAP Enterprise Solutions</h2>
+                <p>Our SAP Enterprise, Analytics & Planning Services leverage cutting-edge technology to transform your business operations. We specialize in implementing, optimizing, and maintaining SAP solutions that drive efficiency, enhance decision-making, and accelerate growth.</p>
+                
+                <h3>Our SAP Services Include:</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>SAP S/4HANA Implementation</h4>
+                        <p>Complete migration and implementation of SAP S/4HANA with minimal business disruption and maximum ROI.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>SAP Analytics Cloud</h4>
+                        <p>Advanced analytics and business intelligence solutions for real-time insights and predictive planning.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>SAP SuccessFactors</h4>
+                        <p>Human capital management solutions to optimize workforce performance and employee experience.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>SAP Ariba & Concur</h4>
+                        <p>Procurement and expense management solutions for streamlined business processes.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>SAP Integration Services</h4>
+                        <p>Seamless integration of SAP systems with existing enterprise applications and third-party solutions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>SAP Cloud Platform</h4>
+                        <p>Cloud-native development and integration platform for building innovative business applications.</p>
+                    </div>
+                </div>
+
+                <h3>Why Choose Our SAP Services?</h3>
+                <p>With deep industry expertise and certified SAP consultants, we deliver solutions that maximize your SAP investment. Our approach combines technical excellence with business acumen to ensure successful implementations that drive measurable results.</p>
+
+                <p>We work closely with your team to understand your unique business requirements and develop customized SAP solutions that align with your strategic objectives. From initial assessment to post-implementation support, we're your trusted partner in digital transformation.</p>
+
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

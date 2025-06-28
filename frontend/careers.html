@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Careers Page</title>
+    <meta name="description" content="Join our mission to shape the future. Explore career opportunities at our innovative company.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0f4c3a 100%);
+            color: #ffffff;
+            padding: 96px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-top: 8px;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #d1fae5;
+            margin-bottom: 32px;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: scale(1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #000000;
+        }
+
+        /* Section Styles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            max-width: 768px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+            background: #0f172a;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .value-card {
+            background: #1e293b;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .value-card:hover {
+            border-color: #10b981;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .value-image {
+            margin-bottom: 24px;
+        }
+
+        .value-image img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .value-description {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: #000000;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: #10b981;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-image img {
+            width: 100%;
+            height: 192px;
+            object-fit: cover;
+        }
+
+        .benefit-content {
+            padding: 24px;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .benefit-description {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* Jobs Section */
+        .jobs-section {
+            padding: 80px 0;
+            background: #0f172a;
+            min-height: 100vh;
+        }
+
+        .search-filter {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .search-box, .filter-box {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-icon, .filter-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            z-index: 1;
+        }
+
+        .search-box input, .filter-box select {
+            width: 100%;
+            padding: 16px 16px 16px 48px;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: #1e293b;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus, .filter-box select:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .filter-box select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+            min-width: 200px;
+        }
+
+        .jobs-grid {
+            display: grid;
+            gap: 24px;
+            min-height: 600px;
+        }
+
+        .job-card {
+            background: #1e293b;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .job-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .job-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .job-info {
+            flex: 1;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+
+        .job-meta-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .experience-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .job-tag {
+            background: #374151;
+            color: #d1d5db;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+        }
+
+        .job-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn-view-details {
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-view-details:hover {
+            background: #059669;
+        }
+
+        .btn-apply {
+            background: transparent;
+            color: #10b981;
+            padding: 12px 24px;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-apply:hover {
+            background: #10b981;
+            color: white;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 80px 0;
+            color: #9ca3af;
+            grid-column: 1 / -1;
+        }
+
+        .no-results-icon {
+            background: #374151;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .no-results h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: #1e293b;
+            margin: 5% auto;
+            border-radius: 16px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid #374151;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 32px 32px 0;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+        }
+
+        .modal-body {
+            padding: 0 32px 32px;
+            color: #d1d5db;
+        }
+
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            color: #9ca3af;
+        }
+
+        .modal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-section {
+            margin-bottom: 32px;
+        }
+
+        .modal-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .modal-requirements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-requirements li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .modal-requirements svg {
+            margin-top: 2px;
+            flex-shrink: 0;
+            color: #10b981;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .modal-actions .btn-primary {
+            flex: 1;
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .modal-actions .btn-secondary {
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 2px solid #374151;
+            color: #d1d5db;
+            background: transparent;
+        }
+
+        .modal-actions .btn-secondary:hover {
+            background: #374151;
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .search-filter {
+                flex-direction: row;
+            }
+            
+            .job-actions {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .job-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .job-content {
+                flex: 1;
+            }
+            
+            .job-actions {
+                flex-direction: column;
+                min-width: 200px;
+                margin-top: 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation classes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Join Our Mission to
+                <span class="hero-gradient">Shape the Future</span>
+            </h1>
+            <p class="hero-description">
+                We're building tomorrow's technology today. Join a team of passionate innovators 
+                who are making a real impact on millions of lives worldwide.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToJobs()">View Open Positions</button>
+                <button class="btn-secondary" onclick="scrollToCulture()">Learn About Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <section id="culture" class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-description">
+                    These principles guide everything we do and define who we are as a company.
+                </p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Customer First">
+                    </div>
+                    <h3 class="value-title">Customer First</h3>
+                    <p class="value-description">Everything we do starts with understanding and serving our customers better.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Innovation">
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">We embrace new ideas, take calculated risks, and learn from failures.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Collaboration">
+                    </div>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-description">We believe the best solutions come from diverse teams working together.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Excellence">
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We set high standards and continuously strive to exceed them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Join Us?</h2>
+                <p class="section-description">
+                    We believe in taking care of our team members so they can do their best work.
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Health & Wellness">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Health & Wellness</h3>
+                        <p class="benefit-description">Comprehensive health, dental, and vision insurance plus wellness programs.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/4969971/pexels-photo-4969971.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Work-Life Balance">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Work-Life Balance</h3>
+                        <p class="benefit-description">Flexible hours, unlimited PTO, and remote work options.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Growth">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Professional Growth</h3>
+                        <p class="benefit-description">Learning budget, conference attendance, and mentorship programs.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Competitive Compensation">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Competitive Compensation</h3>
+                        <p class="benefit-description">Market-rate salaries, equity packages, and performance bonuses.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Great Team">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Great Team</h3>
+                        <p class="benefit-description">Work with talented, passionate people who care about making an impact.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/4050347/pexels-photo-4050347.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Remote Friendly">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Remote Friendly</h3>
+                        <p class="benefit-description">Distributed team with offices in major cities and remote work support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Open Positions</h2>
+                <p class="section-description">
+                    Find your next opportunity and help us build something amazing together.
+                </p>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-filter">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search positions..." onkeyup="filterJobs()">
+                </div>
+                <div class="filter-box">
+                    <svg class="filter-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"/>
+                    </svg>
+                    <select id="departmentFilter" onchange="filterJobs()">
+                        <option value="All">All Departments</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Product">Product</option>
+                        <option value="Design">Design</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Job Listings -->
+            <div class="jobs-grid" id="jobsGrid">
+                <div class="job-card" data-department="Engineering">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Senior Frontend Developer</h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Engineering
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        San Francisco, CA
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        $120k - $160k
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">5+ years</span>
+                        </div>
+                        <p class="job-description">Lead the development of our next-generation user interfaces using React, TypeScript, and modern web technologies. You'll work closely with our design and product teams to create exceptional user experiences that scale to millions of users.</p>
+                        <div class="job-tags">
+                            <span class="job-tag">React</span>
+                            <span class="job-tag">TypeScript</span>
+                            <span class="job-tag">Leadership</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('frontend')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-department="Product">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Product Manager</h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Product
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        New York, NY
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        $130k - $170k
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">3+ years</span>
+                        </div>
+                        <p class="job-description">Drive product strategy and execution for our core platform, working closely with engineering and design teams. You'll be responsible for defining product roadmaps, analyzing user data, and ensuring we're building features that truly matter to our customers.</p>
+                        <div class="job-tags">
+                            <span class="job-tag">Product Strategy</span>
+                            <span class="job-tag">Analytics</span>
+                            <span class="job-tag">Leadership</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('product')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-department="Design">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">UX/UI Designer</h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Design
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        Remote
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        $90k - $130k
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">3+ years</span>
+                        </div>
+                        <p class="job-description">Create beautiful, intuitive user experiences that delight our customers and drive business results. You'll be responsible for the entire design process from user research to final implementation, working closely with product and engineering teams.</p>
+                        <div class="job-tags">
+                            <span class="job-tag">Design</span>
+                            <span class="job-tag">Figma</span>
+                            <span class="job-tag">User Research</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('design')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-department="Engineering">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">Backend Developer</h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Engineering
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        Austin, TX
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        $110k - $150k
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">4+ years</span>
+                        </div>
+                        <p class="job-description">Build and maintain scalable backend systems that power our platform. You'll work with modern technologies and be responsible for designing APIs, optimizing database performance, and ensuring system reliability.</p>
+                        <div class="job-tags">
+                            <span class="job-tag">Node.js</span>
+                            <span class="job-tag">APIs</span>
+                            <span class="job-tag">Cloud</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('backend')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Detail Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title">Job Title</h3>
+                <button class="modal-close" onclick="closeJobModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Job details will be populated here -->
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary">Apply for This Position</button>
+                    <button class="btn-secondary" onclick="closeJobModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToJobs() {
+            document.getElementById('jobs').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function scrollToCulture() {
+            document.getElementById('culture').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Job filtering functionality
+        function filterJobs() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const selectedDepartment = document.getElementById('departmentFilter').value;
+            const jobCards = document.querySelectorAll('.job-card');
+            
+            jobCards.forEach(card => {
+                const title = card.querySelector('.job-title').textContent.toLowerCase();
+                const description = card.querySelector('.job-description').textContent.toLowerCase();
+                const department = card.getAttribute('data-department');
+                
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesDepartment = selectedDepartment === 'All' || department === selectedDepartment;
+                
+                if (matchesSearch && matchesDepartment) {
+                    card.style.display = 'block';
+                    card.classList.remove('hidden');
+                } else {
+                    card.style.display = 'none';
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Show "no results" message if no jobs are visible
+            const visibleJobs = document.querySelectorAll('.job-card:not(.hidden)');
+            const jobsGrid = document.getElementById('jobsGrid');
+            
+            // Remove existing no-results message
+            const existingMessage = document.querySelector('.no-results');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            if (visibleJobs.length === 0) {
+                const noResultsDiv = document.createElement('div');
+                noResultsDiv.className = 'no-results';
+                noResultsDiv.innerHTML = `
+                    <div class="no-results-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </div>
+                    <h3>No positions found</h3>
+                    <p>Try adjusting your search or filter criteria.</p>
+                `;
+                jobsGrid.appendChild(noResultsDiv);
+            }
+        }
+
+        // Job modal functionality
+        const jobDetails = {
+            frontend: {
+                title: "Senior Frontend Developer",
+                department: "Engineering",
+                location: "San Francisco, CA",
+                salary: "$120k - $160k",
+                description: "Lead the development of our next-generation user interfaces using React, TypeScript, and modern web technologies. You'll work closely with our design and product teams to create exceptional user experiences that scale to millions of users.",
+                requirements: [
+                    "5+ years of professional React development experience",
+                    "Expert-level TypeScript proficiency",
+                    "Experience leading frontend architecture decisions",
+                    "Strong understanding of modern web performance optimization",
+                    "Experience with testing frameworks (Jest, React Testing Library)",
+                    "Knowledge of CI/CD pipelines and deployment strategies",
+                    "Excellent communication and mentorship skills"
+                ]
+            },
+            product: {
+                title: "Product Manager",
+                department: "Product",
+                location: "New York, NY",
+                salary: "$130k - $170k",
+                description: "Drive product strategy and execution for our core platform, working closely with engineering and design teams. You'll be responsible for defining product roadmaps, analyzing user data, and ensuring we're building features that truly matter to our customers.",
+                requirements: [
+                    "3+ years of product management experience",
+                    "Strong analytical and data-driven decision making skills",
+                    "Experience with product analytics tools (Mixpanel, Amplitude)",
+                    "Excellent written and verbal communication skills",
+                    "Technical background with ability to work closely with engineers",
+                    "Experience with agile development methodologies",
+                    "Track record of launching successful products"
+                ]
+            },
+            design: {
+                title: "UX/UI Designer",
+                department: "Design",
+                location: "Remote",
+                salary: "$90k - $130k",
+                description: "Create beautiful, intuitive user experiences that delight our customers and drive business results. You'll be responsible for the entire design process from user research to final implementation, working closely with product and engineering teams.",
+                requirements: [
+                    "3+ years of UX/UI design experience",
+                    "Strong portfolio demonstrating design process and outcomes",
+                    "Expert proficiency in Figma and design systems",
+                    "Experience conducting user research and usability testing",
+                    "Knowledge of frontend development principles",
+                    "Strong prototyping and interaction design skills",
+                    "Excellent presentation and communication abilities"
+                ]
+            },
+            backend: {
+                title: "Backend Developer",
+                department: "Engineering",
+                location: "Austin, TX",
+                salary: "$110k - $150k",
+                description: "Build and maintain scalable backend systems that power our platform. You'll work with modern technologies and be responsible for designing APIs, optimizing database performance, and ensuring system reliability.",
+                requirements: [
+                    "4+ years of backend development experience",
+                    "Proficiency in Node.js, Python, or similar languages",
+                    "Experience with database design and optimization",
+                    "Knowledge of cloud platforms (AWS, GCP)",
+                    "Understanding of microservices architecture",
+                    "Experience with API design and development",
+                    "Strong problem-solving skills"
+                ]
+            }
+        };
+
+        function openJobModal(jobKey) {
+            const job = jobDetails[jobKey];
+            if (!job) return;
+            
+            const modal = document.getElementById('jobModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalTitle.textContent = job.title;
+            
+            modalContent.innerHTML = `
+                <div class="modal-meta">
+                    <span class="modal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                        ${job.department}
+                    </span>
+                    <span class="modal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        ${job.location}
+                    </span>
+                    <span class="modal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                        ${job.salary}
+                    </span>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Job Description</h4>
+                    <p>${job.description}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Requirements</h4>
+                    <ul class="modal-requirements">
+                        ${job.requirements.map(req => `
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>${req}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJobModal() {
+            const modal = document.getElementById('jobModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('jobModal');
+            if (event.target === modal) {
+                closeJobModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeJobModal();
+            }
+        });
+
+        // Add fade-in animation to elements when they come into view
+        function addScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animation
+            const animatedElements = document.querySelectorAll('.value-card, .benefit-card, .job-card');
+            animatedElements.forEach(el => observer.observe(el));
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', addScrollAnimations);
+    </script>
+</body>
+</html>

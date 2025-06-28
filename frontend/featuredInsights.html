@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Success Stories</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #1a1a1a;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 50px;
+      color: #222;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffffff 60%, #dfffe2);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 100, 0, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 20px 25px;
+    }
+
+    .card-content h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #0a3d0a;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Light & dark mix effect */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(0,255,0,0.2), transparent);
+      border-bottom-left-radius: 80px;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Success Stories</h1>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?startup,team" alt="Success Story 1">
+      <div class="card-content">
+        <h2>Startup to Stardom</h2>
+        <p>From humble beginnings to a thriving tech firm, this story celebrates vision, grit, and growth.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?technology,success" alt="Success Story 2">
+      <div class="card-content">
+        <h2>Tech Turnaround</h2>
+        <p>Leveraging AI and automation, this company transformed its processes and tripled productivity.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?leadership,women" alt="Success Story 3">
+      <div class="card-content">
+        <h2>Women Who Lead</h2>
+        <p>This inspiring journey shows how strong leadership and empathy can drive global impact.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?innovation,business" alt="Success Story 4">
+      <div class="card-content">
+        <h2>Innovation Ignited</h2>
+        <p>By embracing change and innovation, a small enterprise expanded into international markets.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

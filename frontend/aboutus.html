@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The YC Way - Your Growth Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #080707;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            font-family:'Times New Roman', Times, serif;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(9, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+                gap: 32px;
+            }
+        }
+
+        .nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #10b981;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #10b981;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .get-started-btn {
+            background: #10b981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .get-started-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+            background-image: url("https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #d1d5db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+        }
+
+        .hero-title .accent {
+            color: #10b981;
+            -webkit-text-fill-color: #10b981;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #10b981;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-label {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transform: translateY(0);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid #10b981;
+            color: #10b981;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: #10b981;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: rgba(12, 12, 12, 0.5);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 32px;
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .section-heading {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .section-heading {
+                font-size: 3rem;
+            }
+        }
+
+        .section-text {
+            color: #d1d5db;
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .stat-label {
+            color: #9ca3af;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .image-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+            border-radius: 16px;
+            transform: rotate(3deg);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover .image-bg {
+            transform: rotate(6deg) scale(1.05);
+        }
+
+        .main-image {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover .main-image {
+            transform: scale(1.02);
+        }
+
+        /* Vision Section */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .vision-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .vision-image-container {
+            position: relative;
+            order: 1;
+        }
+           
+        @media (min-width: 1024px) {
+            .vision-image-container {
+                order: 2;
+            }
+        }
+
+        .vision-content {
+            order: 2;
+        }
+
+        @media (min-width: 1024px) {
+            .vision-content {
+                order: 1;
+            }
+        }
+
+        .vision-image-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to left, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+            border-radius: 16px;
+            transform: rotate(-3deg);
+            transition: transform 0.3s ease;
+        }
+
+        .vision-image-container:hover .vision-image-bg {
+            transform: rotate(-6deg) scale(1.05);
+        }
+
+        .feature-list {
+            margin-top: 32px;
+            space-y: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .feature-dot {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            color: #d1d5db;
+        }
+
+        /* Enhanced Values Section - Single Row Flexbox */
+        .values-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .values-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+
+        .values-subtitle {
+            font-size: 1.2rem;
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Single Row Flexbox Grid */
+        .values-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        /* Individual Card Styling */
+        .value-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            flex: 0 0 280px;
+            min-height: 400px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(31, 41, 55, 0.9);
+        }
+
+        /* Image Styling */
+        .value-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .value-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .value-card:hover .value-image img {
+            transform: scale(1.1);
+        }
+
+        /* Title and Description */
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+            margin: 24px 0 16px;
+            padding: 0 20px;
+        }
+
+        .value-description {
+            font-size: 1rem;
+            color: #d1d5db;
+            padding: 0 20px 24px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* Responsive adjustments for values section */
+        @media (max-width: 1400px) {
+            .values-grid {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .value-card {
+                flex: 0 0 calc(33.333% - 20px);
+                min-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .value-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .values-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .value-card {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* Enhanced Choose Us Section */
+        .choose-us-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .choose-us-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .choose-us-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+
+        /* Flexbox Grid for Choose Us */
+        .choose-us-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* Individual Card Styling */
+        .choose-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            flex: 0 0 calc(25% - 20px);
+            min-width: 280px;
+            max-width: 320px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .choose-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(31, 41, 55, 0.9);
+        }
+
+        /* Image Styling */
+        .choose-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .choose-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .choose-card:hover .choose-image img {
+            transform: scale(1.1);
+        }
+
+        /* Title and Description */
+        .choose-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #10b981;
+            margin: 24px 0 16px;
+            padding: 0 20px;
+        }
+
+        .choose-description {
+            font-size: 1rem;
+            color: #d1d5db;
+            line-height: 1.6;
+            padding: 0 20px 24px;
+        }
+
+        /* Responsive Styling for Choose Us */
+        @media (max-width: 1024px) {
+            .choose-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .choose-card {
+                flex: 0 0 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #10b981;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Icon styles */
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .icon-sm {
+            width: 20px;
+            height: 20px;
+        }
+
+        .icon-lg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Mobile responsiveness for hero stats */
+        @media (max-width: 640px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">The YC Way</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="#about" class="nav-link">WHO WE ARE</a>
+                <a href="#vision" class="nav-link">VISION</a>
+                <a href="#values" class="nav-link">VALUES</a>
+                <a href="#choose" class="nav-link">WHY CHOOSE US</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Enhanced Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                Leading Technology Consulting
+            </div>
+            <h1 class="hero-title">
+                Transforming Business Through <span class="accent">Innovation</span>
+            </h1>
+            <p class="hero-subtitle">
+                We empower organizations with cutting-edge technology solutions, strategic consulting, and digital transformation services that drive sustainable growth and competitive advantage in today's dynamic marketplace.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">150+</span>
+                    <span class="hero-stat-label">Clients Served</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">25+</span>
+                    <span class="hero-stat-label">Projects Delivered</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">98%</span>
+                    <span class="hero-stat-label">Success Rate</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="index.html#contact" class="btn-primary">
+                    Start Your Journey
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#about" class="btn-secondary">Discover Our Expertise</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <h2 class="section-heading">Who We Are</h2>
+                    <p class="section-text">
+                        We are Consulting Ltd. (YCL) is a leading technology company that specializes in 
+                        providing innovative solutions to businesses. Our expertise spans across multiple 
+                        industries, enabling us to deliver tailored approaches that drive sustainable growth.
+                    </p>
+                    <p class="section-text">
+                        With our deep experience and proven methodologies, we help organizations 
+                        navigate complex challenges and achieve their strategic objectives through 
+                        technology-driven solutions.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="image-bg"></div>
+                    <img
+                        src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        alt="Team collaboration"
+                        class="main-image"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section">
+        <div class="container">
+            <div class="vision-grid">
+                <div class="vision-image-container">
+                    <div class="vision-image-bg"></div>
+                    <img
+                        src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        alt="Vision and strategy"
+                        class="main-image"
+                    />
+                </div>
+                <div class="vision-content">
+                    <h2 class="section-heading">The YC Vision</h2>
+                    <p class="section-text">
+                        Our vision is to be the catalyst for digital excellence, empowering organizations to 
+                        thrive in the digital age through innovative solutions and strategic partnerships.
+                    </p>
+                    <p class="section-text">
+                        We aim to create lasting impact by delivering transformative solutions that drive 
+                        business success and contribute to a more connected and efficient world.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span class="feature-text">Strategic Innovation & Growth</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span class="feature-text">Technology-Driven Solutions</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span class="feature-text">Sustainable Business Practices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Core Values Section - Single Row -->
+    <section id="values" class="values-section section-alt">
+        <div class="container">
+            <div class="values-header">
+                <h2 class="values-title">Our Core Values</h2>
+                <p class="values-subtitle">The principles that guide our approach to delivering exceptional results</p>
+            </div>
+            <div class="values-grid">
+                <!-- Card 1 --> 
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg" alt="Innovation">
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">
+                        We continuously push boundaries and embrace new technologies to deliver cutting-edge solutions.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3183180/pexels-photo-3183180.jpeg" alt="Quality">
+                    </div>
+                    <h3 class="value-title">Quality</h3>
+                    <p class="value-description">
+                        We maintain the highest standards in everything we do, ensuring excellence in every project.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184420/pexels-photo-3184420.jpeg" alt="Teamwork">
+                    </div>
+                    <h3 class="value-title">Teamwork</h3>
+                    <p class="value-description">
+                        We collaborate effectively, leveraging our diverse expertise to achieve outstanding results.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg" alt="Transparency">
+                    </div>
+                    <h3 class="value-title">Transparency</h3>
+                    <p class="value-description">
+                        We maintain open communication and honest relationships with our clients and partners.
+                    </p>
+                </div>
+                <!-- Card 5 -->
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184286/pexels-photo-3184286.jpeg" alt="Responsibility">
+                    </div>
+                    <h3 class="value-title">Responsibility</h3>
+                    <p class="value-description">
+                        We take ownership of our commitments and deliver on our promises with integrity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Why Choose Us Section -->
+    <section id="choose" class="choose-us-section section">
+        <div class="container">
+            <div class="choose-us-header">
+                <h2 class="choose-us-title">Why Choose Us</h2>
+            </div>
+            <div class="choose-us-grid">
+                <!-- Card 1 -->
+                <div class="choose-card">
+                    <div class="choose-image">
+                        <img src="https://zd-brightspot.s3.us-east-1.amazonaws.com/wp-content/uploads/2022/08/02141047/facets-of-data-analytics.jpg" alt="Data Analytics Image">
+                    </div>
+                    <h3 class="choose-title">Data Analytics</h3>
+                    <p class="choose-description">
+                        We provide expert analysis to unlock insights from your data.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="choose-card">
+                    <div class="choose-image">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/8/331052574/SX/NF/CK/140403078/microsoft-azure-cloud-services.png" alt="Azure Expertise Image">
+                    </div>
+                    <h3 class="choose-title">Azure Expertise</h3>
+                    <p class="choose-description">
+                        Certified Azure professionals delivering cloud excellence.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="choose-card">
+                    <div class="choose-image">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQGDMxD7iJHqIg/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1729441731139?e=2147483647&v=beta&t=i8OVY7AU0vhx_L3PIK0nBckVmQTzSfJ5Lh-paDQDedI" alt="SAP BTP Solutions Image">
+                    </div>
+                    <h3 class="choose-title">SAP BTP Solutions</h3>
+                    <p class="choose-description">
+                        Comprehensive Business Technology Platform implementation.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="choose-card">
+                    <div class="choose-image">
+                        <img src="https://empowersofttech.com/wp-content/uploads/2025/01/aiml-post-image-3.jpg" alt="AI & Machine Learning Image">
+                    </div>
+                    <h3 class="choose-title">AI & Machine Learning</h3>
+                    <p class="choose-description">
+                        Cutting-edge AI solutions for business automation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+                    <p>020 8922 3492</p>
+                    <p>contact@yourconsultingltd.co.uk</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="whoWeAre.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with our latest insights and news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(17, 24, 39, 0.98)';
+            } else {
+                header.style.background = 'rgba(17, 24, 39, 0.95)';
+            }
+        });
+             
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            if (email) {
+                alert('Thank you for subscribing!');
+                this.querySelector('.newsletter-input').value = '';
+            }
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.value-card, .choose-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
