@@ -13,20 +13,20 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0f0a 0%, #1a2e1a 100%);
+            background: #fff;
             min-height: 100vh;
-            color: #ffffff;
+            color: #222;
             line-height: 1.6;
         }
 
         .header {
-            background: rgba(13, 13, 13, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #0d0e0d;
-            padding: 20px 0;
+            background: #fff;
+            border-bottom: 1px solid #b3e5fc;
+            padding: 32px 0 16px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 12px rgba(179,229,252,0.08);
         }
 
         .header-content {
@@ -41,15 +41,15 @@
         .logo {
             font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            background: linear-gradient(135deg, lightblue 0%, #b3e5fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .tagline {
-            color: #a0d0a0;
-            font-size: 0.9rem;
+            color: lightblue;
+            font-size: 1rem;
             font-weight: 500;
         }
 
@@ -67,29 +67,27 @@
         .page-title h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #000;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
 
         .page-title p {
             font-size: 1.2rem;
-            color: #a0d0a0;
+            color: #000000;
             max-width: 700px;
             margin: 0 auto;
         }
 
         .case-study {
-            background: linear-gradient(135deg, #454745 0%, #3a3b3a 100%);
+            background: #fff;
             border-radius: 20px;
             padding: 50px;
             margin-bottom: 50px;
             position: relative;
             overflow: hidden;
-            border: 1px solid #2d5a2d;
+            border: 1.5px solid #b3e5fc;
+            box-shadow: 0 4px 24px rgba(179,229,252,0.10);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -100,13 +98,13 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+            background: linear-gradient(90deg, lightblue 0%, #b3e5fc 100%);
         }
 
         .case-study:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.1);
-            border-color: #00ff88;
+            box-shadow: 0 12px 32px rgba(70,197,221,0.10);
+            border-color: lightblue;
         }
 
         .case-header {
@@ -120,22 +118,22 @@
         .case-title {
             font-size: 2.2rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #000;
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
         .client-info {
-            background: rgba(0, 255, 136, 0.1);
+            background: #e3f7fd;
             border-radius: 12px;
             padding: 25px;
-            border: 1px solid #2d5a2d;
+            border: 1px solid #b3e5fc;
         }
 
         .client-label {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #00ff88;
+            color: lightblue;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 10px;
@@ -144,14 +142,14 @@
         .client-name {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #222;
             margin-bottom: 15px;
         }
 
         .industry-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-            color: #000;
+            background: linear-gradient(135deg, lightblue 0%, #b3e5fc 100%);
+            color: #fff;
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -167,7 +165,7 @@
         .section-title {
             font-size: 1.4rem;
             font-weight: 600;
-            color: #00ff88;
+            color: #000;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -182,7 +180,7 @@
             left: 0;
             width: 50px;
             height: 2px;
-            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+            background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%);
         }
 
         .requirements-grid {
@@ -192,10 +190,10 @@
         }
 
         .requirement-item {
-            background: rgba(0, 255, 136, 0.05);
+            background: #e3f7fd;
             border-radius: 10px;
             padding: 20px;
-            border-left: 3px solid #00ff88;
+            border-left: 3px solid lightblue;
         }
 
         .requirement-item ul {
@@ -204,7 +202,7 @@
         }
 
         .requirement-item li {
-            color: #d0f0d0;
+            color: #4fc3f7;
             margin-bottom: 10px;
             position: relative;
             padding-left: 20px;
@@ -214,7 +212,7 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: #00ff88;
+            color: lightblue;
             font-weight: bold;
         }
 
@@ -225,22 +223,22 @@
         }
 
         .tech-item {
-            background: rgba(0, 255, 136, 0.1);
+            background: #e3f7fd;
             border-radius: 8px;
             padding: 15px 20px;
-            border: 1px solid #2d5a2d;
+            border: 1px solid #b3e5fc;
             transition: all 0.3s ease;
         }
 
         .tech-item:hover {
-            border-color: #00ff88;
+            border-color: lightblue;
             transform: translateX(5px);
         }
 
         .tech-item::before {
             content: '⚡';
             margin-right: 10px;
-            color: #00ff88;
+            color: lightblue;
         }
 
         .highlights-grid {
@@ -250,10 +248,10 @@
         }
 
         .highlight-card {
-            background: linear-gradient(135deg, #2a4a2a 0%, #1a3a1a 100%);
+            background: #e3f7fd;
             border-radius: 12px;
             padding: 25px;
-            border: 1px solid #2d5a2d;
+            border: 1px solid #b3e5fc;
             position: relative;
         }
 
@@ -262,8 +260,8 @@
             position: absolute;
             top: -10px;
             left: 20px;
-            background: #00ff88;
-            color: #000;
+            background: lightblue;
+            color: #fff;
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -281,33 +279,33 @@
         }
 
         .benefit-card {
-            background: rgba(0, 255, 136, 0.08);
+            background: #e3f7fd;
             border-radius: 12px;
             padding: 25px;
-            border: 1px solid #2d5a2d;
+            border: 1px solid #b3e5fc;
             transition: all 0.3s ease;
         }
 
         .benefit-card:hover {
-            background: rgba(0, 255, 136, 0.12);
-            border-color: #00ff88;
+            background: #b3e5fc;
+            border-color: lightblue;
         }
 
         .benefit-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #4fc3f7;
             margin-bottom: 10px;
         }
 
         .benefit-description {
-            color: #c0e0c0;
+            color: #4fc3f7;
             font-size: 0.95rem;
         }
 
         .stats-section {
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-            color: #000;
+            background: linear-gradient(135deg, #e3f7fd 0%, #b3e5fc 100%);
+            color: #4fc3f7;
             border-radius: 15px;
             padding: 40px;
             margin: 60px 0;
@@ -366,13 +364,92 @@
                 grid-template-columns: 1fr;
             }
         }
+        .nav-menu a:hover {
+            color: #000 !important;
+        }
+        .case-study, .case-study p, .case-study li, .case-study .benefit-description, .case-study .requirement-item li {
+            color: #1565c0;
+        }
+    </style>
+    <style>
+        .footer {
+            background-color: #000000;
+            padding: 60px 0 20px;
+        }
+        .footer .container {
+            padding-left: 32px;
+            padding-right: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+        .footer-section a:hover {
+            color: #7dd3fc;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+            text-align: center;
+            color: #888;
+        }
+        .pdf-card {
+            background: #111827 !important;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="header-content">
-            <div class="logo">YCL</div>
-            <div class="tagline">Digital Transformation Solutions</div>
+        <div class="header-content" style="display:flex;align-items:center;justify-content:space-between;">
+            <div class="logo"><img src="image.jpg" alt="YCL Logo" style="height:60px;vertical-align:middle;"></div>
+            <nav class="nav-menu" style="display:flex;gap:2rem;margin-left:auto;">
+                <a href="index.html" style="text-decoration:none;color:#222;font-weight:600;transition:color 0.2s;">HOME</a>
+                <a href="aboutus.html" style="text-decoration:none;color:#222;font-weight:600;transition:color 0.2s;">ABOUT US</a>
+                <a href="index.html#contact" style="text-decoration:none;color:#222;font-weight:600;transition:color 0.2s;">CONTACT US</a>
+            </nav>
         </div>
     </header>
 
@@ -718,29 +795,38 @@
                 </div>
             </div>
         </div>
-
-        <div class="stats-section">
-            <h2 style="margin-bottom: 10px;">Our Impact</h2>
-            <p>Delivering measurable results across all implementations</p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">Process Automation</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">60%</div>
-                    <div class="stat-label">Time Reduction</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Data Accuracy</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Real-Time Access</div>
-                </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+              <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+                <p>020 8922 3492</p>
+                <p>contact@yourconsultingltd.co.uk</p>
+              </div>
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                  <li><a href="whoWeAre.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="careers.html">Careers</a></li>
+                </ul>
+              </div>
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Follow Us</h3>
+                <ul class="footer-links">
+                  <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+                  <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+                  <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>

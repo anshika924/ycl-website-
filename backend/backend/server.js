@@ -1,4 +1,6 @@
 require('dotenv').config();
+console.log('GMAIL_USER:', process.env.GMAIL_USER);
+console.log('GMAIL_PASS:', process.env.GMAIL_PASS ? '***set***' : '***missing***');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -23,6 +25,7 @@ mongoose.connect(MONGODB_URI)
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads'));
 
 // Configure the transporter using environment variables for security
 const transporter = nodemailer.createTransport({
@@ -40,6 +43,19 @@ const Contact = mongoose.model('Contact', contactSchema);
 // Flexible Job Application Schema
 const jobAppSchema = new mongoose.Schema({}, { strict: false });
 const JobApplication = mongoose.model('JobApplication', jobAppSchema);
+
+// Newsletter Signup Schema
+const newsletterSchema = new mongoose.Schema({
+  email: { type: String, required: true },
+  subscribedAt: { type: Date, default: Date.now }
+});
+const Newsletter = mongoose.model('Newsletter', newsletterSchema);
+
+// Check for required email environment variables
+if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
+  console.error('ERROR: GMAIL_USER or GMAIL_PASS is missing in the .env file!');
+  process.exit(1); // Stop the server if credentials are missing
+}
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
@@ -129,6 +145,55 @@ app.post('/api/apply', upload.fields([
   } catch (err) {
     console.error('Error saving job application:', err);
     res.status(500).json({ success: false, message: 'Failed to save job application.' });
+  }
+});
+
+// Newsletter signup endpoint
+app.post('/api/newsletter', async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ success: false, message: 'Email is required.' });
+  }
+  try {
+    // Save to DB
+    const newsletter = new Newsletter({ email });
+    await newsletter.save();
+    console.log('Newsletter signup:', email);
+
+    // Notify company
+    const notifyOptions = {
+      from: process.env.GMAIL_USER,
+      to: 'contact@yourconsultingltd.co.uk',
+      subject: 'New Newsletter Signup',
+      text: `A new user has signed up for the newsletter: ${email}`
+    };
+    transporter.sendMail(notifyOptions, (error, info) => {
+      if (error) {
+        console.error('[NEWSLETTER] Error sending notification email:', error);
+      } else {
+        console.log('[NEWSLETTER] Notification email sent:', info.response);
+      }
+    });
+
+    // Thank you email to subscriber (updated wording)
+    const thankYouOptions = {
+      from: process.env.GMAIL_USER,
+      to: email,
+      subject: 'Thank you for subscribing to the YCL Newsletter!',
+      text: `Dear Subscriber,\n\nThank you for subscribing to the YCL Newsletter!\n\nYou will now be notified about our latest updates, insights, and exclusive content.\n\nBest regards,\nYCL Team`
+    };
+    transporter.sendMail(thankYouOptions, (error, info) => {
+      if (error) {
+        console.error('[NEWSLETTER] Error sending thank you email:', error);
+      } else {
+        console.log('[NEWSLETTER] Thank you email sent:', info.response);
+      }
+    });
+
+    res.json({ success: true, message: 'Subscribed successfully!' });
+  } catch (err) {
+    console.error('Error saving newsletter signup:', err);
+    res.status(500).json({ success: false, message: 'Failed to subscribe.' });
   }
 });
 

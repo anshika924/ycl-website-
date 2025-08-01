@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Solutions - YCL</title>
+    <title>Data Architecture & Analytics - YCL</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,62 +13,93 @@
         }
 
         :root {
-            --primary-green: #10b981;
-            --dark-green: #059669;
+            --primary-green: #28a745;
+            --dark-green: #20c997;
             --light-green: #34d399;
-            --bg-dark: #0a0a0a;
-            --bg-darker: #000000;
-            --bg-card: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #e5e7eb;
-            --text-muted: #d1d5db;
-            --border-color: #333333;
-            --shadow-color: rgba(16, 185, 129, 0.2);
+            --bg-light: #ffffff;
+            --bg-section: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(40, 167, 69, 0.2);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-secondary);
-            background-color: var(--bg-dark);
+            background-color: var(--bg-light);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         .header {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
+            /* font-family: 'Times New Roman', Times, serif; */
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
+        .header {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  /* font-family: 'Times New Roman', Times, serif; */
+}
+
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .logo {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: lightblue;
             text-decoration: none;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-menu {
@@ -78,125 +109,511 @@
             gap: 2rem;
         }
 
+        /* Navigation Menu - UPPERCASE, NOT BOLD, UNDERLINE ONLY ON ACTIVE/FOCUS/VISITED */
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+            color: #000 !important;
+            /* font-family: 'Times New Roman', Times, serif; */
+            text-transform: uppercase;
+            font-weight: normal;
+            position: relative;
+            transition: none;
         }
-
-        .nav-menu a:hover {
-            color: var(--primary-green);
+        .nav-menu a:visited,
+        .nav-menu a:active,
+        .nav-menu a:focus {
+            color: #000 !important;
+            background: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000 !important;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:focus::after,
+        .nav-menu a:active::after,
+        .nav-menu a:visited::after {
+            width: 100%;
+            background: #000 !important;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+            background: #000 !important;
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 50%, var(--primary-green) 100%);
+        /* .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(40, 167, 69, 0.7)), 
+                        url('https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
             color: white;
-            padding: 10rem 2rem 6rem;
+            padding: 12rem 2rem 8rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+        } */
+         .hero {
+  background: url('https://images.unsplash.com/photo-1584761696377-008e22a7fb15?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%2328a745" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Sections */
+        .intro-section {
+            padding: 6rem 0 4rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 3rem;
+            color: lightblue;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        /* Content Section */
+        /* Section Styling */
         .content-section {
-            padding: 6rem 0;
-            background: var(--bg-dark);
+            padding: 4rem 0;
         }
 
-        .content-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 3rem;
-            border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+        .content-section:nth-child(even) {
+            background: var(--bg-section);
         }
 
-        .content-card h2 {
+        .content-section h3 {
             font-size: 2.5rem;
             color: var(--text-primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-align: center;
         }
 
-        .content-card h3 {
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        /* Service Cards Grid - 3 main services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .service-card h4 {
+            color: var(--text-primary);
             font-size: 1.8rem;
-            color: var(--primary-green);
-            margin: 2rem 0 1rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
-        .content-card p {
+        .service-card p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 1.1rem;
-            line-height: 1.7;
+            text-align: left;
+            flex-grow: 1;
         }
 
+        /* Features Grid - 3 items per service */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .feature-item {
-            background: rgba(16, 185, 129, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-green);
-            transition: all 0.3s ease;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: lightblue;
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
         }
 
-        .feature-item h4 {
+        .feature-item h5 {
             color: var(--text-primary);
             font-size: 1.3rem;
             margin-bottom: 1rem;
+            font-weight: 600;
+            flex-shrink: 0;
         }
 
         .feature-item p {
             color: var(--text-muted);
             margin: 0;
+            font-size: 1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Highlight Section - DARKER BLUE BACKGROUND */
+        .highlight-section {
+            background: #1565c0 !important; /* darker blue */
+            padding: 6rem 0;
+            position: relative;
+            color: white;
+        }
+
+        .highlight-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .highlight-header h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .highlight-header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Image Gallery with Permanent Text Overlay */
+        .gallery-section {
+            padding: 6rem 0;
+            background: var(--bg-section);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(40, 167, 69, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Permanent overlay - always visible */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: white;
+            padding: 2.5rem;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: lightblue;
+        }
+
+        .gallery-overlay p {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* Enhanced hover effect for overlay */
+        .gallery-item:hover .gallery-overlay {
+            background: lightblue;
+            padding: 3rem;
+        }
+
+        .gallery-item:hover .gallery-overlay h4 {
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #10b981;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
         }
 
         .back-link {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            color: var(--bg-darker);
-            padding: 1rem 2rem;
+            background: lightblue;
+            color: white;
+            padding: 1.2rem 3rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            margin-top: 2rem;
+            margin: 4rem auto 0;
+            font-size: 1.1rem;
         }
 
         .back-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--shadow-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 4rem 0;
         }
 
         /* Mobile Responsiveness */
@@ -210,15 +627,48 @@
             }
 
             .hero {
-                padding: 8rem 1rem 4rem;
+                padding: 10rem 1rem 6rem;
             }
 
-            .content-card {
-                padding: 2rem;
+            .intro-section h2 {
+                font-size: 2.2rem;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .content-section h3 {
+                font-size: 2rem;
+            }
+
+            .highlight-header h3 {
+                font-size: 2.2rem;
+            }
+
+            .highlight-header p {
+                font-size: 1.2rem;
+            }
+
+            .gallery-overlay {
+                padding: 1.5rem;
+            }
+
+            .gallery-overlay h4 {
+                font-size: 1.2rem;
+            }
+
+            .gallery-overlay p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .service-card,
+            .feature-item {
+                min-height: auto;
             }
         }
     </style>
@@ -227,7 +677,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
-            <a href="index.html" class="logo">YCL</a>
+          <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="whoWeAre.html">About Us</a></li>
@@ -242,57 +692,222 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Cloud Solutions</h1>
-            <p>Scalable, secure, and cost-effective cloud solutions that enable your business to innovate faster and operate more efficiently.</p>
-        </div>
-    </section>
-
-    <!-- Content Section -->
-    <section class="content-section">
-        <div class="container">
-            <div class="content-card">
-                <h2>Enterprise Cloud Solutions</h2>
-                <p>Transform your business with our comprehensive cloud solutions. We help organizations migrate to the cloud, optimize existing cloud infrastructure, and develop cloud-native applications that drive innovation and growth.</p>
-                
-                <h3>Our Cloud Services Include:</h3>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h4>Cloud Migration</h4>
-                        <p>Seamless migration of your applications and data to leading cloud platforms with minimal downtime and risk.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Cloud Architecture Design</h4>
-                        <p>Design and implementation of scalable, secure, and cost-optimized cloud architectures tailored to your needs.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Multi-Cloud Strategy</h4>
-                        <p>Strategic multi-cloud implementations across AWS, Azure, and Google Cloud Platform for maximum flexibility.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Cloud Security</h4>
-                        <p>Comprehensive cloud security solutions including identity management, data encryption, and compliance frameworks.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>DevOps & CI/CD</h4>
-                        <p>Implementation of DevOps practices and continuous integration/deployment pipelines for faster delivery.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Cloud Optimization</h4>
-                        <p>Ongoing optimization of cloud resources to reduce costs while maintaining performance and reliability.</p>
-                    </div>
-                </div>
-
-                <h3>Cloud Platforms We Support</h3>
-                <p>We are certified partners with major cloud providers including Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform. Our expertise spans across all major cloud services including compute, storage, networking, databases, and AI/ML services.</p>
-
-                <h3>Why Choose Our Cloud Solutions?</h3>
-                <p>Our cloud experts bring deep technical knowledge and real-world experience to help you navigate your cloud journey. We understand that cloud adoption is not just about technology - it's about transforming how your business operates and delivers value to customers.</p>
-
-                <p>From initial cloud strategy development to ongoing management and optimization, we provide end-to-end cloud services that ensure your cloud investments deliver maximum business value.</p>
-
-                <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="hero-content">
+                <h1>Data Analytics and Visualisation</h1>
+                <p>Comprehensive data solutions from architecture design to advanced analytics and visualization, enabling data-driven decision making across your organization.</p>
             </div>
         </div>
     </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>Complete Data Solutions</h2>
+            <p>We're the experts in comprehensive data solutions, dedicated to designing, building, and managing your entire data ecosystem. From data architecture and visualization to platform migration, we craft tailored solutions that transform how your organization leverages data for strategic advantage.</p>
+        </div>
+    </section>
+
+    <!-- Main Services Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Our Core Data Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Data Architecture</h4>
+                    <p>We're the experts in Data Architecture as a service, dedicated to designing, building, and managing your data infrastructure. With a keen understanding of your unique data needs, we craft tailored solutions, from selecting the right tech to defining governance policies and creating data models.</p>
+                    <p>Your Consulting provides Data Architecture as a service to help organisations design, build, and manage their data infrastructure. Our team works closely with clients to understand their unique data requirements and develop a customised architecture that can efficiently and effectively manage their data.</p>
+                </div>
+
+                <div class="service-card">
+                    <h4>Data Visualization</h4>
+                    <p>We're the data visualization wizards, dedicated to crafting, designing, and managing your data visualizations as a service. With a deep understanding of your unique data storytelling needs, we tailor solutions, from selecting the right visualization tools to creating captivating data narratives.</p>
+                    <p>The Your Consulting data analytics and visualisation strategy is a plan that outlines the process and tools needed to analyse and present data in a way that helps organisations make better-informed decisions. Tailored to meet the unique needs of your organisation, regularly reviewed, and updated to stay relevant.</p>
+                </div>
+
+                <div class="service-card">
+                    <h4>Data Platform Migration</h4>
+                    <p>We recognize that data fuels your business's heartbeat. That's why our expert squad conducts a meticulous evaluation of your existing data setup and identifies the ideal destination platform tailored to your precise requirements.</p>
+                    <p>Your Consulting understands that data is the lifeblood of your business, which is why our expert team will carefully assess your current data platform and identify the perfect target platform that meets your specific needs. We'll work closely with you to ensure a seamless transition, while keeping your data safe and secure throughout the migration process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Architecture Features -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Data Architecture Excellence</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h5>Comprehensive Design Methodology</h5>
+                    <p>Rigorous design methodology embedded with SAP best practices across all aspects of delivery.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>Expert Architects</h5>
+                    <p>Multiple project experience with proven track record in complex data architecture implementations.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>SAP Best Practice</h5>
+                    <p>Embedded in all aspects of the delivery, ensuring enterprise-grade solutions and compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Features -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Data Visualization Capabilities</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h5>Expert Consulting</h5>
+                    <p>Full Project Life Cycle capability, covering Design and Analysis, Business Engagement, Business Process Re-Engineering, Project Management and Business & Design Consulting.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>Cutting-Edge Tools</h5>
+                    <p>Extension Product expertise across Azure, SAP BW/4 Hana, SAP Analytics Cloud, PowerBI, Azure Databricks and SAP Datasphere.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>One-Stop Shop</h5>
+                    <p>Supporting all your Data Visualisation needs from strategy to implementation and ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Platform Migration Features -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Data Platform Migration Excellence</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h5>Structured Methodology</h5>
+                    <p>Formalised, structured, and comprehensive data migration methodology leveraged across numerous IT projects and different business organisations.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>Data Transformation Experts</h5>
+                    <p>Experts in Data Analysis, Data Conversion and Data Transformation to ensure harmonised and transparent data, independent of source.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>Customer-Centric Approach</h5>
+                    <p>Customer and Business Users embedded into the data migration methodology to support compliance, oversight, and governance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-header">
+                <h3>Transforming Data into Strategic Advantage</h3>
+                <p>Implementing a data analytics and visualisation solution is not just about analysing data, but it's about making data-driven decisions that can transform your organisation. With the right strategy, your organisation can leverage the power of data to make informed decisions that can drive growth, increase efficiency, and boost profitability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Data Architecture">
+                    <div class="gallery-overlay">
+                        <h4>Data Architecture</h4>
+                        <p>Robust data infrastructure design and implementation for enterprise scalability</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Data Visualization">
+                    <div class="gallery-overlay">
+                        <h4>Data Visualization</h4>
+                        <p>Compelling visual narratives that transform complex data into actionable insights</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Platform Migration">
+                    <div class="gallery-overlay">
+                        <h4>Platform Migration</h4>
+                        <p>Seamless data platform transitions with enhanced performance and security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="content-section">
+        <div class="container">
+            <p>At Your Consulting, we understand the importance of ongoing management and maintenance of data architecture. We provide continuous support and maintenance to ensure that the architecture continues to meet the client's needs and remains reliable, secure, and scalable. Our service encompasses extracting your data from its current home, shaping it for perfect alignment with the new platform, and loading it with surgical precision into its new habitat. The result? Enhanced data access, scalability, and fortification, coupled with the added advantage of cutting-edge technologies delivering superior performance, reliability, and functionality.</p>
+            
+            <div class="back-link-container">
+                <!-- <a href="index.html" class="back-link">← Back to Home</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="config.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('.newsletter-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          if (email) {
+            try {
+              const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+              });
+              const data = await response.json();
+              if (data.success) {
+                alert('Thank you for subscribing! Please check your email for a confirmation.');
+                this.querySelector('.newsletter-input').value = '';
+              } else {
+                alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+              }
+            } catch (err) {
+              alert('An error occurred. Please try again later.');
+            }
+          }
+        });
+      }
+    });
+    </script>
 </body>
 </html>

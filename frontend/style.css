@@ -41,7 +41,20 @@ body {
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    color: #00ff88;
+    color: #1976d2;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin-right: 16px;
+    vertical-align: middle;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu {
@@ -60,12 +73,12 @@ body {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #00ff88;
+    color: #000 !important;
 }
 
 .btn-get-started {
-    background-color: #00ff88;
-    color: #000000 !important;
+    background-color: #1976d2;
+    color: #ffffff !important;
     padding: 0.75rem 1.5rem !important;
     border-radius: 5px;
     font-weight: 600;
@@ -73,43 +86,38 @@ body {
 }
 
 .btn-get-started:hover {
-    background-color: #00cc6a;
+    background-color: #1565c0;
     transform: translateY(-2px);
 }
 
 /* Hero Section - Home Page */
 .hero {
     position: relative;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0a4d3a 0%, #1a5f4a 50%, #2d7a5f 100%);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    overflow: hidden;
 }
 
-.hero::before {
-    content: '';
+/*
+.hero-video {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="stars" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(%23stars)"/></svg>');
-    animation: twinkle 4s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-}
+*/
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: 2rem;
+    color: #fff;
+    text-align: center;
 }
 
 .hero-content h1 {
@@ -121,7 +129,7 @@ body {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #00ff88;
+    color: #1976d2;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -164,7 +172,7 @@ body {
 .hero-underline {
     width: 200px;
     height: 3px;
-    background-color: #00ff88;
+    background-color: #1976d2;
     margin-top: 1rem;
 }
 
@@ -195,8 +203,8 @@ body {
 
 .btn-impact {
     display: inline-block;
-    background-color: #00ff88;
-    color: #000000;
+    background-color: #1976d2;
+    color: #ffffff;
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 5px;
@@ -206,9 +214,9 @@ body {
 }
 
 .btn-impact:hover {
-    background-color: #00cc6a;
+    background-color: #1565c0;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.3);
 }
 
 /* Trending Section */
@@ -239,14 +247,14 @@ body {
 
 .trending-card:hover {
     transform: translateY(-5px);
-    border-color: #00ff88;
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+    border-color: #1976d2;
+    box-shadow: 0 15px 30px rgba(25, 118, 210, 0.2);
 }
 
 .card-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #00ff88;
+    color: #1976d2;
 }
 
 .trending-card h3 {
@@ -287,14 +295,14 @@ body {
 
 .service-card:hover {
     transform: translateY(-5px);
-    border-color: #00ff88;
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+    border-color: #1976d2;
+    box-shadow: 0 15px 30px rgba(25, 118, 210, 0.2);
 }
 
 .service-icon {
     font-size: 3rem;
     color: #000000;
-    background-color: #00ff88;
+    background-color: #1976d2;
     width: 80px;
     height: 80px;
     border-radius: 10px;
@@ -317,14 +325,14 @@ body {
 }
 
 .learn-more {
-    color: #00ff88;
+    color: #1976d2;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .learn-more:hover {
-    color: #00cc6a;
+    color: #1565c0;
 }
 
 /* Technologies Section - What We Do Page */
@@ -356,14 +364,14 @@ body {
 
 .tech-card:hover {
     transform: translateY(-5px);
-    border-color: #00ff88;
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+    border-color: #1976d2;
+    box-shadow: 0 15px 30px rgba(25, 118, 210, 0.2);
 }
 
 .tech-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #00ff88;
+    color: #1976d2;
 }
 
 .tech-card h3 {
@@ -401,13 +409,13 @@ body {
     border-radius: 10px;
     transition: all 0.3s ease;
     border: 1px solid #333;
-    border-bottom: 3px solid #00ff88;
+    border-bottom: 3px solid #1976d2;
 }
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    border-color: #00ff88;
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+    border-color: #1976d2;
+    box-shadow: 0 15px 30px rgba(25, 118, 210, 0.2);
 }
 
 .benefit-card h3 {
@@ -461,7 +469,7 @@ body {
 
 .contact-item .icon {
     font-size: 1.2rem;
-    color: #00ff88;
+    color: #1976d2;
     margin-top: 0.2rem;
 }
 
@@ -485,7 +493,7 @@ body {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #00ff88;
+    border-color: #1976d2;
 }
 
 .contact-form input::placeholder,
@@ -494,8 +502,8 @@ body {
 }
 
 .btn-send {
-    background-color: #00ff88;
-    color: #000000;
+    background-color: #1976d2;
+    color: #ffffff;
     border: none;
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -506,7 +514,7 @@ body {
 }
 
 .btn-send:hover {
-    background-color: #00cc6a;
+    background-color: #1565c0;
     transform: translateY(-2px);
 }
 
@@ -544,7 +552,7 @@ body {
 }
 
 .footer-column ul li a:hover {
-    color: #00ff88;
+    color: #1976d2;
 }
 
 .social-links {
@@ -578,7 +586,7 @@ body {
 }
 
 .footer-section h3 {
-    color: #00ff88;
+    color: #1976d2;
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }

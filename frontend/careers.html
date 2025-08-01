@@ -24,11 +24,186 @@
             margin: 0 auto;
             padding: 0 24px;
         }
+        /* header section */
+.header {
+    /* font-family:'Times New Roman', Times, serif; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: lightblue;
+    text-decoration: none;
+}
+
+.nav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+        gap: 32px;
+    }
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: lightblue;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: lightblue;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.get-started-btn {
+    background:lightblue;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.get-started-btn:hover {
+    background: lightblue;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+}
+/* Header */
+.header {
+  /* font-family: 'Times New Roman', Times, serif; */
+  background: rgba(255, 254, 254, 0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 85px;
+  transition: all 0.3s ease;
+}
+
+/* Scroll effect */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--light-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--light-blue);
+}
+
+.nav-link:hover, .nav-link.active { color: #000 !important; }
+
 
         /* Hero Section */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0f4c3a 100%);
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/027/105/246/small_2x/copy-space-on-white-wall-supplies-on-empty-desk-free-photo.jpg');
+            
             color: #ffffff;
             padding: 96px 0;
             text-align: center;
@@ -56,7 +231,7 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #10b981, #34d399);
+            background: lightblue;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -82,7 +257,7 @@
         }
 
         .btn-primary {
-            background: #10b981;
+            background: lightblue;
             color: white;
             padding: 16px 32px;
             border: none;
@@ -97,7 +272,7 @@
         }
 
         .btn-primary:hover {
-            background: #059669;
+            background: lightblue;
             transform: scale(1.05);
         }
 
@@ -124,24 +299,25 @@
         .section-header {
             text-align: center;
             margin-bottom: 64px;
+            
         }
 
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #000000;
             margin-bottom: 24px;
         }
 
         .section-description {
             font-size: 1.25rem;
-            color: #d1d5db;
+            color: #000000;
             max-width: 768px;
             margin: 0 auto;
             line-height: 1.7;
         }
 
-        /* Values Section */
+        /* Values Section
         .values-section {
             padding: 80px 0;
             background: #0f172a;
@@ -165,7 +341,7 @@
         .value-card:hover {
             border-color: #10b981;
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(255, 254, 254, 0.3);
         }
 
         .value-image {
@@ -187,16 +363,17 @@
         }
 
         .value-description {
-            color: #d1d5db;
+            color: #000000;
             line-height: 1.6;
-        }
+        } */
 
         /* Benefits Section */
         .benefits-section {
             padding: 80px 0;
-            background: #000000;
+            background: #ffffff;
+           
         }
-
+       
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -204,15 +381,15 @@
         }
 
         .benefit-card {
-            background: #1a1a1a;
+            background: #ffffff;
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #374151;
+            border: 1px solid #a5a1a1;
             transition: all 0.3s ease;
         }
 
         .benefit-card:hover {
-            border-color: #10b981;
+            border-color: lightblue;
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
         }
@@ -230,19 +407,19 @@
         .benefit-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #000000;
             margin-bottom: 12px;
         }
 
         .benefit-description {
-            color: #d1d5db;
+            color: #000000;
             line-height: 1.6;
         }
 
         /* Jobs Section */
         .jobs-section {
             padding: 80px 0;
-            background: #0f172a;
+            background: #ffffff;
             min-height: 100vh;
         }
 
@@ -256,6 +433,7 @@
         .search-box, .filter-box {
             position: relative;
             flex: 1;
+            color:white;
         }
 
         .search-icon, .filter-icon {
@@ -270,17 +448,17 @@
         .search-box input, .filter-box select {
             width: 100%;
             padding: 16px 16px 16px 48px;
-            border: 1px solid #374151;
+            border: 1px solid #ffffff;
             border-radius: 12px;
             font-size: 1rem;
-            background: #1e293b;
-            color: #ffffff;
+            background: #ffffff;
+            color: #706a6a;
             transition: all 0.3s ease;
         }
 
         .search-box input:focus, .filter-box select:focus {
             outline: none;
-            border-color: #10b981;
+            border-color: lightblue;
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
@@ -301,7 +479,7 @@
         }
 
         .job-card {
-            background: #1e293b;
+            background: #ffffff;
             padding: 32px;
             border-radius: 16px;
             border: 1px solid #374151;
@@ -312,7 +490,7 @@
         }
 
         .job-card:hover {
-            border-color: #10b981;
+            border-color: lightblue;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
@@ -337,7 +515,7 @@
         .job-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #000000;
             margin-bottom: 12px;
         }
 
@@ -352,7 +530,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #d1d5db;
+            color: #000000;
             font-size: 0.875rem;
         }
 
@@ -363,7 +541,7 @@
 
         .experience-badge {
             background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
+            color: lightblue;
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 0.875rem;
@@ -372,7 +550,7 @@
         }
 
         .job-description {
-            color: #d1d5db;
+            color: #000000;
             line-height: 1.6;
             margin-bottom: 16px;
         }
@@ -400,7 +578,7 @@
         }
 
         .btn-view-details {
-            background: #10b981;
+            background: lightblue;
             color: white;
             padding: 12px 24px;
             border: none;
@@ -416,14 +594,14 @@
         }
 
         .btn-view-details:hover {
-            background: #059669;
+            background: lightblue;
         }
 
         .btn-apply {
             background: transparent;
-            color: #10b981;
+            color:lightblue;
             padding: 12px 24px;
-            border: 2px solid #10b981;
+            border: lightblue;
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
@@ -436,7 +614,7 @@
         }
 
         .btn-apply:hover {
-            background: #10b981;
+            background: lightblue;
             color: white;
         }
 
@@ -477,32 +655,40 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex !important;
         }
 
         .modal-content {
             background-color: #1e293b;
-            margin: 5% auto;
             border-radius: 16px;
             max-width: 800px;
-            width: 90%;
+            width: 90vw;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             border: 1px solid #374151;
+            position: relative;
+            padding: 16px 0 0 0;
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 32px 32px 0;
-            margin-bottom: 24px;
+            padding: 16px 24px 0 24px;
+            margin-bottom: 8px;
         }
 
         .modal-title {
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #ffffff;
+            margin-bottom: 0;
         }
 
         .modal-close {
@@ -517,6 +703,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: color 0.3s ease;
         }
 
         .modal-close:hover {
@@ -524,8 +711,17 @@
         }
 
         .modal-body {
-            padding: 0 32px 32px;
+            padding: 0 24px 16px 24px;
             color: #d1d5db;
+        }
+
+        .modal-body p, .modal-body ul {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
         }
 
         .modal-meta {
@@ -574,7 +770,8 @@
         .modal-actions {
             display: flex;
             gap: 16px;
-            margin-top: 32px;
+            margin-top: 16px;
+            padding-bottom: 16px;
         }
 
         .modal-actions .btn-primary {
@@ -655,6 +852,97 @@
             }
         }
 
+        /* FOOTER */
+                .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: lightblue;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: lightblue;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
@@ -680,9 +968,25 @@
         .hidden {
             display: none !important;
         }
+        .nav-link:hover::after, .nav-link.active::after { background: #000 !important; }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="#sectiontitle" class="nav-link">WHY JOIN US?</a>
+                <a href="#openposistions" class="nav-link">OPEN POSISTIONS</a>
+                <!-- <a href="#values" class="nav-link">VALUES</a>
+                <a href="#choose" class="nav-link">WHY CHOOSE US</a> -->
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
@@ -696,14 +1000,14 @@
                 who are making a real impact on millions of lives worldwide.
             </p>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="scrollToJobs()">View Open Positions</button>
-                <button class="btn-secondary" onclick="scrollToCulture()">Learn About Us</button>
+                <a href="#jobs" class="btn-primary">View Open Positions</a>
+                <!-- <button class="btn-secondary" onclick="scrollToCulture()">Learn About Us</button> -->
             </div>
         </div>
     </section>
 
     <!-- Company Values -->
-    <section id="culture" class="values-section">
+    <!-- <section id="culture" class="values-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Values</h2>
@@ -742,7 +1046,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Benefits Section -->
     <section class="benefits-section">
@@ -845,12 +1149,12 @@
             </div>
 
             <!-- Job Listings -->
-            <div class="jobs-grid" id="jobsGrid">
+             <div class="jobs-grid" id="jobsGrid">
                 <div class="job-card" data-department="Engineering">
                     <div class="job-content">
                         <div class="job-header">
                             <div class="job-info">
-                                <h3 class="job-title">Senior Frontend Developer</h3>
+                                <h3 class="job-title">SAP Profitability and Performance Management (PaPM) Consultant </h3>
                                 <div class="job-meta">
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -858,14 +1162,14 @@
                                             <line x1="8" y1="21" x2="16" y2="21"/>
                                             <line x1="12" y1="17" x2="12" y2="21"/>
                                         </svg>
-                                        Engineering
+                                        Consulting
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                             <circle cx="12" cy="10" r="3"/>
                                         </svg>
-                                        San Francisco, CA
+                                        London
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -879,21 +1183,21 @@
                                             <line x1="12" y1="1" x2="12" y2="23"/>
                                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                                         </svg>
-                                        $120k - $160k
+                                        Not disclosed 
                                     </span>
                                 </div>
                             </div>
-                            <span class="experience-badge">5+ years</span>
+                            <span class="experience-badge">10+ years</span>
                         </div>
-                        <p class="job-description">Lead the development of our next-generation user interfaces using React, TypeScript, and modern web technologies. You'll work closely with our design and product teams to create exceptional user experiences that scale to millions of users.</p>
+                        <p class="job-description">We are looking for an experienced PaPM Consultant to join our fast-growing team that supports multinational accounts and specialises in automating and optimising Tax, Finance and Planning processes based on PaPM technology.  You will have deep expertise in SAP PaPM modeling, data integration and financial analytics, with a good foundation in SAP HANA, BW/4HANA and other associated SAP Products. You will bring  analytical rigor and a collaborative approach to both stakeholder management and cross-functional team working..</p>
                         <div class="job-tags">
-                            <span class="job-tag">React</span>
-                            <span class="job-tag">TypeScript</span>
-                            <span class="job-tag">Leadership</span>
+                            <span class="job-tag">SAP PaPM</span>
+                            <span class="job-tag">HANA modeling</span>
+                            <span class="job-tag">SQL scripting</span>
                         </div>
                     </div>
                     <div class="job-actions">
-                        <button class="btn-view-details" onclick="openJobModal('frontend')">
+                        <button class="btn-view-details" onclick="openJobModal('CONSULTING1')">
                             View Details
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="9,18 15,12 9,6"/>
@@ -901,13 +1205,14 @@
                         </button>
                         <a href="applynow.html" class="btn-apply">Apply Now</a>
                     </div>
-                </div>
+                </div> 
+
 
                 <div class="job-card" data-department="Product">
                     <div class="job-content">
                         <div class="job-header">
                             <div class="job-info">
-                                <h3 class="job-title">Product Manager</h3>
+                                <h3 class="job-title">SAP BTP Developer with UI5 Skills </h3>
                                 <div class="job-meta">
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -915,14 +1220,14 @@
                                             <line x1="8" y1="21" x2="16" y2="21"/>
                                             <line x1="12" y1="17" x2="12" y2="21"/>
                                         </svg>
-                                        Product
+                                        Consulting
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                             <circle cx="12" cy="10" r="3"/>
                                         </svg>
-                                        New York, NY
+                                         London,UK
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -936,21 +1241,24 @@
                                             <line x1="12" y1="1" x2="12" y2="23"/>
                                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                                         </svg>
-                                        $130k - $170k
+                                        Not disclosed
                                     </span>
                                 </div>
                             </div>
-                            <span class="experience-badge">3+ years</span>
+                            <span class="experience-badge">5+ years (2+ in BTP)</span>
                         </div>
-                        <p class="job-description">Drive product strategy and execution for our core platform, working closely with engineering and design teams. You'll be responsible for defining product roadmaps, analyzing user data, and ensuring we're building features that truly matter to our customers.</p>
+                        <p class="job-description">We are seeking an experienced SAP BTP Developer with strong SAPUI5/Fiori skills to build cloud-native apps and deliver scalable enterprise solutions on the SAP Business Technology Platform. .</p>
                         <div class="job-tags">
-                            <span class="job-tag">Product Strategy</span>
-                            <span class="job-tag">Analytics</span>
-                            <span class="job-tag">Leadership</span>
+                            <span class="job-tag">SAPUI5</span>
+                            <span class="job-tag">Fiori design</span>
+                            <span class="job-tag">CAP</span>
+                            <span class="job-tag">Cloud foundry</span>
+                            <span class="job-tag">SAP HANA Cloud</span>
+                            <span class="job-tag">Full stack development using SAPUI5,Node.js,CAP</span>
                         </div>
                     </div>
                     <div class="job-actions">
-                        <button class="btn-view-details" onclick="openJobModal('product')">
+                        <button class="btn-view-details" onclick="openJobModal('CONSULTING2')">
                             View Details
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="9,18 15,12 9,6"/>
@@ -964,7 +1272,7 @@
                     <div class="job-content">
                         <div class="job-header">
                             <div class="job-info">
-                                <h3 class="job-title">UX/UI Designer</h3>
+                                <h3 class="job-title">SAP Analytics Cloud (SAC) Developer</h3>
                                 <div class="job-meta">
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -972,14 +1280,14 @@
                                             <line x1="8" y1="21" x2="16" y2="21"/>
                                             <line x1="12" y1="17" x2="12" y2="21"/>
                                         </svg>
-                                        Design
+                                        Consulting
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                             <circle cx="12" cy="10" r="3"/>
                                         </svg>
-                                        Remote
+                                        London
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -993,21 +1301,21 @@
                                             <line x1="12" y1="1" x2="12" y2="23"/>
                                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                                         </svg>
-                                        $90k - $130k
+                                      NOT DISCLOSED
                                     </span>
                                 </div>
                             </div>
-                            <span class="experience-badge">3+ years</span>
+                            <span class="experience-badge">4+ years BI experience, with 2+ in SAC. </span>
                         </div>
-                        <p class="job-description">Create beautiful, intuitive user experiences that delight our customers and drive business results. You'll be responsible for the entire design process from user research to final implementation, working closely with product and engineering teams.</p>
+                        <p class="job-description">We are hiring a skilled SAC Developer to build modern analytics, reporting, and planning applications that empower data-driven decisions across the enterprise..</p>
                         <div class="job-tags">
-                            <span class="job-tag">Design</span>
-                            <span class="job-tag">Figma</span>
-                            <span class="job-tag">User Research</span>
+                            <span class="job-tag">BW</span>
+                            <span class="job-tag">HANA</span>
+                            <span class="job-tag">S/4 HANA</span>
                         </div>
                     </div>
                     <div class="job-actions">
-                        <button class="btn-view-details" onclick="openJobModal('design')">
+                        <button class="btn-view-details" onclick="openJobModal('CONSULTING3')">
                             View Details
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="9,18 15,12 9,6"/>
@@ -1021,7 +1329,7 @@
                     <div class="job-content">
                         <div class="job-header">
                             <div class="job-info">
-                                <h3 class="job-title">Backend Developer</h3>
+                                <h3 class="job-title">SAP Functional Consultant – Finance and Allocations </h3>
                                 <div class="job-meta">
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1029,14 +1337,14 @@
                                             <line x1="8" y1="21" x2="16" y2="21"/>
                                             <line x1="12" y1="17" x2="12" y2="21"/>
                                         </svg>
-                                        Engineering
+                                        Consulting
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                             <circle cx="12" cy="10" r="3"/>
                                         </svg>
-                                        Austin, TX
+                                        London
                                     </span>
                                     <span class="job-meta-item">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1050,17 +1358,18 @@
                                             <line x1="12" y1="1" x2="12" y2="23"/>
                                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                                         </svg>
-                                        $110k - $150k
+                                        Not disclosed 
                                     </span>
                                 </div>
                             </div>
-                            <span class="experience-badge">4+ years</span>
+                            <span class="experience-badge">7+ years SAP FICO experience. </span>
                         </div>
-                        <p class="job-description">Build and maintain scalable backend systems that power our platform. You'll work with modern technologies and be responsible for designing APIs, optimizing database performance, and ensuring system reliability.</p>
+                        <p class="job-description">We are seeking a SAP Functional Consultant with deep experience in financial planning and allocations, capable of delivering cost-effective and accurate financial insights using SAP technologies. </p>
                         <div class="job-tags">
-                            <span class="job-tag">Node.js</span>
-                            <span class="job-tag">APIs</span>
-                            <span class="job-tag">Cloud</span>
+                            <span class="job-tag">FICO</span>
+                            <span class="job-tag">CO-PA</span>
+                            <span class="job-tag">S/4 HANA</span>
+                            <span class="job-tag">SAC</span>
                         </div>
                     </div>
                     <div class="job-actions">
@@ -1089,248 +1398,139 @@
                     <!-- Job details will be populated here -->
                 </div>
                 <div class="modal-actions">
-                    <button class="btn-primary">Apply for This Position</button>
+                    <a href="applynow.html" class="btn-primary">Apply for This Position</a>
                     <button class="btn-secondary" onclick="closeJobModal()">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
+ 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Contact Us</h3>
+                <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+                <p>020 8922 3492</p>
+                <p>contact@yourconsultingltd.co.uk</p>
+              </div>
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                  <li><a href="whoWeAre.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="careers.html">Careers</a></li>
+                </ul>
+              </div>
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Follow Us</h3>
+                <ul class="footer-links">
+                  <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+                  <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+                  <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </footer>
+ 
+    <!-- Smooth scrolling -->
     <script>
-        function scrollToJobs() {
-            document.getElementById('jobs').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        function scrollToCulture() {
-            document.getElementById('culture').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        // Job filtering functionality
-        function filterJobs() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const selectedDepartment = document.getElementById('departmentFilter').value;
-            const jobCards = document.querySelectorAll('.job-card');
-            
-            jobCards.forEach(card => {
-                const title = card.querySelector('.job-title').textContent.toLowerCase();
-                const description = card.querySelector('.job-description').textContent.toLowerCase();
-                const department = card.getAttribute('data-department');
-                
-                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-                const matchesDepartment = selectedDepartment === 'All' || department === selectedDepartment;
-                
-                if (matchesSearch && matchesDepartment) {
-                    card.style.display = 'block';
-                    card.classList.remove('hidden');
-                } else {
-                    card.style.display = 'none';
-                    card.classList.add('hidden');
-                }
-            });
-            
-            // Show "no results" message if no jobs are visible
-            const visibleJobs = document.querySelectorAll('.job-card:not(.hidden)');
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroButtons = document.querySelector('.hero-buttons');
+            const openPositionsLink = document.querySelector('.nav-link[href="#openposistions"]');
+            const jobsSection = document.getElementById('jobs');
+            const searchInput = document.getElementById('searchInput');
+            const departmentFilter = document.getElementById('departmentFilter');
             const jobsGrid = document.getElementById('jobsGrid');
-            
-            // Remove existing no-results message
-            const existingMessage = document.querySelector('.no-results');
-            if (existingMessage) {
-                existingMessage.remove();
-            }
-            
-            if (visibleJobs.length === 0) {
-                const noResultsDiv = document.createElement('div');
-                noResultsDiv.className = 'no-results';
-                noResultsDiv.innerHTML = `
-                    <div class="no-results-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="m21 21-4.35-4.35"/>
-                        </svg>
-                    </div>
-                    <h3>No positions found</h3>
-                    <p>Try adjusting your search or filter criteria.</p>
-                `;
-                jobsGrid.appendChild(noResultsDiv);
-            }
-        }
-
-        // Job modal functionality
-        const jobDetails = {
-            frontend: {
-                title: "Senior Frontend Developer",
-                department: "Engineering",
-                location: "San Francisco, CA",
-                salary: "$120k - $160k",
-                description: "Lead the development of our next-generation user interfaces using React, TypeScript, and modern web technologies. You'll work closely with our design and product teams to create exceptional user experiences that scale to millions of users.",
-                requirements: [
-                    "5+ years of professional React development experience",
-                    "Expert-level TypeScript proficiency",
-                    "Experience leading frontend architecture decisions",
-                    "Strong understanding of modern web performance optimization",
-                    "Experience with testing frameworks (Jest, React Testing Library)",
-                    "Knowledge of CI/CD pipelines and deployment strategies",
-                    "Excellent communication and mentorship skills"
-                ]
-            },
-            product: {
-                title: "Product Manager",
-                department: "Product",
-                location: "New York, NY",
-                salary: "$130k - $170k",
-                description: "Drive product strategy and execution for our core platform, working closely with engineering and design teams. You'll be responsible for defining product roadmaps, analyzing user data, and ensuring we're building features that truly matter to our customers.",
-                requirements: [
-                    "3+ years of product management experience",
-                    "Strong analytical and data-driven decision making skills",
-                    "Experience with product analytics tools (Mixpanel, Amplitude)",
-                    "Excellent written and verbal communication skills",
-                    "Technical background with ability to work closely with engineers",
-                    "Experience with agile development methodologies",
-                    "Track record of launching successful products"
-                ]
-            },
-            design: {
-                title: "UX/UI Designer",
-                department: "Design",
-                location: "Remote",
-                salary: "$90k - $130k",
-                description: "Create beautiful, intuitive user experiences that delight our customers and drive business results. You'll be responsible for the entire design process from user research to final implementation, working closely with product and engineering teams.",
-                requirements: [
-                    "3+ years of UX/UI design experience",
-                    "Strong portfolio demonstrating design process and outcomes",
-                    "Expert proficiency in Figma and design systems",
-                    "Experience conducting user research and usability testing",
-                    "Knowledge of frontend development principles",
-                    "Strong prototyping and interaction design skills",
-                    "Excellent presentation and communication abilities"
-                ]
-            },
-            backend: {
-                title: "Backend Developer",
-                department: "Engineering",
-                location: "Austin, TX",
-                salary: "$110k - $150k",
-                description: "Build and maintain scalable backend systems that power our platform. You'll work with modern technologies and be responsible for designing APIs, optimizing database performance, and ensuring system reliability.",
-                requirements: [
-                    "4+ years of backend development experience",
-                    "Proficiency in Node.js, Python, or similar languages",
-                    "Experience with database design and optimization",
-                    "Knowledge of cloud platforms (AWS, GCP)",
-                    "Understanding of microservices architecture",
-                    "Experience with API design and development",
-                    "Strong problem-solving skills"
-                ]
-            }
-        };
-
-        function openJobModal(jobKey) {
-            const job = jobDetails[jobKey];
-            if (!job) return;
-            
-            const modal = document.getElementById('jobModal');
+            const jobCards = document.querySelectorAll('.job-card');
+            const jobModal = document.getElementById('jobModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
-            
-            modalTitle.textContent = job.title;
-            
-            modalContent.innerHTML = `
-                <div class="modal-meta">
-                    <span class="modal-meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                        </svg>
-                        ${job.department}
-                    </span>
-                    <span class="modal-meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        ${job.location}
-                    </span>
-                    <span class="modal-meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                        ${job.salary}
-                    </span>
-                </div>
-                
-                <div class="modal-section">
-                    <h4>Job Description</h4>
-                    <p>${job.description}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h4>Requirements</h4>
-                    <ul class="modal-requirements">
-                        ${job.requirements.map(req => `
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>${req}</span>
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `;
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+            const modalClose = document.querySelector('.modal-close');
+            const closeButton = document.querySelector('.modal-actions .btn-secondary');
 
-        function closeJobModal() {
-            const modal = document.getElementById('jobModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('jobModal');
-            if (event.target === modal) {
-                closeJobModal();
+            // Function to scroll to jobs section
+            function scrollToJobs() {
+                jobsSection.scrollIntoView({ behavior: 'smooth' });
             }
-        }
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeJobModal();
-            }
-        });
-
-        // Add fade-in animation to elements when they come into view
-        function addScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+            // Job details mapping
+            const jobDetails = {
+                'CONSULTING1': {
+                    title: 'SAP Profitability and Performance Management (PaPM) Consultant',
+                    description: `<p>We are looking for an experienced PaPM Consultant to join our fast-growing team that supports multinational accounts and specialises in automating and optimising Tax, Finance and Planning processes based on PaPM technology. You will have deep expertise in SAP PaPM modeling, data integration and financial analytics, with a good foundation in SAP HANA, BW/4HANA and other associated SAP Products. You will bring analytical rigor and a collaborative approach to both stakeholder management and cross-functional team working.</p><ul><li>SAP PaPM</li><li>HANA modeling</li><li>SQL scripting</li></ul>`
+                },
+                'CONSULTING2': {
+                    title: 'SAP BTP Developer with UI5 Skills',
+                    description: `<p>We are seeking an experienced SAP BTP Developer with strong SAPUI5/Fiori skills to build cloud-native apps and deliver scalable enterprise solutions on the SAP Business Technology Platform.</p><ul><li>SAPUI5</li><li>Fiori design</li><li>CAP</li><li>Cloud foundry</li><li>SAP HANA Cloud</li><li>Full stack development using SAPUI5,Node.js,CAP</li></ul>`
+                },
+                'CONSULTING3': {
+                    title: 'SAP Analytics Cloud (SAC) Developer',
+                    description: `<p>We are hiring a skilled SAC Developer to build modern analytics, reporting, and planning applications that empower data-driven decisions across the enterprise.</p><ul><li>BW</li><li>HANA</li><li>S/4 HANA</li></ul>`
+                },
+                'backend': {
+                    title: 'SAP Functional Consultant – Finance and Allocations',
+                    description: `<p>We are seeking a SAP Functional Consultant with deep experience in financial planning and allocations, capable of delivering cost-effective and accurate financial insights using SAP technologies.</p><ul><li>FICO</li><li>CO-PA</li><li>S/4 HANA</li><li>SAC</li></ul>`
+                }
             };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in-up');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe elements for animation
-            const animatedElements = document.querySelectorAll('.value-card, .benefit-card, .job-card');
-            animatedElements.forEach(el => observer.observe(el));
-        }
+            // Function to open job modal
+            function openJobModal(jobId) {
+                console.log('openJobModal called with jobId:', jobId);
+                const job = jobDetails[jobId];
+                if (job) {
+                    modalTitle.textContent = job.title;
+                    modalContent.innerHTML = job.description;
+                } else {
+                    modalTitle.textContent = 'Job Details';
+                    modalContent.innerHTML = `<h4>Job ID: ${jobId}</h4><p>Details for job ID: ${jobId} would go here.</p>`;
+                }
+                jobModal.classList.add('show');
+                jobModal.style.display = 'flex';
+                document.body.classList.add('modal-open');
+            }
 
-        // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', addScrollAnimations);
+            // Function to close job modal
+            function closeJobModal() {
+                jobModal.classList.remove('show');
+                jobModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+
+            // Function to filter jobs
+            function filterJobs() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedDepartment = departmentFilter.value;
+
+                jobCards.forEach(card => {
+                    const jobTitle = card.querySelector('.job-title').textContent.toLowerCase();
+                    const jobDepartment = card.dataset.department;
+                    const matchesSearch = jobTitle.includes(searchTerm);
+                    const matchesDepartment = selectedDepartment === 'All' || jobDepartment === selectedDepartment;
+
+                    card.style.display = matchesSearch && matchesDepartment ? 'flex' : 'none';
+                });
+            }
+
+            // Initial filter call
+            filterJobs();
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                if (event.target == jobModal) {
+                    closeJobModal();
+                }
+            });
+
+            // Apply for job (placeholder)
+            closeButton.addEventListener('click', closeJobModal);
+
+            // Make modal functions globally accessible for inline onclick
+            window.openJobModal = openJobModal;
+            window.closeJobModal = closeJobModal;
+            window.filterJobs = filterJobs;
+        });
     </script>
 </body>
 </html>

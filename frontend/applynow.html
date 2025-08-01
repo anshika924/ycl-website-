@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Application Form - Senior Frontend Developer</title>
+    <title>Job Application Form </title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #1d3323 0%, #17231b 100%);
+            background: white;
             min-height: 100vh;
             padding: 20px;
         }
@@ -30,7 +30,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #05540e 0%, #023d0d 100%);
+            background: lightskyblue;
             color: white;
             padding: 40px;
             text-align: center;
@@ -64,7 +64,7 @@
         }
 
         .job-details {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgb(3, 3, 3);
             padding: 20px;
             border-radius: 15px;
             margin-top: 20px;
@@ -94,7 +94,7 @@
             padding: 30px;
             background: #f8f9fa;
             border-radius: 15px;
-            border-left: 5px solid #49a757;
+            border-left: 5px solid lightskyblue;
         }
 
         .section-title {
@@ -110,7 +110,7 @@
         .section-icon {
             width: 24px;
             height: 24px;
-            background: #23694c;
+            background: lightskyblue;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -169,8 +169,8 @@
         select:focus,
         textarea:focus {
             outline: none;
-            border-color: #358551;
-            box-shadow: 0 0 0 3px rgba(52, 148, 91, 0.1);
+            border-color: lightblue;
+            box-shadow: lightskyblue;
         }
 
         textarea {
@@ -198,7 +198,7 @@
             justify-content: center;
             gap: 10px;
             padding: 20px;
-            border: 2px dashed #45b047;
+            border: 2px dashed lightblue;
             border-radius: 10px;
             background: #f8f9ff;
             cursor: pointer;
@@ -208,13 +208,13 @@
 
         .file-upload-label:hover {
             background: #e8edff;
-            border-color: #35c151;
+            border-color: lightskyblue;
         }
 
         .upload-icon {
             width: 24px;
             height: 24px;
-            color: #28a55a;
+            color: lightskyblue;
         }
 
         .skills-container {
@@ -225,8 +225,8 @@
         }
 
         .skill-tag {
-            background: #2ea949;
-            color: white;
+            background: #e3f7fd;
+            color: #1565c0;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 14px;
@@ -255,7 +255,7 @@
         }
 
         .company-name {
-            color: #339b2f;
+            color: lightskyblue;
             font-weight: 500;
         }
 
@@ -276,7 +276,7 @@
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #20ac18 0%, #2d9b16 100%);
+            background: lightblue;
             color: white;
             padding: 15px 40px;
             border: none;
@@ -285,18 +285,18 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(25, 183, 40, 0.3);
+            box-shadow: 0 4px 15px lightskyblue;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(17, 141, 48, 0.4);
+            box-shadow: lightskyblue;
         }
 
         .progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(42, 160, 38, 0.3);
+            background: white;
             border-radius: 3px;
             margin-top: 20px;
             overflow: hidden;
@@ -363,15 +363,15 @@
             <h1>Job Application</h1>
             <p>Join our innovative team and make an impact</p>
             
-            <div class="job-details">
-                <h2>Senior Frontend Developer</h2>
-                <div class="job-meta">
+            <!-- <div class="job-details"> -->
+                <!-- <h2>Senior Frontend Developer</h2> -->
+                <!-- <div class="job-meta">
                     <span> San Francisco, CA</span>
                     <span> Engineering</span>
                     <span> $120k - $160k</span>
                     <span> Full-time</span>
                 </div>
-            </div>
+            </div> -->
             
             <div class="progress-bar">
                 <div class="progress-fill"></div>
@@ -430,7 +430,7 @@
                 <!-- Resume Upload Section -->
                 <div class="form-section">
                     <h3 class="section-title">
-                        <span class="section-icon">📄</span>
+                        <span class="section-icon"></span>
                         Resume & Documents
                     </h3>
                     
@@ -521,7 +521,7 @@
                 <!-- Cover Letter Section -->
                 <div class="form-section">
                     <h3 class="section-title">
-                        <span class="section-icon">✍️</span>
+                        <span class="section-icon"></span>
                         Cover Letter
                     </h3>
                     
@@ -539,7 +539,7 @@
                 <!-- Education & Additional Info -->
                 <div class="form-section">
                     <h3 class="section-title">
-                        <span class="section-icon">🎓</span>
+                        <span class="section-icon"></span>
                         Education & Additional Information
                     </h3>
                     
@@ -635,7 +635,7 @@
                 <ul class="footer-links">
                     <li><a href="whoWeAre.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <!-- <li><a href="#values">Core Values</a></li> -->
+                     <li><a href="#values">Core Values</a></li> -->
                     <!-- <li><a href="careers.html">Careers</a></li> -->
                 <!-- </ul>
             </div>
@@ -701,6 +701,34 @@
         field.addEventListener('blur', function() {
             this.style.transform = 'scale(1)';
         });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('.newsletter-form');
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = this.querySelector('.newsletter-input').value;
+                if (email) {
+                    try {
+                        const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            alert('Thank you for subscribing! Please check your email for a confirmation.');
+                            this.querySelector('.newsletter-input').value = '';
+                        } else {
+                            alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+                        }
+                    } catch (err) {
+                        alert('An error occurred. Please try again later.');
+                    }
+                }
+            });
+        }
     });
 </script>
 </body>

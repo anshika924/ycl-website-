@@ -13,68 +13,132 @@
         }
 
         :root {
-            --primary-green: #10b981;
-            --dark-green: #059669;
+            --primary-green: #28a745;
+            --dark-green: #20c997;
             --light-green: #34d399;
-            --bg-dark: #0a0a0a;
-            --bg-darker: #000000;
-            --bg-card: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #e5e7eb;
-            --text-muted: #d1d5db;
-            --border-color: #333333;
-            --shadow-color: rgba(16, 185, 129, 0.2);
+            --bg-light: #ffffff;
+            --bg-section: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(40, 167, 69, 0.2);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-secondary);
-            background-color: var(--bg-dark);
-            overflow-x: hidden;
+            background-color: var(--bg-light);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         .header {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
+            /* font-family: 'Times New Roman', Times, serif; */
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            height: 90px;
-            display: flex;
-            align-items: center;
         }
+        .header {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0; /* remove left/right padding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* add slight spacing on both sides */
+}
+
+.logo {
+  margin-left: 0; /* ensure no left margin */
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+ /* .hero {
+  background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+} */
+ .hero {
+  background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            width: 100%;
         }
 
         .logo {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: lightblue;
             text-decoration: none;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-menu {
@@ -84,197 +148,331 @@
             gap: 2rem;
         }
 
+        /* Navigation Menu - UPPERCASE, BLACK, NO COLOR CHANGE ON CLICK/HOVER, UNDERLINE ONLY ON ACTIVE/FOCUS/VISITED */
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+            color: #000 !important;
+            /* font-family: 'Times New Roman', Times, serif; */
+            text-transform: uppercase;
+            font-weight: normal;
+            position: relative;
+            transition: none;
         }
-
+        .nav-menu a:visited,
+        .nav-menu a:active,
+        .nav-menu a:focus,
         .nav-menu a:hover {
-            color: var(--primary-green);
+            color: #000 !important;
+            background: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000 !important;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:focus::after,
+        .nav-menu a:active::after,
+        .nav-menu a:visited::after {
+            width: 100%;
+            background: #000 !important;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+            background: #000 !important;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 50%, var(--primary-green) 100%);
+            background: 
+                        url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
             color: white;
-            padding: 12rem 2rem 6rem;
+            padding: 12rem 2rem 8rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%2328a745" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 2rem;
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* Content Section */
+        /* Main Content Sections */
+        .intro-section {
+            padding: 6rem 0 4rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
         .content-section {
-            padding: 6rem 0;
-            background: white;
+            padding: 4rem 0;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
+        .content-section:nth-child(even) {
+            background: var(--bg-section);
         }
 
-        .content-text h2 {
+        .content-section h3 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 1.5rem;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .content-text p {
-            font-size: 1.125rem;
-            color: #333;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .content-image {
-            text-align: center;
-        }
-
-        .content-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Features Section */
-        .features-section {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-
-        .features-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            color: #000;
+            color: var(--text-primary);
             margin-bottom: 3rem;
-            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            text-align: center;
         }
 
-        .features-grid {
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        /* Key Aspects Grid - 5 aspects */
+        .aspects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
+            margin: 3rem 0;
         }
 
-        .feature-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            border-radius: 12px;
+        .aspect-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            min-height: 250px;
+        }
+
+        .aspect-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .aspect-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .aspect-item h4 {
+            color: var(--text-primary);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #000;
+        .aspect-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* AI Types Grid - 2 types */
+        .ai-types-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .ai-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ai-type-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;
+        }
+
+        .ai-type-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .ai-type-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .ai-type-item h4 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .ai-type-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Examples Grid - 5 examples */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .example-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .example-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: lightblue;
+        }
+
+        .example-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .example-item h5 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            flex-shrink: 0;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-            font-family: 'Times New Roman', Times, serif;
+        .example-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1rem;
+            text-align: left;
+            flex-grow: 1;
         }
 
-        /* CTA Section */
-        .cta-section {
+        /* Highlight Section */
+        .highlight-section {
+            background: lightblue;
             padding: 6rem 0;
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 100%);
-            text-align: center;
+            position: relative;
             color: white;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .highlight-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .highlight-header h3 {
+            font-size: 3rem;
+            color: white;
             margin-bottom: 1.5rem;
-            color: var(--text-primary);
+            font-weight: 800;
         }
 
-        .cta-section p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            color: var(--bg-darker);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--shadow-color);
+        .highlight-header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         /* Footer */
@@ -286,8 +484,14 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .footer-section h3 {
@@ -317,6 +521,42 @@
             margin-bottom: 12px;
         }
 
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background:lightblue;
+            transform: translateY(-2px);
+        }
+
         .footer-bottom {
             margin-top: 48px;
             padding-top: 32px;
@@ -325,24 +565,76 @@
             color: #9ca3af;
         }
 
+        .back-link {
+            display: inline-block;
+            background: lightblue;
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 4rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .nav-menu {
+                display: none;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .features-grid {
+            .hero {
+                padding: 10rem 1rem 6rem;
+            }
+
+            .intro-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .content-section h3 {
+                font-size: 2rem;
+            }
+
+            .highlight-header h3 {
+                font-size: 2.2rem;
+            }
+
+            .highlight-header p {
+                font-size: 1.2rem;
+            }
+
+            .aspects-grid,
+            .examples-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            .container {
+                padding: 0 15px;
+            }
+
+            .aspect-item,
+            .ai-type-item,
+            .example-item {
+                min-height: auto;
             }
         }
     </style>
@@ -351,12 +643,12 @@
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
-            <a href="index.html" class="logo">YCL</a>
+              <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="whoWeAre.html">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#technology">Technology</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="techStack.html">Technology</a></li>
                 <li><a href="insights.html">Insights</a></li>
                 <li><a href="careers.html">Careers</a></li>
             </ul>
@@ -365,107 +657,181 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Artificial Intelligence</h1>
-            <p class="hero-subtitle">Revolutionize decision-making with AI-powered prediction, automation, and personalization for your business.</p>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Artificial Intelligence</h1>
+                <p>The simulation of human intelligence in machines that are programmed to think and learn like humans, performing tasks that typically require human intelligence such as learning, problem-solving, perception, and decision-making.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>What is Artificial Intelligence?</h2>
+            <p>Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. These systems can perform tasks that typically require human intelligence, such as learning, problem-solving, perception, and decision-making. AI is not a single technology, but rather an umbrella term encompassing various techniques like machine learning, deep learning, and natural language processing.</p>
+        </div>
+    </section>
+
+    <!-- Key Aspects Section -->
     <section class="content-section">
         <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <h2>Intelligent Business Solutions</h2>
-                    <p>Our AI solutions transform how businesses operate by embedding intelligence into every process. From predictive analytics to automated decision-making, we help organizations harness the power of artificial intelligence.</p>
-                    <p>We implement cutting-edge AI technologies including machine learning, natural language processing, and computer vision to create intelligent applications that drive efficiency and innovation.</p>
+            <h3>Key Aspects of AI</h3>
+            <div class="aspects-grid">
+                <div class="aspect-item">
+                    <h4>Mimicking Human Intelligence</h4>
+                    <p>AI aims to create machines that can perform tasks that humans usually do, like understanding language, recognizing images, making decisions, and learning from experience.</p>
                 </div>
-                <div class="content-image">
-                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Artificial Intelligence Technology">
+                <div class="aspect-item">
+                    <h4>Learning and Adaptation</h4>
+                    <p>AI systems can learn from data, identify patterns, and improve their performance over time without being explicitly programmed for every scenario.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <h2>AI Capabilities</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">🧠</div> -->
-                    <h3>Machine Learning</h3>
-                    <p>Advanced ML algorithms for predictive modeling, pattern recognition, and automated decision-making.</p>
+                <div class="aspect-item">
+                    <h4>Various Applications</h4>
+                    <p>AI is used in a wide range of applications, from virtual assistants and recommendation systems to self-driving cars and fraud detection across industries.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">💬</div> -->
-                    <h3>Natural Language Processing</h3>
-                    <p>Text analysis, sentiment analysis, and conversational AI for enhanced customer interactions.</p>
+                <div class="aspect-item">
+                    <h4>Narrow vs. General AI</h4>
+                    <p>AI is often categorized into narrow (or weak) AI, which focuses on specific tasks, and general (or strong) AI, which aims to replicate human-level intelligence across various domains.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">👁️</div> -->
-                    <h3>Computer Vision</h3>
-                    <p>Image recognition, object detection, and visual analytics for automated quality control and monitoring.</p>
-                </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">🔮</div> -->
-                    <h3>Predictive Analytics</h3>
-                    <p>Forecast trends, predict outcomes, and optimize business processes with advanced analytics.</p>
-                </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">🤖</div> -->
-                    <h3>Process Automation</h3>
-                    <p>Intelligent automation of repetitive tasks and complex business processes using AI.</p>
-                </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">🎯</div> -->
-                    <h3>Personalization</h3>
-                    <p>AI-driven personalization engines for enhanced customer experiences and targeted recommendations.</p>
+                <div class="aspect-item">
+                    <h4>Augmentation, Not Replacement</h4>
+                    <p>While AI can automate tasks and enhance human capabilities, it's often seen as a tool to augment human intelligence and not a complete replacement for human decision-making.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- AI Types Section -->
+    <section class="content-section">
         <div class="container">
-            <h2>Ready to Embrace AI?</h2>
-            <p>Let our AI experts help you implement intelligent solutions that transform your business operations.</p>
-            <a href="index.html#contact" class="btn-primary">Start Your AI Journey</a>
+            <h3>Types of Artificial Intelligence</h3>
+            <div class="ai-types-grid">
+                <div class="ai-type-item">
+                    <h4>Narrow AI (Weak AI)</h4>
+                    <p>Focuses on specific tasks and is designed to perform particular functions very well. Examples include image recognition systems, language translation tools, recommendation engines, and virtual assistants. This is the type of AI that exists today and is widely deployed across various industries and applications.</p>
+                </div>
+                <div class="ai-type-item">
+                    <h4>General AI (Strong AI)</h4>
+                    <p>Aims to replicate human-level intelligence across various domains and tasks. This theoretical form of AI would have the ability to understand, learn, and apply knowledge across different areas just like humans do. General AI remains a goal for future development and research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-header">
+                <h3>AI-Powered Business Transformation</h3>
+                <p>Our AI solutions leverage cutting-edge technologies including machine learning, natural language processing, and computer vision to create intelligent applications that drive efficiency, innovation, and competitive advantage. We help organizations harness the power of AI to transform their operations and unlock new possibilities for growth and success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Examples of AI in Everyday Life</h3>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <h5>Virtual Assistants</h5>
+                    <p>Siri, Alexa, and Google Assistant use AI to understand voice commands and respond to queries, making technology more accessible and intuitive.</p>
+                </div>
+                <div class="example-item">
+                    <h5>Recommendation Systems</h5>
+                    <p>Platforms like Netflix and Spotify use AI to suggest movies, music, and other content based on user preferences and behavior patterns.</p>
+                </div>
+                <div class="example-item">
+                    <h5>Social Media</h5>
+                    <p>AI algorithms personalize feeds, identify fake accounts, and moderate content to enhance user experience and platform security.</p>
+                </div>
+                <div class="example-item">
+                    <h5>Self-Driving Cars</h5>
+                    <p>These vehicles rely on AI to perceive their environment, make decisions, and navigate roads safely and efficiently.</p>
+                </div>
+                <div class="example-item">
+                    <h5>Fraud Detection</h5>
+                    <p>Banks and financial institutions use AI to identify fraudulent transactions and protect customers from financial crimes in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="content-section">
+        <div class="container">
+            <p>Artificial Intelligence represents one of the most transformative technologies of our time, offering unprecedented opportunities for innovation and efficiency across all industries. From automating routine tasks to providing sophisticated insights and predictions, AI enables organizations to operate more intelligently and competitively. Our AI expertise helps businesses navigate this complex landscape, implementing solutions that deliver measurable value while preparing for the future of intelligent automation and decision-making.</p>
+            
+            <div class="back-link-container">
+                <!-- <a href="index.html" class="back-link">← Back to Home</a> -->
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
-                    <p>020 8922 3492</p>
-                    <p>contact@yourconsultingltd.co.uk</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="whoWeAre.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Technology</h3>
-                    <ul class="footer-links">
-                        <li><a href="bpc-planning-consolidations.html">BPC Planning</a></li>
-                        <li><a href="microsoft-azure.html">Microsoft Azure</a></li>
-                        <li><a href="enterprise-bi-analytics.html">BI Analytics</a></li>
-                    </ul>
-                </div>
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="config.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('.newsletter-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          if (email) {
+            try {
+              const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+              });
+              const data = await response.json();
+              if (data.success) {
+                alert('Thank you for subscribing! Please check your email for a confirmation.');
+                this.querySelector('.newsletter-input').value = '';
+              } else {
+                alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+              }
+            } catch (err) {
+              alert('An error occurred. Please try again later.');
+            }
+          }
+        });
+      }
+    });
+    </script>
 </body>
 </html>

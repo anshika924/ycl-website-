@@ -10,6 +10,19 @@
             padding: 0;
             box-sizing: border-box;
         }
+        :root {
+            --primary-blue: #1976d2;
+            --dark-blue: #1565c0;
+            --light-blue: #b3e5fc;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #000000;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #e5e7eb;
+            --text-muted: #d1d5db;
+            --border-color: #333333;
+            --shadow-color: rgba(25, 118, 210, 0.2);
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -147,7 +160,7 @@
 
         .featured-badge {
             display: inline-block;
-            background-color: #00ff88;
+            background-color: #b3e5fc;
             color: #000000;
             padding: 8px 16px;
             border-radius: 20px;
@@ -171,7 +184,7 @@
         }
 
         .btn-primary {
-            background-color: #00ff88;
+            background-color: #b3e5fc;
             color: #000000;
             border: none;
             padding: 16px 32px;
@@ -186,7 +199,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #00cc6a;
+            background-color: #b3e5fc;
             transform: translateY(-2px);
         }
 
@@ -228,11 +241,46 @@
         }
 
         .carousel-slide {
-            min-width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
             gap: 32px;
             padding: 0 20px;
+        }
+        .category-card {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            min-height: 100%;
+        }
+        .category-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        .category-content {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+        }
+        @media (max-width: 900px) {
+            .carousel-slide {
+                flex-direction: column;
+                gap: 24px;
+                padding: 0 10px;
+            }
         }
 
         .category-card {
@@ -247,8 +295,8 @@
 
         .category-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
-            border-color: #00ff88;
+            box-shadow: 0 20px 40px rgba(179, 229, 252, 0.15);
+            border-color: #b3e5fc;
         }
 
         .category-image {
@@ -275,7 +323,7 @@
         .category-title {
             font-size: 1.5rem;
             margin-bottom: 16px;
-            color: #00ff88;
+            color: #b3e5fc;
             text-align: center;
             font-weight: 700;
         }
@@ -293,7 +341,7 @@
             width: 100%;
             text-align: center;
             font-size: 1rem;
-            color: #00ff88;
+            color: #b3e5fc;
             text-decoration: none;
             font-weight: 600;
             padding: 12px 0;
@@ -302,8 +350,8 @@
         }
 
         .category-link:hover {
-            background-color: rgba(0, 255, 136, 0.1);
-            color: #ffffff;
+            background-color: rgba(179, 229, 252, 0.1);
+            color: #b3e5fc;
         }
 
         /* Carousel Controls */
@@ -316,7 +364,7 @@
         }
 
         .carousel-btn {
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            background: #b3e5fc;
             border: none;
             width: 50px;
             height: 50px;
@@ -333,7 +381,7 @@
 
         .carousel-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.4);
+            box-shadow: 0 8px 20px rgba(179, 229, 252, 0.4);
         }
 
         .carousel-btn:disabled {
@@ -359,7 +407,7 @@
         }
 
         .indicator.active {
-            background: #00ff88;
+            background: #b3e5fc;
             transform: scale(1.2);
         }
 
@@ -517,7 +565,7 @@
         }
 
         .footer-section a:hover {
-            color: #10b981;
+            color: #b3e5fc;
         }
 
         .footer-links {
@@ -642,19 +690,92 @@
                 padding: 60px 0;
             }
         }
+        /* Custom header styles */
+        .custom-header {
+            background: #fff;
+            color: #222;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .custom-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 80px;
+        }
+        .custom-header-logo {
+            display: flex;
+            align-items: center;
+        }
+        .custom-header-logo img {
+            height: 56px;
+            width: auto;
+            object-fit: contain;
+        }
+        .custom-header-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .custom-header-nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .custom-header-nav a:hover {
+            color: #222;
+            border-bottom: 2px solid #222;
+        }
+        .custom-header-nav a.active {
+            color: #222;
+            border-bottom: 2px solid #222;
+        }
+        @media (max-width: 700px) {
+            .custom-header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px;
+                gap: 10px;
+            }
+            .custom-header-nav {
+                gap: 18px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <nav class="header-nav">
-        <div class="nav-container">
-            <a href="index.html" class="home-btn">
-                <!-- <span></span> -->
-                <span>Home</span>
-            </a>
-            <h1 class="nav-title">Insights</h1>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Header -->
+    <div class="custom-header">
+        <div class="custom-header-inner">
+            <div class="custom-header-logo">
+                <a href="index.html"><img src="image.jpg" alt="YCL Logo"></a>
+            </div>
+            <nav class="custom-header-nav">
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About</a>
+                <a href="insights.html" class="active">Insights</a>
+                <a href="careers.html">Careers</a>
+            </nav>
         </div>
-    </nav>
+    </div>
 
     <!-- Header Section -->
     <header class="hero-section">
@@ -687,9 +808,9 @@
                             Discover how artificial intelligence is transforming business strategies and 
                             decision-making processes in the modern enterprise landscape.
                         </p>
-                        <button class="btn-primary">
+                        <a href="featuredInsights.html" class="btn-primary" style="text-decoration:none;">
                             Read More <span class="arrow">→</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="featured-image">
                         <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="AI in business" />
@@ -705,7 +826,7 @@
             <h2 class="section-title">Browse by Category</h2>
             <div class="carousel-container">
                 <div class="carousel-wrapper" id="carouselWrapper">
-                    <!-- Slide 1 -->
+                    <!-- Single Slide with Four Category Cards -->
                     <div class="carousel-slide">
                         <div class="category-card">
                             <div class="category-image">
@@ -716,10 +837,9 @@
                                 <p class="category-description">
                                     Stay updated with the latest shifts in technology, data, and enterprise solutions.
                                 </p>
-                                <a href="#" class="category-link">Learn More →</a>
+                                <a href="industryTrends.html" class="category-link">Learn More →</a>
                             </div>
                         </div>
-
                         <div class="category-card">
                             <div class="category-image">
                                 <img src="https://plus.unsplash.com/premium_photo-1661375427386-64ac35086427?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzZSUyMHN0dWR5fGVufDB8fDB8fHww" alt="Case Studies">
@@ -732,7 +852,6 @@
                                 <a href="caseStudies.html" class="category-link">Learn More →</a>
                             </div>
                         </div>
-
                         <div class="category-card">
                             <div class="category-image">
                                 <img src="https://9253440.fs1.hubspotusercontent-na1.net/hubfs/9253440/woman%20in%20professional%20clothing%20and%20microphone%20presenting%20thought%20leadership%20ideas.jpg" alt="Thought Leadership">
@@ -742,13 +861,9 @@
                                 <p class="category-description">
                                     Our consultants share their expert opinions, deep dives, and innovative viewpoints on current industry topics.
                                 </p>
-                                <a href="#" class="category-link">Learn More →</a>
+                                <a href="thoughtleadership.html" class="category-link">Learn More →</a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-slide">
                         <div class="category-card">
                             <div class="category-image">
                                 <img src="https://www.crestwood.com/wp-content/uploads/2024/09/AdobeStock_530486363-1.jpeg" alt="Data-Driven Insights">
@@ -758,135 +873,54 @@
                                 <p class="category-description">
                                     Learn from our analytics-driven articles that unpack business metrics, performance indicators, and success patterns.
                                 </p>
-                                <a href="#" class="category-link">Learn More →</a>
+                                <a href="dataDrivenInsights.html" class="category-link">Learn More →</a>
                             </div>
                         </div>
-
-                        <div class="category-card">
-                            <div class="category-image">
-                                <img src="https://media.istockphoto.com/id/2064008759/photo/woman-video-call-and-conference-or-virtual-meeting-on-screen-discussion-at-home-office.jpg?s=612x612&w=0&k=20&c=xgr7PZGrS6gCVmpKYhd1qcO8gz4aBnqx0PMfUKBhVfo=" alt="Videos & Webinars">
-                            </div>
-                            <div class="category-content">
-                                <h3 class="category-title">Videos & Webinars</h3>
-                                <p class="category-description">
-                                    Access recorded discussions and live sessions where our team and guests explore key industry topics.
-                                </p>
-                                <a href="#" class="category-link">Learn More →</a>
-                            </div>
-                        </div>
-
-                        <div class="category-card">
-                            <div class="category-image">
-                                <img src="https://www.architectandinteriorsindia.com/cloud/2022/12/13/EO4bY48x-1-1-1200x675.jpg" alt="Innovation Hub">
-                            </div>
-                            <div class="category-content">
-                                <h3 class="category-title">Innovation Hub</h3>
-                                <p class="category-description">
-                                    Explore breakthrough ideas and emerging technologies shaping the future of business consulting.
-                                </p>
-                                <a href="#" class="category-link">Learn More →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carousel Controls -->
-            <div class="carousel-controls">
-                <button class="carousel-btn" id="prevBtn">‹</button>
-                <div class="carousel-indicators">
-                    <div class="indicator active" data-slide="0"></div>
-                    <div class="indicator" data-slide="1"></div>
-                </div>
-                <button class="carousel-btn" id="nextBtn">›</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-card">
-                <div class="newsletter-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-content">
-                            <h4>Builds Trust</h4>
-                            <p>Showcases our knowledge and experience</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-content">
-                            <h4>Adds Value</h4>
-                            <p>Offers clients more than just services — we provide insights they can use</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-content">
-                            <h4>Drives Engagement</h4>
-                            <p>Encourages return visits to the website</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-content">
-                            <h4>Positions Us as Experts</h4>
-                            <p>Differentiates us from competitors</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="newsletter-signup">
-                    <h2>Stay Updated</h2>
-                    <p>Subscribe to our newsletter for the latest insights and industry updates.</p>
-                    <div class="signup-form">
-                        <input type="email" placeholder="Enter your email" class="email-input">
-                        <button class="subscribe-btn">Subscribe</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Remove the green box section and replace green colors with light blue -->
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>The Brentano Suites, Prospect House2 Athenaeum Rd, London N20 9AE</p>
-                    <p>020 8922 3492</p>
-                    <p>contact@yourconsultingltd.co.uk</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="whoWeAre.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Stay updated with our latest insights and news.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
-            </div>
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Carousel functionality
         let currentSlide = 0;
-        const totalSlides = 2;
+        const totalSlides = 1; // Only one slide for all categories
         const carouselWrapper = document.getElementById('carouselWrapper');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');

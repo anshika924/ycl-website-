@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+image.pngimage.png<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YCL - The New Standard in Empowering Your Business</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,9 +14,9 @@
         }
 
         :root {
-            --primary-green: #10b981;
-            --dark-green: #059669;
-            --light-green: #34d399;
+            --primary-blue: lightblue;
+            --dark-blue: lightblue;
+            --light-blue: #b3e5fc;
             --bg-dark: #0a0a0a;
             --bg-darker: #000000;
             --bg-card: #1a1a1a;
@@ -23,7 +24,7 @@
             --text-secondary: #e5e7eb;
             --text-muted: #d1d5db;
             --border-color: #333333;
-            --shadow-color: rgba(16, 185, 129, 0.2);
+            --shadow-color: rgba(25, 118, 210, 0.2);
         }
 
         body {
@@ -69,7 +70,7 @@
             width: 60px;
             height: 60px;
             border: 3px solid var(--border-color);
-            border-top: 3px solid var(--primary-green);
+            border-top: lightblue;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -92,99 +93,229 @@
             /* transition: all 0.3s ease; */
         
 
-        .header {
-            /* display:flex; */
-            font-family: 'Times New Roman', Times, serif;
-    background: rgba(0, 0, 0, 0.95);
+        /* .header {
+            display:flex;
+            /* font-family: 'Times New Roman', Times, serif; */
+    /* background: rgba(255, 254, 254, 0.95);
     backdrop-filter: blur(20px);
-    position: fixed;
-    top: 0;
+    position: fixed; */
+    /* top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1000; */
     /* border-bottom: 1px solid var(--primary-green); */
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
     /* display: flex; Use Flexbox for layout */
-    align-items: center; /* Vertically center the content */
-    padding: 5px 20px; /* Add some padding for spacing */
-    height:90px;
+    /* align-items: center; Vertically center the content */
+    /* padding: 5px 20px; /* Add some padding for spacing */
+    /* height:85px;  */
     
+
+/* .header {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        .header.scrolled {
-            background: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
+.logo img {
+  height: 50px;
+  display:block;
+}
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+} */
+.header {
+  background: rgb(149, 147, 147);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0; /* remove left/right padding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding-left: 0 !important;
+}
 
-        .logo:hover {
-            transform: scale(1.05);
-        }
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding-left: 120px;
+  padding-right: 0;
+}
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 2rem;
-        }
+.logo {
+  position: fixed;
+  left: 32px;
+  top: 0;
+  height: 85px;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-self: flex-start;
+  background: white;
+  z-index: 1001;
+}
 
-        .nav-menu li {
-            position: relative;
-        }
+.logo img {
+  height: 75px;
+  display: block;
+}
 
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            position: relative;
-        }
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  margin-right: 40px;
+}
 
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-green);
-            transition: width 0.3s ease;
-        }
+.nav-menu li {
+  position: relative;
+}
 
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
-            width: 100%;
-        }
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
 
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--primary-green);
-        }
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: lightblue;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: lightblue;
+}
+        :root {
+  --light-blue: #b3e5fc;
+}
+
+/* Header */
+.header {
+  /* font-family: 'Times New Roman', Times, serif; */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 85px;
+  transition: all 0.3s ease;
+}
+
+/* Scroll effect */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: black;
+}
+
 
         /* Dropdown Styles */
         .dropdown {
@@ -202,7 +333,7 @@
             content: '▼';
             font-size: 0.75rem;
             transition: transform 0.3s ease;
-            color: var(--primary-green);
+            color: lightblue;
         }
 
         .dropdown:hover .dropdown-toggle::after {
@@ -213,11 +344,11 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: black;
+            background: rgb(255, 252, 252);
             min-width: 320px;
             border-radius: 16px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-            border: 1px solid var(--primary-green);
+            border: lightblue;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-15px) scale(0.95);
@@ -225,6 +356,7 @@
             z-index: 100;
             margin-top: 0.75rem;
             overflow: hidden;
+           
         }
 
         .dropdown:hover .dropdown-menu {
@@ -238,7 +370,7 @@
             align-items: center;
             gap: 1rem;
             padding: 1.25rem 1.5rem;
-            color: var(--text-secondary);
+            color: black;
             text-decoration: none;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(16, 185, 129, 0.1);
@@ -257,7 +389,7 @@
             top: 0;
             height: 100%;
             width: 4px;
-            background: var(--primary-green);
+            background: rgb(82, 85, 86);
             transform: scaleY(0);
             transition: transform 0.3s ease;
         }
@@ -268,7 +400,7 @@
 
         .dropdown-menu a:hover {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.05));
-            color: var(--primary-green);
+            color: rgb(70, 73, 74);
             transform: translateX(8px);
             padding-left: 2rem;
         }
@@ -281,7 +413,7 @@
         }
 
         .btn-get-started {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green)) !important;
+            background: linear-gradient(135deg, var(--light-blue), var(--light-blue)) !important;
             color: var(--bg-darker) !important;
             padding: 0.75rem 1.5rem;
             /* border-radius: 50px; */
@@ -323,7 +455,7 @@
         .mobile-menu-toggle span {
             width: 25px;
             height: 3px;
-            background: var(--primary-green);
+            background: #b3e5fc; /* light blue color */
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
@@ -343,7 +475,6 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 50%, var(--primary-green) 100%);
             color: white;
             padding: 10rem 2rem 6rem;
             text-align: center;
@@ -352,29 +483,25 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background-image:url("https://images.pexels.com/photos/26241921/pexels-photo-26241921.jpeg");
-            background-repeat: no-repeat;       /* prevent tiling */
-  background-size: cover;             /* scale to cover entire area */
-  background-position: center center; /* center the image */
-  background-attachment: fixed; 
         }
-
-        .hero::before {
-            content: '';
+        .hero-video-bg {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%2310b981" fill-opacity="0.1"><circle cx="30" cy="30" r="2"/></g></g></svg>');
-            animation: float 6s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45); /* semi-transparent black */
+            z-index: 1;
         }
-
         .hero-content {
             position: relative;
             z-index: 2;
@@ -399,7 +526,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, var(--light-green));
+            background:lightblue;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -420,7 +547,7 @@
         .hero-subtitle {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--primary-green);
+            color: lightblue;
             font-weight: 600;
             animation: slideInRight 1s ease-out 0.4s both;
         }
@@ -459,7 +586,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: var(--light-blue);
             color: var(--bg-darker);
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -496,7 +623,7 @@
             background: transparent;
             color: var(--text-primary);
             padding: 1rem 2rem;
-            border: 2px solid var(--primary-green);
+            border: var(--light-blue);
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -505,7 +632,7 @@
         }
 
         .btn-secondary:hover {
-            background: var(--primary-green);
+            background: var(--light-blue);
             color: var(--bg-darker);
             transform: translateY(-3px);
         }
@@ -523,7 +650,7 @@
 
         .floating-element {
             position: absolute;
-            background: var(--primary-green);
+            background: var(--light-blue);
             border-radius: 50%;
             opacity: 0.1;
             animation: floatRandom 8s ease-in-out infinite;
@@ -588,7 +715,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: var(--light-blue);
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -639,7 +766,7 @@
         }
 
         .btn-impact {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: lightblue;
             color: var(--bg-darker);
             padding: 1rem 2.5rem;
             border-radius: 50px;
@@ -672,6 +799,167 @@
             box-shadow: 0 8px 25px var(--shadow-color);
         }
 
+        /* Product Section */
+        .product-section {
+            padding: 6rem 0;
+            background: white;
+            position: relative;
+        }
+
+        .product-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%2310b981" fill-opacity="0.03"><rect width="2" height="2" x="19" y="19"/></g></g></svg>');
+        }
+
+        .product-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-info h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: rgb(0, 0, 0);
+            margin-bottom: 1.5rem;
+            /* font-family: 'Times New Roman', Times, serif; */
+            line-height: 1.2;
+        }
+
+        .product-info p {
+            font-size: 1.125rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            /* font-family: 'Times New Roman', Times, serif; */
+        }
+
+        .product-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(52, 211, 153, 0.02));
+            border-radius: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
+            border-color: lightblue;
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95rem;
+            /* font-family: 'Times New Roman', Times, serif; */
+        }
+
+        .product-cta {
+            margin-top: 2rem;
+        }
+
+        .btn-product {
+            background: lightblue;
+            color: var(--bg-darker);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-product:hover::before {
+            left: 100%;
+        }
+
+        .btn-product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .product-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: lightblue;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
         /* Services Preview Section */
         .services-preview {
             padding: 6rem 0;
@@ -684,7 +972,7 @@
             text-align: center;
             color: rgb(0, 0, 0);
             margin-bottom: 3rem;
-            font-family: 'Times New Roman', Times, serif;
+            /* font-family: 'Times New Roman', Times, serif; */
         }
 
         .services-grid {
@@ -710,25 +998,25 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), var(--light-green));
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
-
+/* 
         .service-card:hover::before {
             transform: scaleX(1);
-        }
+        } */
 
         .service-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-            border-color: var(--primary-green);
+            border-color: lightblue;
         }
 
         .service-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: lightblue;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -742,18 +1030,18 @@
             font-weight: 600;
             color: rgb(0, 0, 0);
             margin-bottom: 1rem;
-            font-family: 'Times New Roman', Times, serif;
+            /* font-family: 'Times New Roman', Times, serif; */
         }
 
         .service-card p {
             color: black;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-family: 'Times New Roman', Times, serif;
+            /* font-family: 'Times New Roman', Times, serif; */
         }
 
         .service-link {
-            color: var(--primary-green);
+            color: lightblue;
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -803,7 +1091,7 @@
     font-weight: bold;
     margin: 10px 0;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .service-card p {
@@ -811,7 +1099,7 @@
     color: #0a0707;
     margin-bottom: 15px;
     text-align: justify;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .service-link {
@@ -861,7 +1149,7 @@
     font-weight: bold;
     margin: 10px 0;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .service-card p {
@@ -869,7 +1157,7 @@
     color: #000000;
     margin-bottom: 15px;
     text-align: justify;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .service-link {
@@ -924,23 +1212,23 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), var(--light-green));
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
-        .trending-card:hover::before {
+        /* .trending-card:hover::before {
             transform: scaleX(1);
-        }
+        } */
 
         .trending-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px var(--shadow-color);
-            border-color: var(--primary-green);
+            border-color: lightblue;
         }
 
         .card-icon {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: lightblue;
             width: 60px;
             height: 60px;
             border-radius: 12px;
@@ -999,7 +1287,7 @@
     font-weight: bold;
     margin: 10px 0;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .trending-card p {
@@ -1007,14 +1295,14 @@
     color: #555;
     margin-bottom: 15px;
     text-align: justify;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .trending-section h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .container {
@@ -1061,7 +1349,7 @@
     font-weight: bold;
     margin: 10px 0;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .trending-card p {
@@ -1069,7 +1357,7 @@
     color: #000000;
     margin-bottom: 15px;
     text-align: justify;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
 }
 
 
@@ -1123,7 +1411,7 @@
         }
 
         .contact-item .icon {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: lightblue;
             padding: 0.75rem;
             border-radius: 8px;
             font-size: 1.25rem;
@@ -1190,7 +1478,7 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: var(--primary-green);
+            border-color: lightblue;
             background: rgba(16, 185, 129, 0.1);
         }
 
@@ -1204,7 +1492,7 @@
 
         .btn-send {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: lightblue;
             color: var(--bg-darker);
             padding: 1rem;
             border: none;
@@ -1350,7 +1638,7 @@
         }
 
         .footer-section a:hover {
-            color: #10b981;
+            color: lightblue;
         }
 
         .footer-links {
@@ -1382,7 +1670,7 @@
         }
 
         .newsletter-btn {
-            background: #10b981;
+            background: lightblue;
             color: white;
             padding: 12px 24px;
             border: none;
@@ -1393,7 +1681,7 @@
         }
 
         .newsletter-btn:hover {
-            background: #059669;
+            background:lightblue;
             transform: translateY(-2px);
         }
 
@@ -1415,7 +1703,7 @@
             right: 2rem;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            background: lightblue;
             color: var(--bg-darker);
             border: none;
             border-radius: 50%;
@@ -1453,6 +1741,35 @@
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 2rem 1.5rem;
+                z-index: 2000;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+                border-radius: 0 0 16px 16px;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                width: 100%;
+                margin: 0;
+            }
+            .nav-menu a {
+                color: #222;
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+            .nav-menu a:last-child {
+                border-bottom: none;
             }
 
             .mobile-menu-toggle {
@@ -1504,6 +1821,19 @@
                 border-radius: 0;
                 margin-top: 0;
             }
+
+            .product-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-info h2 {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1547,7 +1877,7 @@
     <!-- Header -->
     <header class="header" id="header">
         <nav class="navbar">
-            <a href="#" class="logo">YCL</a>
+            <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active">HOME</a></li>
                 
@@ -1596,18 +1926,19 @@
                             <span class="dropdown-icon"></span>
                             Support Services
                         </a>
+                        
                         <a href="service4.html">
                             <span class="dropdown-icon"></span>
-                            Cloud Solutions
+                            Data Analytics and visualisation
                         </a>
                         <a href="service5.html">
                             <span class="dropdown-icon"></span>
-                            Data Analytics
+                            Application Development
                         </a>
-                        <a href="service6.html">
+                        <!-- <a href="service6.html">
                             <span class="dropdown-icon"></span>
                             Digital Transformation
-                        </a>
+                        </a> -->
                     </div>
                 </li>
 
@@ -1644,6 +1975,19 @@
                             <span class="dropdown-icon"></span>
                             Cloud Computing
                         </a>
+                         <a href="sap-dataSphere.html">
+                            <span class="dropdown-icon"></span>
+                            DataSphere
+                        </a>
+                         <a href="sap-analytics-cloud.html">
+                            <span class="dropdown-icon"></span>
+                            Sap Analytics Cloud
+                        </a>
+                         <a href="papm.html">
+                            <span class="dropdown-icon"></span>
+                           PAPM
+                        </a>
+
                     </div>
                 </li>
                 
@@ -1689,6 +2033,11 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <video class="hero-video-bg" autoplay loop muted playsinline>
+            <source src="office.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
         <div class="floating-elements">
             <div class="floating-element"></div>
             <div class="floating-element"></div>
@@ -1703,6 +2052,8 @@
                 <a href="#our-services" class="btn-secondary">Explore Services</a>
             </div>
         </div>
+        <!-- Example logo image display in hero section -->
+        
     </section>
 
     <!-- Stats Section -->
@@ -1722,11 +2073,111 @@
                     <span class="stat-label">Years Experience</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-number" data-target="50">0</span>
                     <span class="stat-label">Expert Consultants</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="3000">0</span>
+                    <span class="stat-label">Extensive Partner Network</span>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- AI at YCL Section -->
+    <section class="ai-section reveal" id="ai-at-ycl" style="background: linear-gradient(135deg, #0a0a0a 60%, #b3e5fc 100%); padding: 5rem 0 4rem 0; position: relative; overflow: hidden;">
+      <div class="container" style="position: relative; z-index: 2;">
+        <h2 style="font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 1.2rem; letter-spacing: -1px; text-align: center;">Artificial Intelligence at YCL</h2>
+        <p style="font-size: 1.3rem; color: #e5e7eb; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center;">
+          We harness the power of AI to deliver innovative solutions for our clients.<br>
+          From predictive analytics to intelligent automation, our AI-driven projects are transforming businesses.
+        </p>
+        <div class="ai-features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem;">
+          <div class="ai-feature-card" style="background: rgba(25,118,210,0.12); border-radius: 18px; padding: 2rem 1.5rem; min-width: 220px; text-align: center; box-shadow: 0 4px 24px rgba(25,118,210,0.08); transition: transform 0.2s;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.7rem; animation: ai-bounce 1.5s infinite alternate; color: #b3e5fc;"><i class="fas fa-brain"></i></div>
+            <div style="font-weight: 700; color: #fff; font-size: 1.1rem;">AI Intelligence</div>
+          </div>
+          <div class="ai-feature-card" style="background: rgba(25,118,210,0.12); border-radius: 18px; padding: 2rem 1.5rem; min-width: 220px; text-align: center; box-shadow: 0 4px 24px rgba(25,118,210,0.08); transition: transform 0.2s;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.7rem; animation: ai-bounce 1.7s infinite alternate; color: #b3e5fc;"><i class="fas fa-gears"></i></div>
+            <div style="font-weight: 700; color: #fff; font-size: 1.1rem;">Smart Automation</div>
+          </div>
+          <div class="ai-feature-card" style="background: rgba(25,118,210,0.12); border-radius: 18px; padding: 2rem 1.5rem; min-width: 220px; text-align: center; box-shadow: 0 4px 24px rgba(25,118,210,0.08); transition: transform 0.2s;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.7rem; animation: ai-bounce 1.9s infinite alternate; color: #b3e5fc;"><i class="fas fa-chart-line"></i></div>
+            <div style="font-weight: 700; color: #fff; font-size: 1.1rem;">Predictive Analytics</div>
+          </div>
+        </div>
+        <!-- AI Domain Download Section -->
+        <div class="ai-domain-select" style="display:flex; justify-content:center; align-items:center; gap:1.2rem; margin-bottom:2.5rem;">
+          <label for="ai-domain" style="color:#fff; font-size:1.1rem; font-weight:600;">Choose Domain:</label>
+          <select id="ai-domain" style="padding:0.5rem 1rem; border-radius:8px; font-size:1rem; min-width:160px;">
+            <option value="">-- Select --</option>
+            <option value="finance">Finance</option>
+            <option value="education">Education</option>
+            <!-- <option value="healthcare">Healthcare</option> -->
+            <option value="business">Business</option>
+            <option value="insurance">Insurance</option>
+          </select>
+          <a id="ai-download-link" href="#" class="btn-primary" style="display:none; background:#b3e5fc; color:#0a0a0a; font-weight:700; border-radius:50px; padding:0.7rem 2rem; font-size:1.1rem; text-decoration:none; box-shadow:0 4px 15px rgba(25,118,210,0.15); transition:background 0.2s;">Download</a>
+        </div>
+        <script>
+          const domainFiles = {
+            finance: 'Financial Startup IdeasUPDATED.pdf',
+            education: 'Ai Ed Tech Startup IdeasUPDATED.pdf',
+            healthcare: '', // No file provided for healthcare
+            business: 'AI_Business_SolutionsUPDATED.pdf',
+            insurance: 'AI INSURANCEUPDATED.pdf'
+          };
+          const aiDomain = document.getElementById('ai-domain');
+          const downloadLink = document.getElementById('ai-download-link');
+          let currentFile = '';
+          aiDomain.addEventListener('change', function() {
+            const val = this.value;
+            if (domainFiles[val]) {
+              currentFile = domainFiles[val];
+              downloadLink.style.display = 'inline-block';
+            } else {
+              currentFile = '';
+              downloadLink.style.display = 'none';
+            }
+          });
+          downloadLink.addEventListener('click', function(e) {
+            if (!currentFile) {
+              e.preventDefault();
+              return;
+            }
+            // Create a temporary anchor to force download
+            const a = document.createElement('a');
+            a.href = currentFile;
+            a.download = currentFile.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            e.preventDefault();
+          });
+        </script>
+        <!-- Add these test download links in the AI section for troubleshooting -->
+        <!-- <div style="margin: 2rem 0; text-align: center;">
+          <h4>Test Direct Downloads (for troubleshooting):</h4>
+          <a href="Financial Startup IdeasUPDATED.pdf" download style="margin:0 1rem;">Download Finance PDF</a>
+          <a href="Ai Ed Tech Startup IdeasUPDATED.pdf" download style="margin:0 1rem;">Download Education PDF</a>
+          <a href="AI_Business_SolutionsUPDATED.pages" download style="margin:0 1rem;">Download Business</a>
+          <a href="AI INSURANCEUPDATED.pages" download style="margin:0 1rem;">Download Insurance</a>
+        </div>
+      </div> -->
+      <style>
+        @keyframes ai-bounce {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-18px) scale(1.08); }
+        }
+        .ai-feature-card:hover {
+          transform: translateY(-8px) scale(1.04);
+          box-shadow: 0 8px 32px rgba(25,118,210,0.18);
+        }
+        .ai-section {
+          position: relative;
+          z-index: 2;
+        }
+      </style>
     </section>
 
     <!-- Transform Section -->
@@ -1736,6 +2187,59 @@
                 <h2>Transforming businesses through data, innovation, and intelligent insights</h2>
                 <p>We help organisations unlock growth and efficiency through tailored consulting and cutting-edge solutions that drive measurable results and sustainable competitive advantage.</p>
                 <a href="successStories.html" class="btn-impact">SEE OUR IMPACT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Our Product Section -->
+    <section class="product-section reveal" id="our-product">
+        <div class="container">
+            <div class="product-content">
+                <div class="product-info">
+                    <h2>About Our Product</h2>
+                    <p>The Tarzan Way (TTW) by YCL is an innovative AI-powered travel platform designed to address the challenges of traditional trip planning, such as inefficiency, lack of personalization, and overwhelming choices. By leveraging cutting-edge artificial intelligence and data-driven methodologies, it delivers hyper-personalized itineraries in seconds, tailored to individual preferences, budgets, and travel constraints..</p>
+                    
+                    <p>This product is not just a planning tool; it's a comprehensive solution that simplifies the trip organization process while enhancing the overall travel experience. With TTW, users can save time, reduce costs, and enjoy fully customized itineraries that match their unique needs. YCL continues its commitment to innovation with TTW, empowering travelers to explore the world with ease and confidence..</p>
+                    
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <!-- <div class="feature-icon"></div> -->
+                            <div class="feature-text">AI-Powered Itineraries</div>
+                        </div>
+                        <div class="feature-item">
+                            <!-- <div class="feature-icon"></div> -->
+                            <div class="feature-text">Cost Optimization</div>
+                        </div>
+                        <div class="feature-item">
+                            <!-- <div class="feature-icon"></div> -->
+                            <div class="feature-text">Integrated Solutions</div>
+                        </div>
+                        <div class="feature-item">
+                            <!-- <div class="feature-icon"></div> -->
+                            <div class="feature-text">Future-Proof Innovation</div>
+                        </div>
+                        <div class="feature-item">
+                            <!-- <div class="feature-icon"></div> -->
+                            <div class="feature-text">User-Centric Feedback</div>
+                        </div>
+                        <div class="feature-item">
+                            <!-- <div class="feature-icon"></div> -->
+                            <div class="feature-text">Dynamic Adjustments</div>
+                        </div>
+                    </div>
+
+                    <div class="product-cta">
+                        <a href="TTW.html" class="btn-product">
+                        Ready to Explore?
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="product-visual">
+                    <img src="https://media.istockphoto.com/id/1034301914/photo/nature-photographer-norway-lofoten-archipelago.jpg?b=1&s=612x612&w=0&k=20&c=G7goJ-8huLu4nuubHANm4T8gPSd4c4Aj15UMCpohhHc=" alt="YCL Enterprise Platform Dashboard" class="product-image">
+                    <div class="product-badge">Travel-ready</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1775,8 +2279,14 @@
                     <img src="https://www.cio.com/wp-content/uploads/2025/05/3997033-0-50326100-1748441806-shutterstock_editorial_1347234716.jpg?quality=50&strip=all" alt="SAP Enterprise Analytics">
                 </div>
                 <h3>SAP Enterprise, Analytics & Planning Services</h3>
-                <p>Our solutions use advanced analytics and visualisation to uncover insights and drive smarter business decisions with valuable data stories. We work with clients to develop the right strategy so they can quickly get up and running with Analytics.</p>
-                <a href="sap-enterprise-analytics.html" class="service-link">Learn More →</a>
+                <p>Our solutions use advanced analytics and visualisation to uncover insights and drive smarter business decisions with valuable data stories. We work with clients to develop the right strategy so they can quickly get up and running with Analytics We have industry recognised expertise
+in a variety of BI Analytics and Planning
+applications that enable us to build
+custom solutions that enable clients to
+quickly realise value from their data to
+enable growth, increase efficiency and
+boost profitability.</p>
+                <a href="sapenterprise.html" class="service-link">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-image">
@@ -1784,24 +2294,32 @@
                 </div>
                 <h3> Project Management and delivery</h3>
                 <p>Elevating your digital project to triumph demands a rock-solid project strategy. We're your strategic partner, crafting value-driven propositions, charting unique roadmaps that set you apart from the competition, and propelling you towards your business triumphs.</p>
-                <a href="programme-project-management.html" class="service-link">Learn More →</a>
+                <a href="service2.html" class="service-link">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-image">
                     <img src="https://www.31west.net/wp-content/uploads/2024/02/24-7-support-service.jpg" alt="Support Services">
                 </div>
                 <h3>Support Services</h3>
-                <p>Whether you're looking for a managed IT provider to plug the gaps and support your existing IT team, or need to outsource your IT support completely, we have the solution that's right for you.</p>
-                <a href="support-services.html" class="service-link">Learn More →</a>
+                <p>Whether you're looking for a managed IT provider to plug the gaps and support your existing IT team, or need to outsource your IT support completely, we have the solution that's right for you.We can provide a Fully Managed
+Support Services across a broad range
+of IT Platforms and Cloud solutions.
+Dedicated first contact and accredited
+technical contact teams available
+(24x7). Comprehensive
+Audit services and clearly defined SLAs.</p>
+                <a href="service3.html" class="service-link">Learn More →</a>
             </div>
              <div class="service-card">
                 <div class="service-image">
-                    <img src="https://www.31west.net/wp-content/uploads/2024/02/24-7-support-service.jpg" alt="Support Services">
+                    <img src="https://wallpaperbat.com/img/404702-explained-deep-learning-in-tensorflow.jpg" alt="Support Services">
                 </div>
                 <h3>Data Analytics and visualisation</h3>
                 <p>Dive into the world of insights with our cutting-edge data analytics and visualization services. We transform raw data into actionable intelligence, uncovering trends, patterns, and opportunities. Our experts leverage advanced tools and techniques to provide you with clear, visually appealing representations of your data, making complex information easy to understand..</p>
-                <a href="support-services.html" class="service-link">Learn More →</a>
+                <a href="service4.html" class="service-link">Learn More →</a>
             </div>
+                    <div class="services-grid">
+            
         </div>
     </div>
 </section>
@@ -1935,7 +2453,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" required maxlength="10" title="Please enter a 10-digit phone number">
                         </div>
                         <div class="form-group">
                             <label for="message">Message / Inquiry <span class="required">*</span></label>
@@ -1949,84 +2467,32 @@
     </section>
 
     <!-- Footer -->
-    <!-- <footer class="footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Who We Are</a></li>
-                        <li><a href="#">YCL Vision</a></li>
-                        <li><a href="#">Our Core Values</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>What We Do</h3>
-                    <ul>
-                        <li><a href="#">Solutions</a></li>
-                        <li><a href="#">Tech Stack</a></li>
-                        <li><a href="#">Why Our Services</a></li>
-                        <li><a href="#">Projects Delivered</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Insights</h3>
-                    <ul>
-                        <li><a href="#">Featured Insights</a></li>
-                        <li><a href="#">Resources & Updates</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Success Stories</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Get in Touch</h3>
-                    <ul>
-                        <li>info@yourconsultingltd.co.uk</li>
-                        <li>020 8922 3492</li>
-                        <li>The Brentano Suites, Prospect House</li>
-                        <li>2 Athenaeum Rd, London N20 9AE</li>
-                    </ul>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="YouTube">📺</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Your Consulting Ltd. All rights reserved.</p>
-            </div>
-        </div>
-        
-    </footer> -->
-        <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
-                    <p>020 8922 3492</p>
-                    <p>contact@yourconsultingltd.co.uk</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="whoWeAre.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <!-- <li><a href="#values">Core Values</a></li> -->
-                        <li><a href="careers.html">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Stay updated with our latest insights and news.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                </div>
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
@@ -2064,6 +2530,16 @@
         mobileMenuToggle.addEventListener('click', function() {
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked (on mobile)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
+            });
         });
 
         // Smooth scrolling for anchor links
@@ -2150,7 +2626,11 @@
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+            const phone = formData.get('phone');
+            if (!/^\d{10}$/.test(phone)) {
+                alert('Please enter a valid 10-digit phone number (digits only).');
+                return;
+            }
             const submitBtn = this.querySelector('.btn-send');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
@@ -2159,7 +2639,7 @@
                 const response = await fetch(getApiUrl('contact'), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
                 });
                 const result = await response.json();
                 if (result.success) {
@@ -2214,6 +2694,41 @@
 
         // Start typing effect after page load
         setTimeout(typeWriter, 1500);
+
+        // Restrict phone input to digits only and max 10 digits
+        document.getElementById('phone').addEventListener('input', function() {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+    </script>
+    <script src="config.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('.newsletter-form');
+        if (form) {
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            if (email) {
+              try {
+                const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ email })
+                });
+                const data = await response.json();
+                if (data.success) {
+                  alert('Thank you for subscribing! Please check your email for a confirmation.');
+                  this.querySelector('.newsletter-input').value = '';
+                } else {
+                  alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+                }
+              } catch (err) {
+                alert('An error occurred. Please try again later.');
+              }
+            }
+          });
+        }
+      });
     </script>
 </body>
 </html>

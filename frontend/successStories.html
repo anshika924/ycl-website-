@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success Vault - Inspiring Success Stories</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YCL - Our Success Story and Value Proposition</title>
     <style>
         * {
             margin: 0;
@@ -12,1081 +12,1197 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-bg: #0a0a0a;
-            --secondary-bg: #1a1a1a;
-            --card-bg: #2a2a2a;
-            --accent-green: #10b981;
-            --accent-green-hover: #059669;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --border-color: #3f3f46;
-            --gradient-primary: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            --shadow-primary: 0 10px 30px rgba(16, 185, 129, 0.2);
-            --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.3);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            min-height: 100vh;
         }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+        /* Header Navigation */
+        .navbar {
+            background: #fff;
+            color: #1976d2;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        /* Make logo bigger */
+        .nav-logo-group img.logo-side {
+            height: 96px;
+            width: 96px;
+            object-fit: contain;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+            background: #fff;
+        }
+        .nav-logo img.logo-img {
+            width: 220px;
+            height: auto;
+            display: block;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+            margin-left: auto;
+        }
+        /* Hide menu by default, show when .show-menu is on nav-menu */
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 30px;
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            min-width: 200px;
+            padding: 1rem 0;
+            z-index: 150;
+        }
+        .nav-menu.show-menu {
+            display: flex;
+        }
+
+        /* Remove underline pseudo-element for nav links */
+        /* Remove .nav-menu a::after and related rules */
+        /* Only show underline for .active using border-bottom */
+        .nav-menu a {
+            text-decoration: none !important;
+            color: black !important;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            position: relative;
+            border-bottom: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: black;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: black !important;
+        }
+
+        /* Hamburger styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            margin-left: auto;
+            z-index: 200;
+        }
+        .hamburger span {
+            height: 5px;
+            width: 100%;
+            background: #1976d2;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.3s;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
+            background: white;
         }
 
-        /* Header */
-        .header {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent-green);
-        }
-
-        .nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--accent-green);
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            border-radius: 1px;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 80px;
+        /* Hero Header with Background Image */
+        .hero-header {
+            background: url('successStories.jpg') center center/cover no-repeat;
+            color: white;
+            padding: 6rem 3rem;
             text-align: center;
             position: relative;
-            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-        }
-
-        .hero-badge {
-            display: inline-flex;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--secondary-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            justify-content: center;
+            background-attachment: fixed;
         }
 
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        /* Remove the .hero-header::before overlay if it creates white space or covers the image */
+        .hero-header::before {
+            display: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-header h1 {
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            color: #b3e5fc;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
+            font-size: 1.5rem;
+            opacity: 0.95;
+            max-width: 700px;
             margin: 0 auto;
+            font-weight: 400;
+            color: #b3e5fc;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
         }
 
-        /* Featured Stories Grid */
-        .featured-section {
-            padding: 80px 0;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .story-card {
-            background: var(--gradient-dark);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-color);
-            position: relative;
-            group: hover;
-        }
-
-        .story-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-card);
-            border-color: var(--accent-green);
-        }
-
-        .story-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .story-card:hover .story-image {
-            transform: scale(1.05);
-        }
-
-        .story-content {
-            padding: 2rem;
-        }
-
-        .story-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .story-excerpt {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .story-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        .story-date {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .story-category {
-            background: var(--accent-green);
-            color: var(--primary-bg);
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.75rem;
-        }
-
-        /* Categories Section */
-        .categories-section {
-            padding: 80px 0;
-            background: var(--secondary-bg);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .categories-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 4rem;
-        }
-
-        .category-tag {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+        /* Professional Badge */
+        .hero-badge {
+            display: inline-block;
+            background: #b3e5fc;
+            color: #1976d2;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
-            padding: 0.75rem 1.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(25, 118, 210, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Floating Elements in Hero */
+        .hero-floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
             overflow: hidden;
         }
 
-        .category-tag:hover,
-        .category-tag.active {
-            background: var(--accent-green);
-            color: var(--primary-bg);
-            border-color: var(--accent-green);
-            transform: translateY(-2px);
+        .hero-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: heroFloat 8s ease-in-out infinite;
         }
 
-        /* Featured Story Highlight */
-        .featured-highlight {
-            background: var(--gradient-dark);
-            border-radius: 20px;
+        .hero-shape:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: #1976d2;
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .hero-shape:nth-child(2) {
+            top: 70%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+            background: #20c997;
+            transform: rotate(45deg);
+            animation-delay: 3s;
+        }
+
+        .hero-shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            width: 70px;
+            height: 70px;
+            background: #1976d2;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: 6s;
+        }
+
+        .hero-shape:nth-child(4) {
+            top: 30%;
+            right: 25%;
+            width: 50px;
+            height: 50px;
+            background: #20c997;
+            border-radius: 20%;
+            animation-delay: 2s;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.2; }
+        }
+
+        .value-proposition {
+            background: #fff;
+            color: #222;
             padding: 3rem;
-            border: 1px solid var(--border-color);
+            margin: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-            margin-bottom: 4rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .value-proposition::before {
+            display: none;
+        }
+        .value-proposition h2 {
+            color: #222;
+        }
+        .value-proposition p {
+            color: #444;
         }
 
-        .featured-highlight::before {
+        .content {
+            padding: 4rem 3rem;
+        }
+
+        /* Success Stories Carousel */
+        .carousel-section {
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .carousel-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 900%; /* 9 slides */
+        }
+
+        .carousel-slide {
+            min-width: 11.111%; /* 100% / 9 slides */
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            border: 3px solid #f8f9fa;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .carousel-slide::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
+            height: 6px;
+            background: linear-gradient(90deg, #1976d2, #20c997);
         }
 
-        .highlight-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .highlight-image {
+        .carousel-slide .image-container {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        .highlight-text h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .highlight-text p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight-author {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Latest Stories Grid */
-        .latest-section {
-            padding: 80px 0;
-        }
-
-        .latest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .latest-card {
-            background: var(--secondary-bg);
-            border-radius: 12px;
+            height: 220px;
+            margin-bottom: 2rem;
+            border-radius: 15px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .latest-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-green);
-        }
-
-        .latest-image {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .latest-content {
-            padding: 1.5rem;
-        }
-
-        .latest-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            line-height: 1.4;
-        }
-
-        .latest-meta {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Newsletter Section */
-        .newsletter-section {
-            padding: 80px 0;
-            background: var(--secondary-bg);
-            text-align: center;
-        }
-
-        .newsletter-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .newsletter-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .newsletter-subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1.125rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 0.875rem 1.25rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--accent-green);
-        }
-
-        .newsletter-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .newsletter-btn {
-            background: var(--gradient-primary);
-            color: var(--primary-bg);
-            border: none;
-            border-radius: 12px;
-            padding: 0.875rem 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
-        }
-
-        /* Footer */
-        /* .footer {
-            background: var(--primary-bg);
-            border-top: 1px solid var(--border-color);
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: var(--text-primary);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-green);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
+            background: #1976d2;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--card-bg);
-            border-radius: 8px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .social-link:hover {
-            background: var(--accent-green);
-            color: var(--primary-bg);
+        .carousel-slide .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            display: block;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        } */
-
-
-                        .footer {
-            background: rgba(10, 10, 10, 0.95);
-            border-top: 1px solid rgba(10, 10, 11, 0.8);
-            padding: 64px 0 32px;
+        .carousel-slide:hover .image-container img {
+            transform: scale(1.05);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 48px;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .footer-section h3 {
-            color: #ffffff;
-            font-size: 1.25rem;
+        .carousel-slide h3 {
+            color: #000000;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
-            margin-bottom: 24px;
         }
 
-        .footer-section p,
-        .footer-section a {
-            color: #d1d5db;
-            text-decoration: none;
+        .carousel-slide p {
+            color: #555555;
             line-height: 1.8;
-            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
 
-        .footer-section a:hover {
-            color: #10b981;
+        .highlight {
+            color: #b3e5fc;
+            font-weight: 700;
         }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 12px 16px;
-            background: rgba(11, 11, 11, 0.8);
-            border: 1px solid rgba(10, 10, 10, 0.5);
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 14px;
-        }
-
-        .newsletter-input::placeholder {
-            color: #9ca3af;
-        }
-
-        .newsletter-btn {
-            background: #10b981;
+        /* Carousel Navigation */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 12px 24px;
             border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-nav:hover {
+            background: #b3e5fc;
+            color: #1976d2;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 10px;
+        }
+
+        .carousel-nav.next {
+            right: 10px;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .newsletter-btn:hover {
-            background: #059669;
-            transform: translateY(-2px);
+        .indicator.active {
+            background: #b3e5fc;
+            transform: scale(1.2);
         }
 
-        .footer-bottom {
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(7, 7, 7, 0.8);
+        /* Enhanced Capability Boxes with Images and Carousel */
+        .capability-section {
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .capability-title {
             text-align: center;
-            color: #9ca3af;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000000;
         }
 
-        /* Responsive Design */
+        .capability-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .capability-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 600%; /* 6 capability slides */
+        }
+
+        .capability-slide {
+            min-width: 16.666%; /* 100% / 6 slides */
+            background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+            color: white;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .capability-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(25, 118, 210, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .capability-slide:hover::before {
+            left: 100%;
+        }
+
+        .capability-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #1976d2;
+        }
+
+        .capability-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .capability-slide:hover .capability-image img {
+            transform: scale(1.05);
+        }
+
+        .capability-slide h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .capability-slide p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Capability Carousel Navigation */
+        .capability-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #b3e5fc;
+            color: #1976d2;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capability-nav:hover {
+            background: #b3e5fc;
+            color: #1976d2;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .capability-nav.prev {
+            left: 10px;
+        }
+
+        .capability-nav.next {
+            right: 10px;
+        }
+
+        /* Capability Indicators */
+        .capability-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .capability-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .capability-indicator.active {
+            background: #b3e5fc;
+            transform: scale(1.3);
+        }
+
+        .stats-section {
+            background: #fff;
+            border-radius: 25px;
+            padding: 4rem 3rem;
+            margin: 4rem 0;
+            color: #222;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-section::before {
+            display: none;
+        }
+        .stats-title {
+            color: #222;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .stat-item {
+            text-align: center;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: none;
+            color: #222;
+            transition: transform 0.3s ease;
+        }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #222;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 500;
+            color: #444;
+        }
+
+        /* Footer styles to match index.html */
+        .footer {
+            background: #111827 !important;
+            color: #fff;
+            padding: 3rem 0 1.5rem 0;
+            margin-top: 4rem;
+        }
+        .footer .container, .footer-grid {
+            background: none !important;
+            color: inherit !important;
+        }
+        .footer-section h3 {
+            color: #7dd3fc;
+            font-size: 1.1rem;
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+        }
+        .footer-section p, .footer-section ul, .footer-section li, .footer-section a {
+            color: #e0f2fe;
+            font-size: 0.98rem;
+            margin: 0 0 0.3rem 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        .footer-section a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+        .footer-links {
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 0.3rem;
+        }
+        .pdf-card {
+            background: #181f2a !important;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 12px 8px !important;
+            margin-top: -18px;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+
         @media (max-width: 768px) {
-            .nav {
+            .nav-menu {
                 display: none;
             }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
+            
+            .hero-header {
+                padding: 4rem 2rem;
+                min-height: 60vh;
+                background-attachment: scroll;
+            }
+            
+            .hero-header h1 {
+                font-size: 2.8rem;
             }
 
-            .highlight-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-slide {
+                padding: 2rem;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .carousel-nav.prev {
+                left: 2px;
+            }
+            
+            .carousel-nav.next {
+                right: 2px;
             }
 
-            .newsletter-form {
-                flex-direction: column;
+            .capability-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
             }
 
-            .categories-grid {
-                justify-content: flex-start;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
+            .capability-nav.prev {
+                left: -20px;
             }
 
-            .hero {
-                padding: 100px 0 60px;
+            .capability-nav.next {
+                right: -20px;
             }
 
-            .featured-section,
-            .categories-section,
-            .latest-section,
-            .newsletter-section {
-                padding: 60px 0;
+            .capability-slide {
+                padding: 2rem;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .content {
+                padding: 2rem 1.5rem;
             }
 
-            .featured-highlight {
+            .value-proposition {
+                margin: 2rem 1.5rem;
                 padding: 2rem;
             }
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (min-width: 900px) {
+            .hamburger {
+                display: none;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .nav-menu {
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                background: none;
+                box-shadow: none;
+                min-width: unset;
+                padding: 0;
             }
         }
-
-        .story-card,
-        .latest-card {
-            animation: fadeInUp 0.6s ease-out both;
+        @media (max-width: 899px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-menu {
+                right: 30px;
+                top: 100%;
+            }
         }
-
-        .story-card:nth-child(1) { animation-delay: 0.1s; }
-        .story-card:nth-child(2) { animation-delay: 0.2s; }
-        .story-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .latest-card:nth-child(1) { animation-delay: 0.1s; }
-        .latest-card:nth-child(2) { animation-delay: 0.2s; }
-        .latest-card:nth-child(3) { animation-delay: 0.3s; }
-        .latest-card:nth-child(4) { animation-delay: 0.4s; }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--primary-bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-green);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-green-hover);
-        }
-
-        html {
-            scroll-behavior: smooth;
+        @media (max-width: 600px) {
+            .capability-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .capability-nav.prev {
+                left: 2px;
+            }
+            .capability-nav.next {
+                right: 2px;
+            }
         }
     </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                    </svg>
-                    SUCCESS VAULT
-                </div>
-                <nav class="nav">
-                    <a href="#" class="nav-link active">Stories</a>
-                    <a href="#" class="nav-link">Categories</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#" class="nav-link">Contact</a>
-                </nav>
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-group">
+                <img src="image.jpg" alt="YCL Icon" class="logo-side">
+                <!-- Remove the extra nav-logo div and alt text -->
+            </div>
+            <div class="hamburger" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="mainNavMenu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#success">SUCCESS STORIES</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Header with Background Image -->
+        <div class="hero-header">
+            <div class="hero-floating-elements">
+                <div class="hero-shape"></div>
+                <div class="hero-shape"></div>
+                <div class="hero-shape"></div>
+                <div class="hero-shape"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">SAP Consulting Excellence</div>
+                <h1>Our Success Story and Value Proposition</h1>
+                <p class="hero-subtitle">Leading SAP consulting experts delivering enterprise solutions since 2008, transforming businesses through innovative technology and strategic expertise</p>
             </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                Success Vault
+        <div class="content">
+            <div class="value-proposition">
+                <h2>Your Consulting Value Proposition</h2>
+                <p>A team of experts with extensive knowledge and experience in SAP Enterprise, Corporate Analytics & Business Planning</p>
             </div>
-            <h1 class="hero-title">Inspiring Success Stories</h1>
-            <p class="hero-subtitle">Discover real-world transformations, breakthrough innovations, and the journeys that shaped tomorrow's leaders</p>
-        </div>
-    </section>
 
-    <!-- Featured Stories -->
-    <section class="featured-section">
-        <div class="container">
-            <div class="featured-grid">
-                <div class="story-card">
-                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="From Startup to Fortune 500" class="story-image">
-                    <div class="story-content">
-                        <h3 class="story-title">  Elevating Multinationals with SAP Analytics & Planning</h3>
-                        <p class="story-excerpt">25 successful
-implementation of SAP
-Analytics & Planning
-Solutions for multi-national
-clients.</p>
-                        <div class="story-meta">
-                            <span class="story-date">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                                </svg>
-                                jun 11, 2025
-                            </span>
-                            <span class="story-category">Business Transformation</span>
+            <!-- Success Stories Carousel -->
+            <div class="carousel-section">
+                <h2 class="carousel-title">Our Success Stories</h2>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev" onclick="prevSlide()">‹</button>
+                    <button class="carousel-nav next" onclick="nextSlide()">›</button>
+                    
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Team collaboration">
+                            </div>
+                            <h3>Successful SAP Implementations</h3>
+                            <p><span class="highlight">+25 successful implementation</span> of <span class="highlight">SAP Analytics & Planning Solutions</span> for multi-national clients</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Business analytics">
+                            </div>
+                            <h3>Market Leadership</h3>
+                            <p><span class="highlight">Most experienced SAP BI Analytics and Planning Consultants</span> in the market <span class="highlight">since 2008</span> with <span class="highlight">>25 Consultants</span></p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Technology innovation">
+                            </div>
+                            <h3>Early Adopters & Experts</h3>
+                            <p>Early adopters and implementers of <span class="highlight">SAP DataSphere and SAP S/4 Hana</span> for key customers. Recognised solution experts.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Professional consulting">
+                            </div>
+                            <h3>Comprehensive Support</h3>
+                            <p><span class="highlight">Consulting Practice</span> has capability to supports all key project roles ensuring ability to delivery customer projects in a coherent and optimised manner.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Strategic planning">
+                            </div>
+                            <h3>Complex Implementation Experience</h3>
+                            <p>Experience in implementing complex and strategic user cases for <span class="highlight">SAP BI Analytics & Planning, and Azure</span> for key clients.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Industry expertise">
+                            </div>
+                            <h3>Industry Experience</h3>
+                            <p><span class="highlight">> 20 years SAP BI Analytics & Planning experience</span> in the consulting marketplace.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Digital transformation">
+                            </div>
+                            <h3>Digital Transformation</h3>
+                            <p>Leading <span class="highlight">digital transformation initiatives</span> for Fortune 500 companies with <span class="highlight">cloud-first strategies</span> and modern analytics platforms.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Global reach">
+                            </div>
+                            <h3>Global Reach</h3>
+                            <p>Successfully delivered projects across <span class="highlight">15+ countries</span> with <span class="highlight">24/7 support</span> and local expertise in key markets worldwide.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Innovation lab">
+                            </div>
+                            <h3>Innovation Excellence</h3>
+                            <p>Pioneering <span class="highlight">AI-driven analytics</span> and <span class="highlight">machine learning solutions</span> that deliver measurable business value and competitive advantage.</p>
                         </div>
                     </div>
                 </div>
+                
+                <div class="carousel-indicators">
+                    <div class="indicator active" onclick="goToSlide(0)"></div>
+                    <div class="indicator" onclick="goToSlide(1)"></div>
+                    <div class="indicator" onclick="goToSlide(2)"></div>
+                    <div class="indicator" onclick="goToSlide(3)"></div>
+                    <div class="indicator" onclick="goToSlide(4)"></div>
+                    <div class="indicator" onclick="goToSlide(5)"></div>
+                    <div class="indicator" onclick="goToSlide(6)"></div>
+                    <div class="indicator" onclick="goToSlide(7)"></div>
+                    <div class="indicator" onclick="goToSlide(8)"></div>
+                </div>
+            </div>
 
-                <div class="story-card">
-                    <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Transforming Lives Through Education" class="story-image">
-                    <div class="story-content">
-                        <h3 class="story-title">Recognized Experts in SAP Implementation</h3>
-                        <p class="story-excerpt">Early adopters and implementers
-of SAP DataSphere and SAP S/4
-Hana for key customers.
-Recogised solution
-experts..</p>
-                        <div class="story-meta">
-                            <span class="story-date">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                             <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                                </svg>
-                                jun 11, 2025
-                            </span>
-                            <span class="story-category"> business transformation</span>
+            <!-- Enhanced Capability Section with Images and Carousel -->
+            <div class="capability-section">
+                <h2 class="capability-title">Our Core Capabilities</h2>
+                <div class="capability-carousel-container">
+                    <button class="capability-nav prev" onclick="prevCapabilitySlide()">‹</button>
+                    <button class="capability-nav next" onclick="nextCapabilitySlide()">›</button>
+                    
+                    <div class="capability-carousel-track" id="capabilityCarouselTrack">
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="End-to-end support">
+                            </div>
+                            <h3>End-to-End Support & Enhancement</h3>
+                            <p>Comprehensive project lifecycle management from initial consultation through implementation, testing, and ongoing support to ensure optimal system performance.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Technical expertise">
+                            </div>
+                            <h3>Deep Technical & Functional Expertise</h3>
+                            <p>Specialized knowledge across SAP, Azure, and enterprise platforms with certified professionals delivering cutting-edge solutions for complex business requirements.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Project experience">
+                            </div>
+                            <h3>Extensive Project Implementation Experience</h3>
+                            <p>Proven track record across multiple industry sectors including finance, manufacturing, retail, and healthcare with diverse use case implementations.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Analytics solutions">
+                            </div>
+                            <h3>Advanced Analytics Solutions</h3>
+                            <p>Cutting-edge business intelligence and analytics implementations using SAP Analytics Cloud, Power BI, and custom dashboard solutions for data-driven decision making.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Cloud migration">
+                            </div>
+                            <h3>Cloud Migration & Modernization</h3>
+                            <p>Expert guidance in migrating legacy systems to cloud platforms with focus on scalability, security, and performance optimization for modern enterprise needs.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Training and support">
+                            </div>
+                            <h3>Training & Knowledge Transfer</h3>
+                            <p>Comprehensive training programs and knowledge transfer sessions to empower your internal teams with the skills needed for long-term system success.</p>
                         </div>
                     </div>
                 </div>
+                
+                <div class="capability-indicators">
+                    <div class="capability-indicator active" onclick="goToCapabilitySlide(0)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(1)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(2)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(3)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(4)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(5)"></div>
+                </div>
+            </div>
 
-                <div class="story-card">
-                    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" alt="The Art of Career Transition" class="story-image">
-                    <div class="story-content">
-                        <h3 class="story-title">A Consulting Practice That Delivers Excellence</h3>
-                        <p class="story-excerpt">Consulting Practice has capability
-to supports all key project roles
-ensuring ability to delivery customer
-projects in a coherent and optimised
-manner..</p>
-                        <div class="story-meta">
-                            <span class="story-date">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                                </svg>
-                                jun 11, 2025
-                            </span>
-                            <span class="story-category">business transformation</span>
-                        </div>
+            <div class="stats-section">
+                <h2 class="stats-title">Our Track Record</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Successful Implementations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2008</span>
+                        <span class="stat-label">Since</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Expert Consultants</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Experience</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Categories -->
-    <section class="categories-section">
+    <footer class="footer">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Browse by Category</h2>
-                <p class="section-subtitle">Explore success stories across different industries and domains</p>
-            </div>
-            <div class="categories-grid">
-                <a href="#" class="category-tag active">Business Transformation</a>
-                <a href="#" class="category-tag">Career Growth</a>
-                <!-- <a href="#" class="category-tag">Health & Wellness</a> -->
-                <!-- <a href="#" class="category-tag">Personal Development</a> -->
-                <a href="#" class="category-tag">Technology</a>
-                <!-- <a href="#" class="category-tag">Education</a> -->
-                <a href="#" class="category-tag">Innovation</a>
-            </div>
-
-            <!-- Featured Highlight -->
-            <div class="featured-highlight">
-                <div class="highlight-content">
-                    <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Breaking Barriers" class="highlight-image">
-                    <div class="highlight-text">
-                        <h3>20 years SAP BI Analytics &
-Planning experience in the
-consulting marketplace.</h3>
-                        <p>A team of experts with extensive
-knowledge and experience in SAP
-Enterprise, Corporate Analytics &
-Business Planning.</p>
-                        <!-- <div class="highlight-author"> -->
-                            <!-- <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg> -->
-                            <!-- <span>Maria Rodriguez • Fintech Entrepreneur</span> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
         </div>
-    </section>
-
-    <!-- Latest Stories -->
-    <section class="latest-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Latest Stories</h2>
-                <p class="section-subtitle">Fresh insights and inspiring journeys from our community</p>
-            </div>
-            <div class="latest-grid">
-                <div class="latest-card">
-                    <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400" alt="The Power of Small Steps" class="latest-image">
-                    <div class="latest-content">
-                        <h4 class="latest-title">Early adopters and implementers
-of SAP DataSphere and SAP S/4
-Hana for key customers.
-Recogised solution
-experts.</h4>
-                        <p class="latest-meta">jun 9, 2025 • 5 min read</p>
-                    </div>
-                </div>
-
-                <div class="latest-card">
-                    <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Building a Sustainable Future" class="latest-image">
-                    <div class="latest-content">
-                        <h4 class="latest-title">Experience in implementing
-complex and strategic user cases
-for SAP BI Analytics &
-Planning, and Azure for key
-clients.</h4>
-                        <p class="latest-meta">jun 9, 2025 • 7 min read</p>
-                    </div>
-                </div>
-
-                <div class="latest-card">
-                    <img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=400" alt="From Intern to CEO" class="latest-image">
-                    <div class="latest-content">
-                        <h4 class="latest-title">+25 successful
-implementation of SAP
-Analytics & Planning
-Solutions for multi-national
-clients</h4>
-                        <p class="latest-meta">jun 4, 2025 • 6 min read</p>
-                    </div>
-                </div>
-
-                <div class="latest-card">
-                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Financial Freedom Journey" class="latest-image">
-                    <div class="latest-content">
-                        <h4 class="latest-title">Most experienced SAP BI
-Analytics and Planning Consultants
-in the market since 2008 with >25
-Consultants</h4>
-                        <p class="latest-meta">jun 2, 2025 • 8 min read</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2 class="newsletter-title">Get Weekly Success Stories</h2>
-                <p class="newsletter-subtitle">Join other readers who get inspired every week with new success stories and actionable insights.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email">
-                    <button type="submit" class="newsletter-btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <!-- <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About Success Vault</h4>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Inspiring stories of transformation, innovation, and success from around the world.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect x="2" y="9" width="4" height="12"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Featured Stories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Submit Story</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Success Tips</a></li>
-                        <li><a href="#">Career Advice</a></li>
-                        <li><a href="#">Business Insights</a></li>
-                        <li><a href="#">Personal Growth</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect With Us</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Success Vault. All rights reserved.</p>
-            </div>
-        </div>
-    </footer> -->
-
-             </footer> 
-        <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>123 Business Street, Tech City, TC 12345</p>
-                    <p>+1 (555) 123-4567</p>
-                    <p>contact@theyc.way</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="#values">Core Values</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Stay updated with our latest insights and news.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
         </div>
     </footer>
 
-
-
-
-
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.98)';
-                header.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
+        // Success Stories Carousel
+        let currentSlide = 0;
+        const totalSlides = 9;
+        const track = document.getElementById('carouselTrack');
+        const indicators = document.querySelectorAll('.indicator');
 
-        // Category tag interactions
-        document.querySelectorAll('.category-tag').forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelectorAll('.category-tag').forEach(t => t.classList.remove('active'));
-                tag.classList.add('active');
+        function updateCarousel() {
+            const translateX = -currentSlide * (100 / totalSlides);
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
             });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        // Capability Carousel
+        let currentCapabilitySlide = 0;
+        const totalCapabilitySlides = 6;
+        const capabilityTrack = document.getElementById('capabilityCarouselTrack');
+        const capabilityIndicators = document.querySelectorAll('.capability-indicator');
+
+        function updateCapabilityCarousel() {
+            const translateX = -currentCapabilitySlide * (100 / totalCapabilitySlides);
+            capabilityTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            capabilityIndicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentCapabilitySlide);
+            });
+        }
+
+        function nextCapabilitySlide() {
+            currentCapabilitySlide = (currentCapabilitySlide + 1) % totalCapabilitySlides;
+            updateCapabilityCarousel();
+        }
+
+        function prevCapabilitySlide() {
+            currentCapabilitySlide = (currentCapabilitySlide - 1 + totalCapabilitySlides) % totalCapabilitySlides;
+            updateCapabilityCarousel();
+        }
+
+        function goToCapabilitySlide(slideIndex) {
+            currentCapabilitySlide = slideIndex;
+            updateCapabilityCarousel();
+        }
+
+        // Auto-advance carousels
+        setInterval(nextSlide, 5000);
+        setInterval(nextCapabilitySlide, 6000);
+
+        // Touch/swipe support for mobile - Success Stories
+        let startX = 0;
+        let endX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
         });
 
-        // Newsletter form
-        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.querySelector('.newsletter-input').value;
-            if (email) {
-                alert('Thank you for subscribing! You\'ll receive our weekly success stories.');
-                document.querySelector('.newsletter-input').value = '';
-            }
+        track.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
                 }
-            });
+                }
+        }
+
+        // Touch/swipe support for mobile - Capability Carousel
+        let capabilityStartX = 0;
+        let capabilityEndX = 0;
+
+        capabilityTrack.addEventListener('touchstart', (e) => {
+            capabilityStartX = e.touches[0].clientX;
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        capabilityTrack.addEventListener('touchend', (e) => {
+            capabilityEndX = e.changedTouches[0].clientX;
+            handleCapabilitySwipe();
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        function handleCapabilitySwipe() {
+            const swipeThreshold = 50;
+            const diff = capabilityStartX - capabilityEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextCapabilitySlide();
+                } else {
+                    prevCapabilitySlide();
                 }
-            });
-        }, observerOptions);
+            }
+        }
 
-        // Observe all cards for animation
-        document.querySelectorAll('.story-card, .latest-card').forEach(card => {
-            observer.observe(card);
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navMenu = document.getElementById('mainNavMenu');
+
+        function toggleMenu() {
+            navMenu.classList.toggle('show-menu');
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') toggleMenu();
+        });
+        // Close menu when a link is clicked (mobile UX)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
         });
     </script>
-</body>
+  </body>
 </html>

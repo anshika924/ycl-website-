@@ -13,68 +13,90 @@
         }
 
         :root {
-            --primary-green: #10b981;
-            --dark-green: #059669;
+            --primary-green: #28a745;
+            --dark-green: #20c997;
             --light-green: #34d399;
-            --bg-dark: #0a0a0a;
-            --bg-darker: #000000;
-            --bg-card: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #e5e7eb;
-            --text-muted: #d1d5db;
-            --border-color: #333333;
-            --shadow-color: rgba(16, 185, 129, 0.2);
+            --bg-light: #ffffff;
+            --bg-section: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(40, 167, 69, 0.2);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-secondary);
-            background-color: var(--bg-dark);
-            overflow-x: hidden;
+            background-color: var(--bg-light);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         .header {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
+            /* font-family: 'Times New Roman', Times, serif; */
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            height: 90px;
-            display: flex;
-            align-items: center;
         }
+         .header {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0; /* remove left/right padding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* add slight spacing on both sides */
+}
+
+.logo {
+  margin-left: 0; /* ensure no left margin */
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            width: 100%;
         }
 
         .logo {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: lightblue;
             text-decoration: none;
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-menu {
@@ -84,197 +106,358 @@
             gap: 2rem;
         }
 
+        /* Navigation Menu - UPPERCASE, BLACK, NO COLOR CHANGE ON CLICK/HOVER, UNDERLINE ONLY ON ACTIVE/FOCUS/VISITED */
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+            color: #000 !important;
+            /* font-family: 'Times New Roman', Times, serif; */
+            text-transform: uppercase;
+            font-weight: normal;
+            position: relative;
+            transition: none;
         }
-
+        .nav-menu a:visited,
+        .nav-menu a:active,
+        .nav-menu a:focus,
         .nav-menu a:hover {
-            color: var(--primary-green);
+            color: #000 !important;
+            background: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000 !important;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:focus::after,
+        .nav-menu a:active::after,
+        .nav-menu a:visited::after {
+            width: 100%;
+            background: #000 !important;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+            background: #000 !important;
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 50%, var(--primary-green) 100%);
+        /* .hero { */
+            /* background: 
+                        url('https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
             color: white;
-            padding: 12rem 2rem 6rem;
+            padding: 12rem 2rem 8rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
+        } */
+        .hero {
+  background: url('https://microsoft.design/wp-content/uploads/2024/06/feature-16.jpg') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%2328a745" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, var(--light-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 2rem;
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* Content Section */
+        /* Main Content Sections */
+        .intro-section {
+            padding: 6rem 0 4rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
         .content-section {
-            padding: 6rem 0;
-            background: white;
+            padding: 4rem 0;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
+        .content-section:nth-child(even) {
+            background: var(--bg-section);
         }
 
-        .content-text h2 {
+        .content-section h3 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 1.5rem;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .content-text p {
-            font-size: 1.125rem;
-            color: #333;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .content-image {
-            text-align: center;
-        }
-
-        .content-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Features Section */
-        .features-section {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-
-        .features-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            color: #000;
+            color: var(--text-primary);
             margin-bottom: 3rem;
-            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            text-align: center;
         }
 
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        /* Key Features Grid - 8 main features */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
         }
 
-        .feature-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            border-radius: 12px;
+        .feature-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            min-height: 250px;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .feature-item h4 {
+            color: var(--text-primary);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
-        .feature-card h3 {
+        .feature-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Cloud Computing Types Grid - 4 types */
+        .cloud-types-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .cloud-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cloud-type-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .cloud-type-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .cloud-type-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .cloud-type-item h4 {
+            color: var(--text-primary);
             font-size: 1.5rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 1rem;
-            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-            font-family: 'Times New Roman', Times, serif;
+        .cloud-type-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
         }
 
-        /* CTA Section */
-        .cta-section {
+        /* Benefits Grid - 2x3 layout */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .benefit-item h4 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .benefit-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Highlight Section */
+        .highlight-section {
+            background: lightblue;
             padding: 6rem 0;
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1a1a 100%);
-            text-align: center;
+            position: relative;
             color: white;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .highlight-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .highlight-header h3 {
+            font-size: 3rem;
+            color: white;
             margin-bottom: 1.5rem;
-            color: var(--text-primary);
+            font-weight: 800;
         }
 
-        .cta-section p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
-            color: var(--bg-darker);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--shadow-color);
+        .highlight-header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         /* Footer */
@@ -286,8 +469,14 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .footer-section h3 {
@@ -306,7 +495,7 @@
         }
 
         .footer-section a:hover {
-            color: #10b981;
+            color: lightblue;
         }
 
         .footer-links {
@@ -317,6 +506,42 @@
             margin-bottom: 12px;
         }
 
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: lightblue;
+            transform: translateY(-2px);
+        }
+
         .footer-bottom {
             margin-top: 48px;
             padding-top: 32px;
@@ -325,24 +550,75 @@
             color: #9ca3af;
         }
 
+        .back-link {
+            display: inline-block;
+            background: lightblue;
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 4rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .nav-menu {
+                display: none;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
+            .hero {
+                padding: 10rem 1rem 6rem;
+            }
+
+            .intro-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .content-section h3 {
+                font-size: 2rem;
+            }
+
+            .highlight-header h3 {
+                font-size: 2.2rem;
+            }
+
+            .highlight-header p {
+                font-size: 1.2rem;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            .container {
+                padding: 0 15px;
+            }
+
+            .feature-item,
+            .cloud-type-item,
+            .benefit-item {
+                min-height: auto;
             }
         }
     </style>
@@ -351,12 +627,12 @@
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
-            <a href="index.html" class="logo">YCL</a>
+          <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="whoWeAre.html">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#technology">Technology</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="techStack.html">Technology</a></li>
                 <li><a href="insights.html">Insights</a></li>
                 <li><a href="careers.html">Careers</a></li>
             </ul>
@@ -365,107 +641,204 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Microsoft Azure</h1>
-            <p class="hero-subtitle">Running SAP on Azure promotes major cost savings, enables agility, and drives real-time transformations through cloud-native solutions.</p>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Microsoft Azure</h1>
+                <p>A comprehensive cloud computing platform offering computing, analytics, storage, networking, and AI services to build, deploy, and manage applications in public, private, or hybrid environments.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>What is Microsoft Azure?</h2>
+            <p>Microsoft Azure is a comprehensive cloud computing platform offering a wide range of services, including computing, analytics, storage, networking, and AI. It allows businesses to build, deploy, and manage applications and services in the cloud, either in a public, private, or hybrid environment. Azure provides the infrastructure and tools to scale applications, manage data, and leverage AI capabilities, with a focus on security, compliance, and global reach.</p>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
     <section class="content-section">
         <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <h2>Cloud Excellence with Azure</h2>
-                    <p>Microsoft Azure provides a robust, scalable, and secure cloud platform for running SAP workloads. Our Azure expertise helps organizations migrate, optimize, and innovate with confidence in the cloud.</p>
-                    <p>We leverage Azure's comprehensive suite of services to deliver cost-effective, high-performance SAP solutions that scale with your business needs while maintaining enterprise-grade security and compliance.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Microsoft Azure Cloud">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <h2>Azure Capabilities</h2>
+            <h3>Key Features and Services</h3>
             <div class="features-grid">
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">☁️</div> -->
-                    <h3>SAP on Azure</h3>
-                    <p>Optimized infrastructure for SAP workloads with certified virtual machines and high-performance storage solutions.</p>
+                <div class="feature-item">
+                    <h4>Compute</h4>
+                    <p>Azure provides virtual machines (VMs) in various configurations (Windows, Linux, etc.), container services (like Kubernetes), and serverless functions (Azure Functions) for flexible computing solutions.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">🔄</div> -->
-                    <h3>Migration Services</h3>
-                    <p>Comprehensive migration strategies and tools to move your SAP landscape to Azure with minimal downtime.</p>
+                <div class="feature-item">
+                    <h4>Storage</h4>
+                    <p>Offers various storage options, including object storage (Azure Blob Storage), file storage (Azure Files), and structured data storage (Azure SQL Database) for comprehensive data management.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">📊</div> -->
-                    <h3>Analytics & AI</h3>
-                    <p>Advanced analytics and AI services to extract insights from your SAP data and drive intelligent automation.</p>
+                <div class="feature-item">
+                    <h4>Networking</h4>
+                    <p>Azure provides virtual networks, load balancers, and content delivery networks (CDNs) to facilitate secure and efficient network connections across global infrastructure.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">🔐</div> -->
-                    <h3>Security & Compliance</h3>
-                    <p>Enterprise-grade security features and compliance certifications to protect your critical business data.</p>
+                <div class="feature-item">
+                    <h4>Analytics</h4>
+                    <p>Azure offers services for big data analytics (Azure Synapse Analytics), stream processing (Azure Stream Analytics), and machine learning (Azure Machine Learning) for data-driven insights.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">⚡</div> -->
-                    <h3>Performance Optimization</h3>
-                    <p>High-performance computing capabilities with Azure's global infrastructure for optimal SAP performance.</p>
+                <div class="feature-item">
+                    <h4>AI and Machine Learning</h4>
+                    <p>Azure provides a comprehensive suite of AI services and tools, including pre-trained models and the ability to build and deploy custom models for intelligent applications.</p>
                 </div>
-                <div class="feature-card">
-                    <!-- <div class="feature-icon">💰</div> -->
-                    <h3>Cost Management</h3>
-                    <p>Cost optimization strategies and Azure's flexible pricing models to maximize your cloud investment ROI.</p>
+                <div class="feature-item">
+                    <h4>Security and Compliance</h4>
+                    <p>Azure is built with security in mind, offering features like identity management (Azure Active Directory), threat detection, and compliance certifications across various industries.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Global Infrastructure</h4>
+                    <p>Azure has a vast global network of datacenters, allowing businesses to deploy applications and services closer to their users for optimal performance and compliance.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Integration</h4>
+                    <p>Azure integrates with other Microsoft products and services, as well as with various open-source technologies, providing flexibility and choice for developers and organizations.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Cloud Computing Types Section -->
+    <section class="content-section">
         <div class="container">
-            <h2>Ready to Migrate to Azure?</h2>
-            <p>Let our Azure experts help you unlock the full potential of cloud computing for your SAP environment.</p>
-            <a href="index.html#contact" class="btn-primary">Start Your Cloud Journey</a>
+            <h3>Types of Cloud Computing</h3>
+            <div class="cloud-types-grid">
+                <div class="cloud-type-item">
+                    <h4>Infrastructure as a Service (IaaS)</h4>
+                    <p>Provides virtualized computing resources over the internet, allowing users to manage the operating system and applications while Azure handles the underlying infrastructure.</p>
+                </div>
+                <div class="cloud-type-item">
+                    <h4>Platform as a Service (PaaS)</h4>
+                    <p>Offers a platform for developing, running, and managing applications without the need to manage the underlying infrastructure, enabling faster development cycles.</p>
+                </div>
+                <div class="cloud-type-item">
+                    <h4>Software as a Service (SaaS)</h4>
+                    <p>Delivers software applications over the internet, with the provider managing the infrastructure and application, allowing users to focus on their business needs.</p>
+                </div>
+                <div class="cloud-type-item">
+                    <h4>Serverless Functions</h4>
+                    <p>Enables running code in response to events without managing servers, providing automatic scaling and pay-per-execution pricing for efficient resource utilization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-header">
+                <h3>Azure Cloud Excellence</h3>
+                <p>Azure is a powerful and versatile cloud platform that caters to a wide range of needs for businesses of all sizes. With its comprehensive service portfolio, global infrastructure, and enterprise-grade security, Azure enables organizations to innovate faster, scale efficiently, and transform their operations in the digital age.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Benefits of Using Azure</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>Scalability and Flexibility</h4>
+                    <p>Azure allows businesses to easily scale their resources up or down based on demand, providing cost-effective solutions that adapt to changing business needs and growth patterns.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Reduced Infrastructure Costs</h4>
+                    <p>By utilizing cloud resources, businesses can reduce their capital expenditure on hardware and infrastructure management, converting to operational expenses with predictable pricing models.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Increased Agility</h4>
+                    <p>Azure enables faster development and deployment cycles, allowing businesses to respond quickly to changing market demands and accelerate time-to-market for new products and services.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Global Reach</h4>
+                    <p>Azure's global network of datacenters allows businesses to reach customers around the world while ensuring low latency, high availability, and compliance with local regulations.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Enhanced Security</h4>
+                    <p>Azure provides a secure and compliant environment for hosting applications and data, with advanced threat protection, encryption, and comprehensive compliance certifications.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Innovation</h4>
+                    <p>Azure's AI and analytics services empower businesses to innovate and gain insights from their data, enabling intelligent automation and data-driven decision making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="content-section">
+        <div class="container">
+            <p>Microsoft Azure represents the future of enterprise computing, offering unparalleled flexibility, security, and innovation capabilities. Whether you're looking to migrate existing workloads, develop new cloud-native applications, or leverage advanced AI and analytics services, Azure provides the comprehensive platform and tools needed to achieve your digital transformation goals. Our Azure expertise ensures successful implementations that maximize your cloud investment and drive business value.</p>
+            
+            <div class="back-link-container">
+                <!-- <a href="index.html" class="back-link">← Back to Home</a> -->
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
-                    <p>020 8922 3492</p>
-                    <p>contact@yourconsultingltd.co.uk</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="whoWeAre.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Technology</h3>
-                    <ul class="footer-links">
-                        <li><a href="bpc-planning-consolidations.html">BPC Planning</a></li>
-                        <li><a href="microsoft-azure.html">Microsoft Azure</a></li>
-                        <li><a href="enterprise-bi-analytics.html">BI Analytics</a></li>
-                    </ul>
-                </div>
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    <script src="config.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('.newsletter-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          if (email) {
+            try {
+              const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+              });
+              const data = await response.json();
+              if (data.success) {
+                alert('Thank you for subscribing! Please check your email for a confirmation.');
+                this.querySelector('.newsletter-input').value = '';
+              } else {
+                alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+              }
+            } catch (err) {
+              alert('An error occurred. Please try again later.');
+            }
+          }
+        });
+      }
+    });
+    </script>
 </body>
 </html>
