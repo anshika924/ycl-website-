@@ -2621,38 +2621,64 @@ Audit services and clearly defined SLAs.</p>
             });
         });
 
-        // Contact form handling
+        // Contact form handling with better error handling
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const formData = new FormData(this);
-            const phone = formData.get('phone');
+            
+            // Validate phone number
+            const phone = this.querySelector('#phone').value;
             if (!/^\d{10}$/.test(phone)) {
                 alert('Please enter a valid 10-digit phone number (digits only).');
                 return;
             }
+            
             const submitBtn = this.querySelector('.btn-send');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
+            
             try {
+                // Test backend connection first
+                const healthCheck = await testBackendConnection();
+                if (!healthCheck) {
+                    throw new Error('Backend is not available');
+                }
+                
+                const formData = new FormData(this);
                 const response = await fetch(getApiUrl('contact'), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(Object.fromEntries(formData.entries()))
                 });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
                 const result = await response.json();
+                console.log('📧 Contact form response:', result);
+                
                 if (result.success) {
-                    alert('Thank you for your message! We will get back to you soon.');
+                    let message = 'Thank you for your message! We will get back to you soon.';
+                    if (result.database === 'not_connected') {
+                        message += ' (Note: Database temporarily unavailable)';
+                    }
+                    if (result.email === 'not_configured') {
+                        message += ' (Note: Email service temporarily unavailable)';
+                    }
+                    alert(message);
                     this.reset();
                 } else {
-                    alert(result.message || 'Submission failed.');
+                    alert(result.message || 'Submission failed. Please try again.');
                 }
             } catch (error) {
-                alert('An error occurred. Please try again.');
+                console.error('❌ Contact form error:', error);
+                alert(`Error: ${error.message}. Please try again later or contact us directly.`);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             }
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
         });
 
         // Add hover effects to cards
