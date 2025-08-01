@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - Business Intelligence Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-blue: #1976d2;
+            --dark-blue: #1565c0;
+            --light-blue: #b3e5fc;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #000000;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #e5e7eb;
+            --text-muted: #d1d5db;
+            --border-color: #333333;
+            --shadow-color: rgba(25, 118, 210, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #000000;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            opacity: 0.9;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+        }
+
+        .featured-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-content {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .featured-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background-color: #b3e5fc;
+            color: #000000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .featured-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .featured-description {
+            font-size: 1.125rem;
+            color: #cccccc;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background-color: #b3e5fc;
+            color: #000000;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: #b3e5fc;
+            transform: translateY(-2px);
+        }
+
+        .featured-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* Categories Carousel Section */
+        .categories-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 64px;
+            color: #ffffff;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 32px;
+            padding: 0 20px;
+        }
+        .category-card {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            min-height: 100%;
+        }
+        .category-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        .category-content {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+        }
+        @media (max-width: 900px) {
+            .carousel-slide {
+                flex-direction: column;
+                gap: 24px;
+                padding: 0 10px;
+            }
+        }
+
+        .category-card {
+            background: #000000;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #333333;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(179, 229, 252, 0.15);
+            border-color: #b3e5fc;
+        }
+
+        .category-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+
+        .category-content {
+            padding: 24px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #b3e5fc;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .category-description {
+            font-size: 1rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .category-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            color: #b3e5fc;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 0;
+            border-top: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .category-link:hover {
+            background-color: rgba(179, 229, 252, 0.1);
+            color: #b3e5fc;
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .carousel-btn {
+            background: #b3e5fc;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #000000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(179, 229, 252, 0.4);
+        }
+
+        .carousel-btn:disabled {
+            background: #333333;
+            color: #666666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #333333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #b3e5fc;
+            transform: scale(1.2);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .newsletter-card {
+            background: linear-gradient(135deg, #00cc6a 0%, #00ff88 50%, #00b359 100%);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .newsletter-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            color: #000000;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .feature-content p {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 0.875rem;
+        }
+
+        .newsletter-signup {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .newsletter-signup h2 {
+            color: #000000;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-signup p {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #000000;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .email-input::placeholder {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .email-input:focus {
+            outline: none;
+            ring: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .subscribe-btn {
+            background-color: #000000;
+            color: #00ff88;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #b3e5fc;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .featured-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+            
+            .carousel-slide {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .signup-form {
+                flex-direction: column;
+            }
+            
+            .email-input {
+                min-width: 100%;
+            }
+            
+            .featured-card,
+            .newsletter-card {
+                padding: 24px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .featured-title {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-section {
+                padding: 140px 0 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero-section {
+                padding: 120px 0 40px;
+            }
+            
+            .categories-section,
+            .newsletter-section {
+                padding: 60px 0;
+            }
+            
+            .featured-section {
+                padding: 60px 0;
+            }
+        }
+        /* Custom header styles */
+        .custom-header {
+            background: #fff;
+            color: #222;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .custom-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 80px;
+        }
+        .custom-header-logo {
+            display: flex;
+            align-items: center;
+        }
+        .custom-header-logo img {
+            height: 56px;
+            width: auto;
+            object-fit: contain;
+        }
+        .custom-header-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .custom-header-nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .custom-header-nav a:hover {
+            color: #222;
+            border-bottom: 2px solid #222;
+        }
+        .custom-header-nav a.active {
+            color: #222;
+            border-bottom: 2px solid #222;
+        }
+        @media (max-width: 700px) {
+            .custom-header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px;
+                gap: 10px;
+            }
+            .custom-header-nav {
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Header -->
+    <div class="custom-header">
+        <div class="custom-header-inner">
+            <div class="custom-header-logo">
+                <a href="index.html"><img src="image.jpg" alt="YCL Logo"></a>
+            </div>
+            <nav class="custom-header-nav">
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About</a>
+                <a href="insights.html" class="active">Insights</a>
+                <a href="careers.html">Careers</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Insights</h1>
+                    <p class="hero-subtitle">
+                        At Your Consulting Ltd., we believe in sharing knowledge, staying 
+                        ahead of trends, and providing valuable perspectives that help 
+                        businesses grow smarter.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Business meeting" />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Article Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="featured-card">
+                <div class="featured-content">
+                    <div class="featured-text">
+                        <span class="featured-badge">Featured Insight</span>
+                        <h2 class="featured-title">The Future of AI in Business Decision Making</h2>
+                        <p class="featured-description">
+                            Discover how artificial intelligence is transforming business strategies and 
+                            decision-making processes in the modern enterprise landscape.
+                        </p>
+                        <a href="featuredInsights.html" class="btn-primary" style="text-decoration:none;">
+                            Read More <span class="arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="featured-image">
+                        <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="AI in business" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse by Category Carousel Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <!-- Single Slide with Four Category Cards -->
+                    <div class="carousel-slide">
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://www.veetrack.com/assets/images/blogs/benefits-of-tracking-news-industry-trends-and-competitors-mark-your-place-in-your-industry.jpg" alt="Industry Trends & News">
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-title">Industry Trends & News</h3>
+                                <p class="category-description">
+                                    Stay updated with the latest shifts in technology, data, and enterprise solutions.
+                                </p>
+                                <a href="industryTrends.html" class="category-link">Learn More →</a>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://plus.unsplash.com/premium_photo-1661375427386-64ac35086427?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FzZSUyMHN0dWR5fGVufDB8fDB8fHww" alt="Case Studies">
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-title">Case Studies</h3>
+                                <p class="category-description">
+                                    See how we've helped organizations overcome real-world challenges using smart strategies and powerful tech.
+                                </p>
+                                <a href="caseStudies.html" class="category-link">Learn More →</a>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://9253440.fs1.hubspotusercontent-na1.net/hubfs/9253440/woman%20in%20professional%20clothing%20and%20microphone%20presenting%20thought%20leadership%20ideas.jpg" alt="Thought Leadership">
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-title">Thought Leadership</h3>
+                                <p class="category-description">
+                                    Our consultants share their expert opinions, deep dives, and innovative viewpoints on current industry topics.
+                                </p>
+                                <a href="thoughtleadership.html" class="category-link">Learn More →</a>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-image">
+                                <img src="https://www.crestwood.com/wp-content/uploads/2024/09/AdobeStock_530486363-1.jpeg" alt="Data-Driven Insights">
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-title">Data-Driven Insights</h3>
+                                <p class="category-description">
+                                    Learn from our analytics-driven articles that unpack business metrics, performance indicators, and success patterns.
+                                </p>
+                                <a href="dataDrivenInsights.html" class="category-link">Learn More →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Remove the green box section and replace green colors with light blue -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 1; // Only one slide for all categories
+        const carouselWrapper = document.getElementById('carouselWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Auto-play carousel
+        setInterval(() => {
+            if (currentSlide === totalSlides - 1) {
+                currentSlide = 0;
+            } else {
+                currentSlide++;
+            }
+            updateCarousel();
+        }, 5000);
+
+        // Initialize carousel
+        updateCarousel();
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

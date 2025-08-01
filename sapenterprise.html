@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Enterprise & Analytics Services - YCL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #28a745;
+            --dark-green: #20c997;
+            --light-green: #34d399;
+            --bg-light: #ffffff;
+            --bg-section: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(40, 167, 69, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            color: #111;
+            padding: 10px 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: none;
+            box-shadow: none;
+        }
+
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: lightblue;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            transition: none; /* remove color transition */
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            background: none;
+            color: #000000; /* Keep color black on hover */
+        }
+        .nav-menu a.active {
+            background: none;
+            color: #000000; /* Keep color black when active */
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #111;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+            background: #111;
+        }
+
+        /* Hero Section with SAP Background Image */
+        /* .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(40, 167, 69, 0.7)), 
+                        url('https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;
+            color: white;
+            padding: 12rem 2rem 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        } */
+         .hero {
+  background: url('https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%2328a745" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Sections */
+        .intro-section {
+            padding: 6rem 0 4rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .content-section:nth-child(even) {
+            background: var(--bg-section);
+        }
+
+        .content-section h3 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        /* Interactive Features Grid - Fixed Height for Alignment */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+            align-items: stretch; /* This ensures all items stretch to the same height */
+        }
+
+        .feature-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 220px; /* Minimum height for consistency */
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .feature-item h4 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0; /* Prevents title from shrinking */
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1; /* Allows content to fill remaining space */
+            display: flex;
+            align-items: flex-start; /* Aligns text to top of available space */
+        }
+
+        /* Special grid for sections that need better alignment */
+        .aligned-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+            align-items: start; /* Aligns items to the top */
+        }
+
+        .aligned-grid .feature-item {
+            height: 100%; /* Ensures all items in the same row have equal height */
+        }
+
+        /* Business Impact Grid - 2x2 layout for better alignment */
+        .business-impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .business-impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Key Capabilities Grid - 5 items in optimal layout */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        /* Other SAP Solutions Grid - 2x2 layout */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SAP Analytics Cloud Section */
+        .sap-analytics-section {
+            background: #1976d2;
+            padding: 6rem 0;
+            position: relative;
+            color: white;
+        }
+
+        .analytics-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .analytics-header h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .analytics-header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .analytics-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .analytics-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .analytics-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .analytics-feature {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .analytics-feature:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .analytics-feature h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .analytics-feature p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Image Gallery with Permanent Text Overlay */
+        .gallery-section {
+            padding: 6rem 0;
+            background: var(--bg-section);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(40, 167, 69, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Permanent overlay - always visible */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: white;
+            padding: 2.5rem;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: lightblue;
+        }
+
+        .gallery-overlay p {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* Enhanced hover effect for overlay */
+        .gallery-item:hover .gallery-overlay {
+            background: lightblue;
+            padding: 3rem;
+        }
+
+        .gallery-item:hover .gallery-overlay h4 {
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: lightblue;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: lightblue;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: lightblue;
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 4rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 10rem 1rem 6rem;
+            }
+
+            .intro-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .content-section h3 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .aligned-grid,
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-header h3 {
+                font-size: 2.2rem;
+            }
+
+            .analytics-header p {
+                font-size: 1.2rem;
+            }
+
+            .gallery-overlay {
+                padding: 1.5rem;
+            }
+
+            .gallery-overlay h4 {
+                font-size: 1.2rem;
+            }
+
+            .gallery-overlay p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .feature-item {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+               <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#sap-analytics-section">CLOUD</a></li>
+                <li><a href="services.html">SOLUTIONS</a></li>
+                <li><a href="techStack.html">CAPABILITY</a></li>
+                <li><a href="insights.html">IMPACT</a></li>
+                <!-- <li><a href="careers.html">Careers</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>SAP Enterprise & Analytics Services</h1>
+                <p>Transform your business with advanced SAP solutions, analytics, and intelligent planning services that drive growth and operational excellence through data-driven insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>SAP Enterprise Analytics Solutions</h2>
+            <p>SAP's enterprise analytics solutions, particularly SAP Analytics Cloud, integrate business intelligence, planning, and predictive analysis within a single cloud-based platform. These tools help organizations analyze data, make informed decisions, and drive business performance. SAP also offers a broader portfolio of data and analytics solutions, including tools for data warehousing, master data governance, and intelligent applications.</p>
+        </div>
+    </section>
+
+    <!-- SAP Analytics Cloud Section -->
+    <section class="sap-analytics-section">
+        <div class="container">
+            <div class="analytics-header">
+                <h3>SAP Analytics Cloud</h3>
+                <p>A unified platform that combines BI, planning, and predictive analytics in one comprehensive cloud solution</p>
+            </div>
+            
+            <div class="analytics-features">
+                <div class="analytics-feature">
+                    <h4>Unified Platform</h4>
+                    <p>Combines BI, planning, and predictive analytics in one cloud solution for seamless data management and analysis.</p>
+                </div>
+                <div class="analytics-feature">
+                    <h4>Integrated Planning</h4>
+                    <p>Enables users to create and manage plans across various business units, with features like simulation and AI-powered insights.</p>
+                </div>
+                <div class="analytics-feature">
+                    <h4>Predictive Capabilities</h4>
+                    <p>Leverages machine learning for forecasting, anomaly detection, and other predictive scenarios to drive future success.</p>
+                </div>
+                <div class="analytics-feature">
+                    <h4>Business AI</h4>
+                    <p>Offers features like "Just Ask" for natural language querying and AI-powered insights for intuitive data exploration.</p>
+                </div>
+                <div class="analytics-feature">
+                    <h4>Content Packages</h4>
+                    <p>Provides pre-built content for various lines of business and industries to accelerate implementation and time-to-value.</p>
+                </div>
+                <div class="analytics-feature">
+                    <h4>Integration</h4>
+                    <p>Seamlessly integrates with SAP applications and data sources for comprehensive business intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other SAP Solutions Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Other SAP Data & Analytics Solutions</h3>
+            <div class="solutions-grid">
+                <div class="feature-item">
+                    <h4>SAP Business Warehouse (BW)</h4>
+                    <p>A comprehensive data warehousing solution for consolidating and analyzing large volumes of data from multiple sources.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>SAP Datasphere</h4>
+                    <p>A data service that provides a unified view of all your data, enabling better decision-making across the organization.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>SAP Master Data Governance</h4>
+                    <p>Helps manage and govern master data across the organization, ensuring data quality and consistency.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>SAP HANA Cloud</h4>
+                    <p>A powerful in-memory database for developing intelligent applications with real-time processing capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Data Analytics Dashboard">
+                    <div class="gallery-overlay">
+                        <h4>Advanced Analytics</h4>
+                        <p>Real-time dashboards and insights for data-driven decision making</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Business Intelligence">
+                    <div class="gallery-overlay">
+                        <h4>Business Intelligence</h4>
+                        <p>Comprehensive BI solutions for enterprise-wide insights</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Predictive Analytics">
+                    <div class="gallery-overlay">
+                        <h4>Predictive Analytics</h4>
+                        <p>Machine learning powered forecasting and trend analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Capabilities Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Key Capabilities</h3>
+            <div class="capabilities-grid">
+                <div class="feature-item">
+                    <h4>Data Integration</h4>
+                    <p>Connect to various data sources, including SAP and non-SAP systems, for comprehensive data analysis.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Data Modeling</h4>
+                    <p>Create semantic models for consistent data understanding across the organization.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Visualization</h4>
+                    <p>Create interactive dashboards and reports for intuitive data exploration and presentation.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Advanced Analytics</h4>
+                    <p>Leverage machine learning and predictive analytics for deeper insights and future planning.</p>
+                </div>
+                <!-- <div class="feature-item">
+                    <h4>Collaboration</h4>
+                    <p>Share insights and collaborate on plans with other users across departments and teams.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Impact Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Business Impact</h3>
+            <p>SAP's enterprise analytics solutions empower organizations to:</p>
+            <div class="business-impact-grid">
+                <div class="feature-item">
+                    <h4>Gain Unified Business View</h4>
+                    <p>By connecting and analyzing data from various sources to create a single source of truth.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Make Data-Driven Decisions</h4>
+                    <p>With access to real-time insights and predictive analytics for informed decision-making.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Improve Business Performance</h4>
+                    <p>By optimizing processes, identifying trends, and mitigating risks proactively.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Drive Innovation</h4>
+                    <p>By leveraging AI and machine learning for new insights and business opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="content-section">
+        <div class="container">
+            <p>With deep industry expertise and certified SAP consultants, we deliver solutions that maximize your SAP investment. Our approach combines technical excellence with business acumen to ensure successful implementations that drive measurable results and transform your organization's data capabilities.</p>
+            
+            <div class="back-link-container">
+                <!-- <a href="index.html" class="back-link">← Back to Home</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="config.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('.newsletter-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          if (email) {
+            try {
+              const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+              });
+              const data = await response.json();
+              if (data.success) {
+                alert('Thank you for subscribing! Please check your email for a confirmation.');
+                this.querySelector('.newsletter-input').value = '';
+              } else {
+                alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+              }
+            } catch (err) {
+              alert('An error occurred. Please try again later.');
+            }
+          }
+        });
+      }
+    });
+    </script>
+</body>
+</html>
