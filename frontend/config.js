@@ -1,7 +1,7 @@
 // Configuration for API endpoints
 const config = {
-  // Production backend URL - update this with your deployed backend URL
-  API_BASE_URL: 'https://your-backend-url.onrender.com', // Replace with your actual backend URL
+  // Production backend URL - REPLACE THIS WITH YOUR RENDER URL
+  API_BASE_URL: 'https://ycl-backend.onrender.com', // Replace with your actual Render URL
   
   // For local development, uncomment this line:
   // API_BASE_URL: 'http://localhost:5001',

@@ -1,6 +1,8 @@
 require('dotenv').config();
 console.log('GMAIL_USER:', process.env.GMAIL_USER);
 console.log('GMAIL_PASS:', process.env.GMAIL_PASS ? '***set***' : '***missing***');
+console.log('MONGODB_URI:', process.env.MONGODB_URI ? '***set***' : '***missing***');
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -22,11 +24,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
-// MongoDB connection - supports both local and cloud
+// MongoDB connection with better error handling
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ycl_website';
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+})
+.then(() => {
+  console.log('✅ Connected to MongoDB successfully');
+})
+.catch((err) => {
+  console.error('❌ MongoDB connection error:', err.message);
+  console.log('💡 Make sure MONGODB_URI environment variable is set correctly');
+});
 
 // Configure the transporter using environment variables for security
 const transporter = nodemailer.createTransport({
@@ -54,20 +67,24 @@ const Newsletter = mongoose.model('Newsletter', newsletterSchema);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Backend is running' });
+  res.json({ 
+    status: 'OK', 
+    message: 'Backend is running',
+    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+  });
 });
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
-  console.log('Received contact form submission:', req.body);
+  console.log('📧 Received contact form submission:', req.body);
   try {
     const contact = new Contact({ ...req.body, submittedAt: new Date() });
     await contact.save();
-    console.log('Contact form data saved to MongoDB:', req.body);
+    console.log('✅ Contact form data saved to MongoDB:', req.body);
 
     // Send thank you email if email is provided
     if (req.body.email && process.env.GMAIL_USER && process.env.GMAIL_PASS) {
-      console.log('[CONTACT] Attempting to send thank you email to:', req.body.email);
+      console.log('📧 Attempting to send thank you email to:', req.body.email);
       const mailOptions = {
         from: process.env.GMAIL_USER,
         to: req.body.email,
@@ -76,18 +93,18 @@ app.post('/api/contact', async (req, res) => {
       };
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          console.error('[CONTACT] Error sending thank you email:', error);
+          console.error('❌ Error sending thank you email:', error);
         } else {
-          console.log('[CONTACT] Thank you email sent:', info.response);
+          console.log('✅ Thank you email sent:', info.response);
         }
       });
     } else {
-      console.warn('[CONTACT] No email provided or email credentials missing');
+      console.warn('⚠️ No email provided or email credentials missing');
     }
 
     res.json({ success: true, message: 'Contact form submitted successfully!' });
   } catch (err) {
-    console.error('Error saving contact form:', err);
+    console.error('❌ Error saving contact form:', err);
     res.status(500).json({ success: false, message: 'Failed to save contact form.' });
   }
 });
@@ -104,11 +121,11 @@ app.post('/api/apply', upload.fields([
       submittedAt: new Date() 
     });
     await jobApp.save();
-    console.log('Job application saved to MongoDB:', req.body);
+    console.log('✅ Job application saved to MongoDB:', req.body);
 
     res.json({ success: true, message: 'Application submitted successfully!' });
   } catch (err) {
-    console.error('Error saving job application:', err);
+    console.error('❌ Error saving job application:', err);
     res.status(500).json({ success: false, message: 'Failed to save application.' });
   }
 });
@@ -125,15 +142,16 @@ app.post('/api/newsletter', async (req, res) => {
 
     const newsletter = new Newsletter({ email });
     await newsletter.save();
-    console.log('Newsletter signup saved to MongoDB:', email);
+    console.log('✅ Newsletter signup saved to MongoDB:', email);
 
     res.json({ success: true, message: 'Successfully subscribed to newsletter!' });
   } catch (err) {
-    console.error('Error saving newsletter signup:', err);
+    console.error('❌ Error saving newsletter signup:', err);
     res.status(500).json({ success: false, message: 'Failed to subscribe.' });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`🌐 Health check available at: http://localhost:${PORT}/api/health`);
 }); 
