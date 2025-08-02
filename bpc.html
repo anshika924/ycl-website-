@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPC Planning and Consolidations - YCL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #28a745;
+            --dark-green: #20c997;
+            --light-green: #34d399;
+            --bg-light: #ffffff;
+            --bg-section: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(40, 167, 69, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            /* font-family: 'Times New Roman', Times, serif; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .header {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0; /* remove left/right padding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* add slight spacing on both sides */
+}
+
+.logo {
+  margin-left: 0; /* ensure no left margin */
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+.navbar {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: lightblue;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Navigation Menu - UPPERCASE, BLACK, NO COLOR CHANGE ON CLICK/HOVER, UNDERLINE ONLY ON ACTIVE/FOCUS/VISITED */
+        .nav-menu a {
+            text-decoration: none;
+            color: #000 !important;
+            /* font-family: 'Times New Roman', Times, serif; */
+            text-transform: uppercase;
+            font-weight: normal;
+            position: relative;
+            transition: none;
+        }
+        .nav-menu a:visited,
+        .nav-menu a:active,
+        .nav-menu a:focus,
+        .nav-menu a:hover {
+            color: #000 !important;
+            background: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000 !important;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:focus::after,
+        .nav-menu a:active::after,
+        .nav-menu a:visited::after {
+            width: 100%;
+            background: #000 !important;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+            background: #000 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background:  
+                        url('https://images.unsplash.com/photo-1496065187959-7f07b8353c55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            color: white;
+            padding: 12rem 2rem 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero {
+  background: url('https://images.unsplash.com/photo-1496065187959-7f07b8353c55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%2328a745" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Sections */
+        .intro-section {
+            padding: 6rem 0 4rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-image {
+            text-align: center;
+        }
+
+        .content-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background: var(--bg-section);
+        }
+
+        .features-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: var(--primary-green);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1.1rem;
+            flex-grow: 1;
+        }
+
+        /* Highlight Section - DARKER BLUE BACKGROUND */
+        .highlight-section {
+            background: #1565c0 !important; /* darker blue */
+            padding: 6rem 0;
+            position: relative;
+            color: white;
+        }
+
+        .highlight-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .highlight-header h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .highlight-header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background: lightblue;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: lightblue;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: lightblue;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: lightblue;
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 4rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 10rem 1rem 6rem;
+            }
+
+            .intro-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight-header h3 {
+                font-size: 2.2rem;
+            }
+
+            .highlight-header p {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .feature-card {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+               <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="whoWeAre.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="techStack.html">Technology</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>BPC Planning and Consolidations</h1>
+            <p>SAP Business Planning and Consolidation (BPC) is SAP's flagship product for planning, budgeting, forecasting, and consolidations with advanced analytics capabilities.</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>Enterprise Planning Excellence</h2>
+            <p>SAP Business Planning and Consolidation (BPC) provides a comprehensive solution for financial planning, budgeting, forecasting, and financial consolidation. Our expertise helps organizations streamline their planning processes and improve decision-making through real-time insights, enabling faster close cycles and more accurate reporting across all business units.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <h2>Advanced Planning Solutions</h2>
+                    <p>SAP BPC provides a comprehensive solution for financial planning, budgeting, forecasting, and financial consolidation. Our expertise helps organizations streamline their planning processes and improve decision-making through real-time insights.</p>
+                    <p>With our deep understanding of BPC architecture and best practices, we deliver solutions that transform your financial planning landscape, enabling faster close cycles and more accurate reporting.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="BPC Planning Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Key Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Financial Planning</h3>
+                    <p>Comprehensive budgeting and forecasting capabilities with driver-based planning and scenario modeling for strategic decision making.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Consolidation</h3>
+                    <p>Automated financial consolidation processes with multi-currency support and elimination entries for accurate group reporting.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Analytics & Reporting</h3>
+                    <p>Advanced analytics and reporting capabilities with real-time dashboards and KPI monitoring for performance management.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Real-time Processing</h3>
+                    <p>In-memory processing capabilities for faster calculations and real-time data analysis across large datasets.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Security & Governance</h3>
+                    <p>Robust security framework with role-based access controls and audit trails for compliance and governance.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Integration</h3>
+                    <p>Seamless integration with SAP and non-SAP systems for unified data management and reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-header">
+                <h3>BPC Implementation Excellence</h3>
+                <p>Our BPC experts bring deep industry knowledge and proven methodologies to deliver world-class planning and consolidation solutions. We help organizations transform their financial planning processes, enabling real-time insights, improved accuracy, and faster decision-making capabilities that drive business value and competitive advantage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Planning Process?</h2>
+            <p>Let our BPC experts help you implement a world-class planning and consolidation solution that drives business value.</p>
+            <a href="index.html#contact" class="btn-primary">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="content-section">
+        <div class="container">
+            <p>SAP Business Planning and Consolidation represents the future of enterprise financial planning, providing organizations with the tools and capabilities needed to streamline their planning processes and improve decision-making. Our comprehensive BPC implementation services ensure that your organization can fully leverage this powerful platform to achieve faster close cycles, more accurate reporting, and enhanced strategic planning capabilities that drive sustainable business growth.</p>
+            
+            <div class="back-link-container">
+                <!-- <a href="index.html" class="back-link">← Back to Home</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

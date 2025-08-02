@@ -1,0 +1,1208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YCL - Our Success Story and Value Proposition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header Navigation */
+        .navbar {
+            background: #fff;
+            color: #1976d2;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        /* Make logo bigger */
+        .nav-logo-group img.logo-side {
+            height: 96px;
+            width: 96px;
+            object-fit: contain;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+            background: #fff;
+        }
+        .nav-logo img.logo-img {
+            width: 220px;
+            height: auto;
+            display: block;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+            margin-left: auto;
+        }
+        /* Hide menu by default, show when .show-menu is on nav-menu */
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 30px;
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            min-width: 200px;
+            padding: 1rem 0;
+            z-index: 150;
+        }
+        .nav-menu.show-menu {
+            display: flex;
+        }
+
+        /* Remove underline pseudo-element for nav links */
+        /* Remove .nav-menu a::after and related rules */
+        /* Only show underline for .active using border-bottom */
+        .nav-menu a {
+            text-decoration: none !important;
+            color: black !important;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            position: relative;
+            border-bottom: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: black;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: black !important;
+        }
+
+        /* Hamburger styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            margin-left: auto;
+            z-index: 200;
+        }
+        .hamburger span {
+            height: 5px;
+            width: 100%;
+            background: #1976d2;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* Hero Header with Background Image */
+        .hero-header {
+            background: url('successStories.jpg') center center/cover no-repeat;
+            color: white;
+            padding: 6rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-attachment: fixed;
+        }
+
+        /* Remove the .hero-header::before overlay if it creates white space or covers the image */
+        .hero-header::before {
+            display: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #b3e5fc;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+            color: #b3e5fc;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+        }
+
+        /* Professional Badge */
+        .hero-badge {
+            display: inline-block;
+            background: #b3e5fc;
+            color: #1976d2;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(25, 118, 210, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Floating Elements in Hero */
+        .hero-floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: heroFloat 8s ease-in-out infinite;
+        }
+
+        .hero-shape:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: #1976d2;
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .hero-shape:nth-child(2) {
+            top: 70%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+            background: #20c997;
+            transform: rotate(45deg);
+            animation-delay: 3s;
+        }
+
+        .hero-shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            width: 70px;
+            height: 70px;
+            background: #1976d2;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: 6s;
+        }
+
+        .hero-shape:nth-child(4) {
+            top: 30%;
+            right: 25%;
+            width: 50px;
+            height: 50px;
+            background: #20c997;
+            border-radius: 20%;
+            animation-delay: 2s;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.2; }
+        }
+
+        .value-proposition {
+            background: #fff;
+            color: #222;
+            padding: 3rem;
+            margin: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .value-proposition::before {
+            display: none;
+        }
+        .value-proposition h2 {
+            color: #222;
+        }
+        .value-proposition p {
+            color: #444;
+        }
+
+        .content {
+            padding: 4rem 3rem;
+        }
+
+        /* Success Stories Carousel */
+        .carousel-section {
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .carousel-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 900%; /* 9 slides */
+        }
+
+        .carousel-slide {
+            min-width: 11.111%; /* 100% / 9 slides */
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            border: 3px solid #f8f9fa;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1976d2, #20c997);
+        }
+
+        .carousel-slide .image-container {
+            width: 100%;
+            height: 220px;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #1976d2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-slide .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .carousel-slide:hover .image-container img {
+            transform: scale(1.05);
+        }
+
+        .carousel-slide h3 {
+            color: #000000;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .carousel-slide p {
+            color: #555555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .highlight {
+            color: #b3e5fc;
+            font-weight: 700;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-nav:hover {
+            background: #b3e5fc;
+            color: #1976d2;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 10px;
+        }
+
+        .carousel-nav.next {
+            right: 10px;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #b3e5fc;
+            transform: scale(1.2);
+        }
+
+        /* Enhanced Capability Boxes with Images and Carousel */
+        .capability-section {
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .capability-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        .capability-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .capability-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 600%; /* 6 capability slides */
+        }
+
+        .capability-slide {
+            min-width: 16.666%; /* 100% / 6 slides */
+            background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+            color: white;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .capability-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(25, 118, 210, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .capability-slide:hover::before {
+            left: 100%;
+        }
+
+        .capability-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #1976d2;
+        }
+
+        .capability-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .capability-slide:hover .capability-image img {
+            transform: scale(1.05);
+        }
+
+        .capability-slide h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .capability-slide p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Capability Carousel Navigation */
+        .capability-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #b3e5fc;
+            color: #1976d2;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capability-nav:hover {
+            background: #b3e5fc;
+            color: #1976d2;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .capability-nav.prev {
+            left: 10px;
+        }
+
+        .capability-nav.next {
+            right: 10px;
+        }
+
+        /* Capability Indicators */
+        .capability-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .capability-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .capability-indicator.active {
+            background: #b3e5fc;
+            transform: scale(1.3);
+        }
+
+        .stats-section {
+            background: #fff;
+            border-radius: 25px;
+            padding: 4rem 3rem;
+            margin: 4rem 0;
+            color: #222;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-section::before {
+            display: none;
+        }
+        .stats-title {
+            color: #222;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .stat-item {
+            text-align: center;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: none;
+            color: #222;
+            transition: transform 0.3s ease;
+        }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #222;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 500;
+            color: #444;
+        }
+
+        /* Footer styles to match index.html */
+        .footer {
+            background: #111827 !important;
+            color: #fff;
+            padding: 3rem 0 1.5rem 0;
+            margin-top: 4rem;
+        }
+        .footer .container, .footer-grid {
+            background: none !important;
+            color: inherit !important;
+        }
+        .footer-section h3 {
+            color: #7dd3fc;
+            font-size: 1.1rem;
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+        }
+        .footer-section p, .footer-section ul, .footer-section li, .footer-section a {
+            color: #e0f2fe;
+            font-size: 0.98rem;
+            margin: 0 0 0.3rem 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        .footer-section a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+        .footer-links {
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 0.3rem;
+        }
+        .pdf-card {
+            background: #181f2a !important;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 12px 8px !important;
+            margin-top: -18px;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-header {
+                padding: 4rem 2rem;
+                min-height: 60vh;
+                background-attachment: scroll;
+            }
+            
+            .hero-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-slide {
+                padding: 2rem;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .carousel-nav.prev {
+                left: 2px;
+            }
+            
+            .carousel-nav.next {
+                right: 2px;
+            }
+
+            .capability-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .capability-nav.prev {
+                left: -20px;
+            }
+
+            .capability-nav.next {
+                right: -20px;
+            }
+
+            .capability-slide {
+                padding: 2rem;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .value-proposition {
+                margin: 2rem 1.5rem;
+                padding: 2rem;
+            }
+        }
+        @media (min-width: 900px) {
+            .hamburger {
+                display: none;
+            }
+            .nav-menu {
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                background: none;
+                box-shadow: none;
+                min-width: unset;
+                padding: 0;
+            }
+        }
+        @media (max-width: 899px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-menu {
+                right: 30px;
+                top: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            .capability-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .capability-nav.prev {
+                left: 2px;
+            }
+            .capability-nav.next {
+                right: 2px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-group">
+                <img src="image.jpg" alt="YCL Icon" class="logo-side">
+                <!-- Remove the extra nav-logo div and alt text -->
+            </div>
+            <div class="hamburger" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="mainNavMenu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#success">SUCCESS STORIES</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Header with Background Image -->
+        <div class="hero-header">
+            <div class="hero-floating-elements">
+                <div class="hero-shape"></div>
+                <div class="hero-shape"></div>
+                <div class="hero-shape"></div>
+                <div class="hero-shape"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">SAP Consulting Excellence</div>
+                <h1>Our Success Story and Value Proposition</h1>
+                <p class="hero-subtitle">Leading SAP consulting experts delivering enterprise solutions since 2008, transforming businesses through innovative technology and strategic expertise</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="value-proposition">
+                <h2>Your Consulting Value Proposition</h2>
+                <p>A team of experts with extensive knowledge and experience in SAP Enterprise, Corporate Analytics & Business Planning</p>
+            </div>
+
+            <!-- Success Stories Carousel -->
+            <div class="carousel-section">
+                <h2 class="carousel-title">Our Success Stories</h2>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev" onclick="prevSlide()">‹</button>
+                    <button class="carousel-nav next" onclick="nextSlide()">›</button>
+                    
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Team collaboration">
+                            </div>
+                            <h3>Successful SAP Implementations</h3>
+                            <p><span class="highlight">+25 successful implementation</span> of <span class="highlight">SAP Analytics & Planning Solutions</span> for multi-national clients</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Business analytics">
+                            </div>
+                            <h3>Market Leadership</h3>
+                            <p><span class="highlight">Most experienced SAP BI Analytics and Planning Consultants</span> in the market <span class="highlight">since 2008</span> with <span class="highlight">>25 Consultants</span></p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Technology innovation">
+                            </div>
+                            <h3>Early Adopters & Experts</h3>
+                            <p>Early adopters and implementers of <span class="highlight">SAP DataSphere and SAP S/4 Hana</span> for key customers. Recognised solution experts.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Professional consulting">
+                            </div>
+                            <h3>Comprehensive Support</h3>
+                            <p><span class="highlight">Consulting Practice</span> has capability to supports all key project roles ensuring ability to delivery customer projects in a coherent and optimised manner.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Strategic planning">
+                            </div>
+                            <h3>Complex Implementation Experience</h3>
+                            <p>Experience in implementing complex and strategic user cases for <span class="highlight">SAP BI Analytics & Planning, and Azure</span> for key clients.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Industry expertise">
+                            </div>
+                            <h3>Industry Experience</h3>
+                            <p><span class="highlight">> 20 years SAP BI Analytics & Planning experience</span> in the consulting marketplace.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Digital transformation">
+                            </div>
+                            <h3>Digital Transformation</h3>
+                            <p>Leading <span class="highlight">digital transformation initiatives</span> for Fortune 500 companies with <span class="highlight">cloud-first strategies</span> and modern analytics platforms.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Global reach">
+                            </div>
+                            <h3>Global Reach</h3>
+                            <p>Successfully delivered projects across <span class="highlight">15+ countries</span> with <span class="highlight">24/7 support</span> and local expertise in key markets worldwide.</p>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="image-container">
+                                <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Innovation lab">
+                            </div>
+                            <h3>Innovation Excellence</h3>
+                            <p>Pioneering <span class="highlight">AI-driven analytics</span> and <span class="highlight">machine learning solutions</span> that deliver measurable business value and competitive advantage.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <div class="indicator active" onclick="goToSlide(0)"></div>
+                    <div class="indicator" onclick="goToSlide(1)"></div>
+                    <div class="indicator" onclick="goToSlide(2)"></div>
+                    <div class="indicator" onclick="goToSlide(3)"></div>
+                    <div class="indicator" onclick="goToSlide(4)"></div>
+                    <div class="indicator" onclick="goToSlide(5)"></div>
+                    <div class="indicator" onclick="goToSlide(6)"></div>
+                    <div class="indicator" onclick="goToSlide(7)"></div>
+                    <div class="indicator" onclick="goToSlide(8)"></div>
+                </div>
+            </div>
+
+            <!-- Enhanced Capability Section with Images and Carousel -->
+            <div class="capability-section">
+                <h2 class="capability-title">Our Core Capabilities</h2>
+                <div class="capability-carousel-container">
+                    <button class="capability-nav prev" onclick="prevCapabilitySlide()">‹</button>
+                    <button class="capability-nav next" onclick="nextCapabilitySlide()">›</button>
+                    
+                    <div class="capability-carousel-track" id="capabilityCarouselTrack">
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="End-to-end support">
+                            </div>
+                            <h3>End-to-End Support & Enhancement</h3>
+                            <p>Comprehensive project lifecycle management from initial consultation through implementation, testing, and ongoing support to ensure optimal system performance.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Technical expertise">
+                            </div>
+                            <h3>Deep Technical & Functional Expertise</h3>
+                            <p>Specialized knowledge across SAP, Azure, and enterprise platforms with certified professionals delivering cutting-edge solutions for complex business requirements.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Project experience">
+                            </div>
+                            <h3>Extensive Project Implementation Experience</h3>
+                            <p>Proven track record across multiple industry sectors including finance, manufacturing, retail, and healthcare with diverse use case implementations.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Analytics solutions">
+                            </div>
+                            <h3>Advanced Analytics Solutions</h3>
+                            <p>Cutting-edge business intelligence and analytics implementations using SAP Analytics Cloud, Power BI, and custom dashboard solutions for data-driven decision making.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Cloud migration">
+                            </div>
+                            <h3>Cloud Migration & Modernization</h3>
+                            <p>Expert guidance in migrating legacy systems to cloud platforms with focus on scalability, security, and performance optimization for modern enterprise needs.</p>
+                        </div>
+
+                        <div class="capability-slide">
+                            <div class="capability-image">
+                                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" alt="Training and support">
+                            </div>
+                            <h3>Training & Knowledge Transfer</h3>
+                            <p>Comprehensive training programs and knowledge transfer sessions to empower your internal teams with the skills needed for long-term system success.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-indicators">
+                    <div class="capability-indicator active" onclick="goToCapabilitySlide(0)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(1)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(2)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(3)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(4)"></div>
+                    <div class="capability-indicator" onclick="goToCapabilitySlide(5)"></div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h2 class="stats-title">Our Track Record</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Successful Implementations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2008</span>
+                        <span class="stat-label">Since</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Expert Consultants</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Success Stories Carousel
+        let currentSlide = 0;
+        const totalSlides = 9;
+        const track = document.getElementById('carouselTrack');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            const translateX = -currentSlide * (100 / totalSlides);
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        // Capability Carousel
+        let currentCapabilitySlide = 0;
+        const totalCapabilitySlides = 6;
+        const capabilityTrack = document.getElementById('capabilityCarouselTrack');
+        const capabilityIndicators = document.querySelectorAll('.capability-indicator');
+
+        function updateCapabilityCarousel() {
+            const translateX = -currentCapabilitySlide * (100 / totalCapabilitySlides);
+            capabilityTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            capabilityIndicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentCapabilitySlide);
+            });
+        }
+
+        function nextCapabilitySlide() {
+            currentCapabilitySlide = (currentCapabilitySlide + 1) % totalCapabilitySlides;
+            updateCapabilityCarousel();
+        }
+
+        function prevCapabilitySlide() {
+            currentCapabilitySlide = (currentCapabilitySlide - 1 + totalCapabilitySlides) % totalCapabilitySlides;
+            updateCapabilityCarousel();
+        }
+
+        function goToCapabilitySlide(slideIndex) {
+            currentCapabilitySlide = slideIndex;
+            updateCapabilityCarousel();
+        }
+
+        // Auto-advance carousels
+        setInterval(nextSlide, 5000);
+        setInterval(nextCapabilitySlide, 6000);
+
+        // Touch/swipe support for mobile - Success Stories
+        let startX = 0;
+        let endX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+                }
+        }
+
+        // Touch/swipe support for mobile - Capability Carousel
+        let capabilityStartX = 0;
+        let capabilityEndX = 0;
+
+        capabilityTrack.addEventListener('touchstart', (e) => {
+            capabilityStartX = e.touches[0].clientX;
+        });
+
+        capabilityTrack.addEventListener('touchend', (e) => {
+            capabilityEndX = e.changedTouches[0].clientX;
+            handleCapabilitySwipe();
+        });
+
+        function handleCapabilitySwipe() {
+            const swipeThreshold = 50;
+            const diff = capabilityStartX - capabilityEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextCapabilitySlide();
+                } else {
+                    prevCapabilitySlide();
+                }
+            }
+        }
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navMenu = document.getElementById('mainNavMenu');
+
+        function toggleMenu() {
+            navMenu.classList.toggle('show-menu');
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') toggleMenu();
+        });
+        // Close menu when a link is clicked (mobile UX)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
+        });
+    </script>
+  </body>
+</html>

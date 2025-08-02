@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Development - YCL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #28a745;
+            --dark-green: #20c997;
+            --light-green: #34d399;
+            --bg-light: #ffffff;
+            --bg-section: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(40, 167, 69, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            /* font-family: 'Times New Roman', Times, serif; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .header {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  /* font-family: 'Times New Roman', Times, serif; */
+}
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: lightblue;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Navigation Menu - UPPERCASE, NOT BOLD, UNDERLINE ONLY ON ACTIVE/FOCUS/VISITED */
+        .nav-menu a {
+            text-decoration: none;
+            color: #000 !important;
+            /* font-family: 'Times New Roman', Times, serif; */
+            text-transform: uppercase;
+            font-weight: normal;
+            position: relative;
+            transition: none;
+        }
+        .nav-menu a:visited,
+        .nav-menu a:active,
+        .nav-menu a:focus {
+            color: #000 !important;
+            background: none !important;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000 !important;
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:focus::after,
+        .nav-menu a:active::after,
+        .nav-menu a:visited::after {
+            width: 100%;
+            background: #000 !important;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+            background: #000 !important;
+        }
+
+        /* Hero Section */
+        /* .hero {
+             background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            color: white;
+            padding: 12rem 2rem 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero {
+  background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+} */
+ .hero {
+  background: url('https://plus.unsplash.com/premium_photo-1668461477211-965df057123e?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  color: white;
+  padding: 12rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* adjust opacity here */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%2328a745" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Sections */
+        .intro-section {
+            padding: 6rem 0 4rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .content-section:nth-child(even) {
+            background: var(--bg-section);
+        }
+
+        .content-section h3 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        /* Application Types Grid - 3 main types */
+        .app-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .app-types-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .app-type-card {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+        }
+
+        .app-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .app-type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .app-type-card h4 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .app-type-card p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Development Process Grid - 6 phases */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .process-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .process-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .process-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .process-item h4 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .process-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Benefits Grid - 2x2 layout */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-item {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: lightblue;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .benefit-item h4 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .benefit-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Best Practices Grid - 3 items */
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .practices-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .practices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .practice-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+        }
+
+        .practice-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: lightblue;
+        }
+
+        .practice-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.2);
+            border-color: lightblue;
+        }
+
+        .practice-item h5 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .practice-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        /* Highlight Section - DARKER BLUE BACKGROUND */
+        .highlight-section {
+            background: #1565c0 !important; /* darker blue */
+            padding: 6rem 0;
+            position: relative;
+            color: white;
+        }
+
+        .highlight-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .highlight-header h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .highlight-header p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #10b981;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: lightblue;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: lightblue;
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 4rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 10rem 1rem 6rem;
+            }
+
+            .intro-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .intro-section p {
+                font-size: 1.1rem;
+            }
+
+            .content-section h3 {
+                font-size: 2rem;
+            }
+
+            .highlight-header h3 {
+                font-size: 2.2rem;
+            }
+
+            .highlight-header p {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .app-type-card,
+            .process-item,
+            .benefit-item,
+            .practice-item {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+          <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="whoWeAre.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="techStack.html">Technology</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Application Development</h1>
+                <p>Custom software applications tailored to meet specific business needs, streamlining operations and driving digital transformation across your organization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>What is Application Development?</h2>
+            <p>Application development refers to the process of creating software applications tailored to meet specific business needs and objectives. This involves various stages like planning, designing, coding, testing, and deploying the application. Business applications can range from web and mobile apps to desktop software, all designed to streamline operations, improve productivity, and facilitate better decision-making.</p>
+        </div>
+    </section>
+
+    <!-- Application Types Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Types of Applications We Develop</h3>
+            <p>Applications can be categorized based on their platform or their function, each serving specific business requirements and user needs.</p>
+            <div class="app-types-grid">
+                <div class="app-type-card">
+                    <h4>Web Applications</h4>
+                    <p>Browser-based applications that provide seamless access across devices and platforms. Perfect for business processes that require wide accessibility, real-time collaboration, and centralized data management. These applications offer excellent scalability and maintenance efficiency.</p>
+                </div>
+
+                <div class="app-type-card">
+                    <h4>Mobile Applications</h4>
+                    <p>Native and cross-platform mobile apps designed for smartphones and tablets. Ideal for customer-facing solutions, field operations, and on-the-go business processes. We develop both iOS and Android applications with optimal performance and user experience.</p>
+                </div>
+
+                <div class="app-type-card">
+                    <h4>Desktop Applications</h4>
+                    <p>Powerful desktop software for complex business operations requiring high performance and advanced functionality. Perfect for specialized workflows, data-intensive processes, and applications requiring direct hardware integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Our Development Process</h3>
+            <p>The development process typically involves several key phases, each crucial for delivering successful applications that meet business objectives.</p>
+            <div class="process-grid">
+                <div class="process-item">
+                    <h4>Planning</h4>
+                    <p>Gathering requirements, defining the scope, and creating a comprehensive business plan. We work closely with stakeholders to understand objectives and establish clear project parameters.</p>
+                </div>
+                <div class="process-item">
+                    <h4>Design</h4>
+                    <p>Creating the blueprint for the application, including user interface (UI) and user experience (UX) design. We focus on intuitive, user-friendly designs that enhance productivity.</p>
+                </div>
+                <div class="process-item">
+                    <h4>Development</h4>
+                    <p>Coding the application, encompassing both front-end and back-end development. Our experienced developers use modern technologies and best practices to build robust, scalable solutions.</p>
+                </div>
+                <div class="process-item">
+                    <h4>Testing</h4>
+                    <p>Ensuring the application functions correctly and meets the defined requirements. We conduct comprehensive testing including functionality, performance, security, and user acceptance testing.</p>
+                </div>
+                <div class="process-item">
+                    <h4>Deployment</h4>
+                    <p>Making the application available to users through careful deployment planning and execution. We ensure smooth rollouts with minimal disruption to business operations.</p>
+                </div>
+                <div class="process-item">
+                    <h4>Maintenance</h4>
+                    <p>Ongoing support, updates, and bug fixes to ensure optimal performance. We provide continuous monitoring, regular updates, and responsive support services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-header">
+                <h3>End-to-End Application Development Excellence</h3>
+                <p>We provide an End-to-end Application Development Service to create technological products from scratch or enhance existing solutions. We have expertise in a variety of technology platforms that allow us to develop highly flexible, scalable and customer-centric applications that enable clients to quickly achieve their business goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Benefits of Custom Application Development</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>Increased Efficiency</h4>
+                    <p>Custom applications streamline business processes, automate repetitive tasks, and eliminate inefficiencies, leading to significant productivity improvements across your organization.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Enhanced Customer Experience</h4>
+                    <p>Tailored applications provide superior user experiences, improving customer satisfaction, engagement, and loyalty through intuitive interfaces and personalized functionality.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Competitive Advantage</h4>
+                    <p>Custom solutions differentiate your business from competitors, enabling unique capabilities and innovative approaches that drive market leadership and business growth.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Improved Decision-Making</h4>
+                    <p>Applications with built-in analytics and reporting capabilities provide real-time insights, enabling data-driven decisions that optimize business performance and strategic planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section class="content-section">
+        <div class="container">
+            <h3>Development Best Practices</h3>
+            <div class="practices-grid">
+                <div class="practice-item">
+                    <h5>Proper Project Scoping</h5>
+                    <p>Thorough requirement analysis and clear project definition ensure successful delivery within budget and timeline constraints.</p>
+                </div>
+                <div class="practice-item">
+                    <h5>Code Quality & Security</h5>
+                    <p>Implementing robust coding standards, security protocols, and quality assurance processes to deliver reliable, secure applications.</p>
+                </div>
+                <div class="practice-item">
+                    <h5>Agile Development</h5>
+                    <p>Adopting iterative, agile methodologies that enable flexibility, continuous improvement, and rapid response to changing requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="content-section">
+        <div class="container">
+            <p>In essence, application development is a crucial aspect of modern business, enabling companies to leverage technology to optimize their operations and achieve their strategic goals. Companies can choose between developing custom applications tailored to their unique needs or using readily available solutions. Our expertise spans across various industries and technology platforms, ensuring we deliver solutions that not only meet your current needs but also scale with your business growth.</p>
+            
+            <div class="back-link-container">
+                <!-- <a href="index.html" class="back-link">← Back to Home</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Contact Us</h3>
+    <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+    <p>020 8922 3492</p>
+    <p>contact@yourconsultingltd.co.uk</p>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+      <li><a href="whoWeAre.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+  <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+    <h3>Follow Us</h3>
+    <ul class="footer-links">
+      <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="config.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('.newsletter-form');
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          if (email) {
+            try {
+              const response = await fetch(window.API_BASE_URL + '/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+              });
+              const data = await response.json();
+              if (data.success) {
+                alert('Thank you for subscribing! Please check your email for a confirmation.');
+                this.querySelector('.newsletter-input').value = '';
+              } else {
+                alert('Subscription failed: ' + (data.message || 'Please try again later.'));
+              }
+            } catch (err) {
+              alert('An error occurred. Please try again later.');
+            }
+          }
+        });
+      }
+    });
+    </script>
+</body>
+</html>

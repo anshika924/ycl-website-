@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Careers Page</title>
+    <meta name="description" content="Join our mission to shape the future. Explore career opportunities at our innovative company.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* header section */
+.header {
+    /* font-family:'Times New Roman', Times, serif; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: lightblue;
+    text-decoration: none;
+}
+
+.nav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+        gap: 32px;
+    }
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: lightblue;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: lightblue;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.get-started-btn {
+    background:lightblue;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.get-started-btn:hover {
+    background: lightblue;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+}
+/* Header */
+.header {
+  /* font-family: 'Times New Roman', Times, serif; */
+  background: rgba(255, 254, 254, 0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 85px;
+  transition: all 0.3s ease;
+}
+
+/* Scroll effect */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--light-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--light-blue);
+}
+
+.nav-link:hover, .nav-link.active { color: #000 !important; }
+
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/027/105/246/small_2x/copy-space-on-white-wall-supplies-on-empty-desk-free-photo.jpg');
+            
+            color: #ffffff;
+            padding: 96px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-gradient {
+            background: lightblue;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-top: 8px;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #d1fae5;
+            margin-bottom: 32px;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: lightblue;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: scale(1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: lightblue;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #000000;
+        }
+
+        /* Section Styles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+            
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 24px;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: #000000;
+            max-width: 768px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Values Section
+        .values-section {
+            padding: 80px 0;
+            background: #0f172a;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .value-card {
+            background: #1e293b;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .value-card:hover {
+            border-color: #10b981;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(255, 254, 254, 0.3);
+        }
+
+        .value-image {
+            margin-bottom: 24px;
+        }
+
+        .value-image img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .value-description {
+            color: #000000;
+            line-height: 1.6;
+        } */
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: #ffffff;
+           
+        }
+       
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #a5a1a1;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: lightblue;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-image img {
+            width: 100%;
+            height: 192px;
+            object-fit: cover;
+        }
+
+        .benefit-content {
+            padding: 24px;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 12px;
+        }
+
+        .benefit-description {
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Jobs Section */
+        .jobs-section {
+            padding: 80px 0;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .search-filter {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .search-box, .filter-box {
+            position: relative;
+            flex: 1;
+            color:white;
+        }
+
+        .search-icon, .filter-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            z-index: 1;
+        }
+
+        .search-box input, .filter-box select {
+            width: 100%;
+            padding: 16px 16px 16px 48px;
+            border: 1px solid #ffffff;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: #ffffff;
+            color: #706a6a;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus, .filter-box select:focus {
+            outline: none;
+            border-color: lightblue;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .filter-box select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+            min-width: 200px;
+        }
+
+        .jobs-grid {
+            display: grid;
+            gap: 24px;
+            min-height: 600px;
+        }
+
+        .job-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .job-card:hover {
+            border-color: lightblue;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .job-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .job-info {
+            flex: 1;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 12px;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #000000;
+            font-size: 0.875rem;
+        }
+
+        .job-meta-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .experience-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: lightblue;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            color: #000000;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .job-tag {
+            background: #374151;
+            color: #d1d5db;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+        }
+
+        .job-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn-view-details {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-view-details:hover {
+            background: lightblue;
+        }
+
+        .btn-apply {
+            background: transparent;
+            color:lightblue;
+            padding: 12px 24px;
+            border: lightblue;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-apply:hover {
+            background: lightblue;
+            color: white;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 80px 0;
+            color: #9ca3af;
+            grid-column: 1 / -1;
+        }
+
+        .no-results-icon {
+            background: #374151;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .no-results h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex !important;
+        }
+
+        .modal-content {
+            background-color: #1e293b;
+            border-radius: 16px;
+            max-width: 800px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid #374151;
+            position: relative;
+            padding: 16px 0 0 0;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px 24px 0 24px;
+            margin-bottom: 8px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+        }
+
+        .modal-body {
+            padding: 0 24px 16px 24px;
+            color: #d1d5db;
+        }
+
+        .modal-body p, .modal-body ul {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
+        }
+
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            color: #9ca3af;
+        }
+
+        .modal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-section {
+            margin-bottom: 32px;
+        }
+
+        .modal-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .modal-requirements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-requirements li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .modal-requirements svg {
+            margin-top: 2px;
+            flex-shrink: 0;
+            color: #10b981;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        .modal-actions .btn-primary {
+            flex: 1;
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .modal-actions .btn-secondary {
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 2px solid #374151;
+            color: #d1d5db;
+            background: transparent;
+        }
+
+        .modal-actions .btn-secondary:hover {
+            background: #374151;
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .search-filter {
+                flex-direction: row;
+            }
+            
+            .job-actions {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .job-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .job-content {
+                flex: 1;
+            }
+            
+            .job-actions {
+                flex-direction: column;
+                min-width: 200px;
+                margin-top: 0;
+            }
+        }
+
+        /* FOOTER */
+                .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(10, 10, 11, 0.8);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: lightblue;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: rgba(11, 11, 11, 0.8);
+            border: 1px solid rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
+            background: lightblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: lightblue;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(7, 7, 7, 0.8);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation classes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+        .nav-link:hover::after, .nav-link.active::after { background: #000 !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo"><img src="image.jpg" alt="YCL Logo" class="logo-img"></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="#sectiontitle" class="nav-link">WHY JOIN US?</a>
+                <a href="#openposistions" class="nav-link">OPEN POSISTIONS</a>
+                <!-- <a href="#values" class="nav-link">VALUES</a>
+                <a href="#choose" class="nav-link">WHY CHOOSE US</a> -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Join Our Mission to
+                <span class="hero-gradient">Shape the Future</span>
+            </h1>
+            <p class="hero-description">
+                We're building tomorrow's technology today. Join a team of passionate innovators 
+                who are making a real impact on millions of lives worldwide.
+            </p>
+            <div class="hero-buttons">
+                <a href="#jobs" class="btn-primary">View Open Positions</a>
+                <!-- <button class="btn-secondary" onclick="scrollToCulture()">Learn About Us</button> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <!-- <section id="culture" class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-description">
+                    These principles guide everything we do and define who we are as a company.
+                </p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Customer First">
+                    </div>
+                    <h3 class="value-title">Customer First</h3>
+                    <p class="value-description">Everything we do starts with understanding and serving our customers better.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Innovation">
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">We embrace new ideas, take calculated risks, and learn from failures.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Collaboration">
+                    </div>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-description">We believe the best solutions come from diverse teams working together.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-image">
+                        <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Excellence">
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We set high standards and continuously strive to exceed them.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Join Us?</h2>
+                <p class="section-description">
+                    We believe in taking care of our team members so they can do their best work.
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Health & Wellness">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Health & Wellness</h3>
+                        <p class="benefit-description">Comprehensive health, dental, and vision insurance plus wellness programs.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/4969971/pexels-photo-4969971.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Work-Life Balance">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Work-Life Balance</h3>
+                        <p class="benefit-description">Flexible hours, unlimited PTO, and remote work options.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Professional Growth">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Professional Growth</h3>
+                        <p class="benefit-description">Learning budget, conference attendance, and mentorship programs.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Competitive Compensation">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Competitive Compensation</h3>
+                        <p class="benefit-description">Market-rate salaries, equity packages, and performance bonuses.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Great Team">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Great Team</h3>
+                        <p class="benefit-description">Work with talented, passionate people who care about making an impact.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-image">
+                        <img src="https://images.pexels.com/photos/4050347/pexels-photo-4050347.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Remote Friendly">
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Remote Friendly</h3>
+                        <p class="benefit-description">Distributed team with offices in major cities and remote work support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Open Positions</h2>
+                <p class="section-description">
+                    Find your next opportunity and help us build something amazing together.
+                </p>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-filter">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search positions..." onkeyup="filterJobs()">
+                </div>
+                <div class="filter-box">
+                    <svg class="filter-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"/>
+                    </svg>
+                    <select id="departmentFilter" onchange="filterJobs()">
+                        <option value="All">All Departments</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Product">Product</option>
+                        <option value="Design">Design</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Job Listings -->
+             <div class="jobs-grid" id="jobsGrid">
+                <div class="job-card" data-department="Engineering">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">SAP Profitability and Performance Management (PaPM) Consultant </h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Consulting
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        London
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        Not disclosed 
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">10+ years</span>
+                        </div>
+                        <p class="job-description">We are looking for an experienced PaPM Consultant to join our fast-growing team that supports multinational accounts and specialises in automating and optimising Tax, Finance and Planning processes based on PaPM technology.  You will have deep expertise in SAP PaPM modeling, data integration and financial analytics, with a good foundation in SAP HANA, BW/4HANA and other associated SAP Products. You will bring  analytical rigor and a collaborative approach to both stakeholder management and cross-functional team working..</p>
+                        <div class="job-tags">
+                            <span class="job-tag">SAP PaPM</span>
+                            <span class="job-tag">HANA modeling</span>
+                            <span class="job-tag">SQL scripting</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('CONSULTING1')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div> 
+
+
+                <div class="job-card" data-department="Product">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">SAP BTP Developer with UI5 Skills </h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Consulting
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                         London,UK
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        Not disclosed
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">5+ years (2+ in BTP)</span>
+                        </div>
+                        <p class="job-description">We are seeking an experienced SAP BTP Developer with strong SAPUI5/Fiori skills to build cloud-native apps and deliver scalable enterprise solutions on the SAP Business Technology Platform. .</p>
+                        <div class="job-tags">
+                            <span class="job-tag">SAPUI5</span>
+                            <span class="job-tag">Fiori design</span>
+                            <span class="job-tag">CAP</span>
+                            <span class="job-tag">Cloud foundry</span>
+                            <span class="job-tag">SAP HANA Cloud</span>
+                            <span class="job-tag">Full stack development using SAPUI5,Node.js,CAP</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('CONSULTING2')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-department="Design">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">SAP Analytics Cloud (SAC) Developer</h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Consulting
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        London
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                      NOT DISCLOSED
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">4+ years BI experience, with 2+ in SAC. </span>
+                        </div>
+                        <p class="job-description">We are hiring a skilled SAC Developer to build modern analytics, reporting, and planning applications that empower data-driven decisions across the enterprise..</p>
+                        <div class="job-tags">
+                            <span class="job-tag">BW</span>
+                            <span class="job-tag">HANA</span>
+                            <span class="job-tag">S/4 HANA</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('CONSULTING3')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-department="Engineering">
+                    <div class="job-content">
+                        <div class="job-header">
+                            <div class="job-info">
+                                <h3 class="job-title">SAP Functional Consultant – Finance and Allocations </h3>
+                                <div class="job-meta">
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                        Consulting
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        London
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                        Full-time
+                                    </span>
+                                    <span class="job-meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                        Not disclosed 
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="experience-badge">7+ years SAP FICO experience. </span>
+                        </div>
+                        <p class="job-description">We are seeking a SAP Functional Consultant with deep experience in financial planning and allocations, capable of delivering cost-effective and accurate financial insights using SAP technologies. </p>
+                        <div class="job-tags">
+                            <span class="job-tag">FICO</span>
+                            <span class="job-tag">CO-PA</span>
+                            <span class="job-tag">S/4 HANA</span>
+                            <span class="job-tag">SAC</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-view-details" onclick="openJobModal('backend')">
+                            View Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </button>
+                        <a href="applynow.html" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Detail Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title">Job Title</h3>
+                <button class="modal-close" onclick="closeJobModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Job details will be populated here -->
+                </div>
+                <div class="modal-actions">
+                    <a href="applynow.html" class="btn-primary">Apply for This Position</a>
+                    <button class="btn-secondary" onclick="closeJobModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Contact Us</h3>
+                <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+                <p>020 8922 3492</p>
+                <p>contact@yourconsultingltd.co.uk</p>
+              </div>
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                  <li><a href="whoWeAre.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="careers.html">Careers</a></li>
+                </ul>
+              </div>
+              <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+                <h3>Follow Us</h3>
+                <ul class="footer-links">
+                  <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+                  <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+                  <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </footer>
+ 
+    <!-- Smooth scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroButtons = document.querySelector('.hero-buttons');
+            const openPositionsLink = document.querySelector('.nav-link[href="#openposistions"]');
+            const jobsSection = document.getElementById('jobs');
+            const searchInput = document.getElementById('searchInput');
+            const departmentFilter = document.getElementById('departmentFilter');
+            const jobsGrid = document.getElementById('jobsGrid');
+            const jobCards = document.querySelectorAll('.job-card');
+            const jobModal = document.getElementById('jobModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const modalClose = document.querySelector('.modal-close');
+            const closeButton = document.querySelector('.modal-actions .btn-secondary');
+
+            // Function to scroll to jobs section
+            function scrollToJobs() {
+                jobsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Job details mapping
+            const jobDetails = {
+                'CONSULTING1': {
+                    title: 'SAP Profitability and Performance Management (PaPM) Consultant',
+                    description: `<p>We are looking for an experienced PaPM Consultant to join our fast-growing team that supports multinational accounts and specialises in automating and optimising Tax, Finance and Planning processes based on PaPM technology. You will have deep expertise in SAP PaPM modeling, data integration and financial analytics, with a good foundation in SAP HANA, BW/4HANA and other associated SAP Products. You will bring analytical rigor and a collaborative approach to both stakeholder management and cross-functional team working.</p><ul><li>SAP PaPM</li><li>HANA modeling</li><li>SQL scripting</li></ul>`
+                },
+                'CONSULTING2': {
+                    title: 'SAP BTP Developer with UI5 Skills',
+                    description: `<p>We are seeking an experienced SAP BTP Developer with strong SAPUI5/Fiori skills to build cloud-native apps and deliver scalable enterprise solutions on the SAP Business Technology Platform.</p><ul><li>SAPUI5</li><li>Fiori design</li><li>CAP</li><li>Cloud foundry</li><li>SAP HANA Cloud</li><li>Full stack development using SAPUI5,Node.js,CAP</li></ul>`
+                },
+                'CONSULTING3': {
+                    title: 'SAP Analytics Cloud (SAC) Developer',
+                    description: `<p>We are hiring a skilled SAC Developer to build modern analytics, reporting, and planning applications that empower data-driven decisions across the enterprise.</p><ul><li>BW</li><li>HANA</li><li>S/4 HANA</li></ul>`
+                },
+                'backend': {
+                    title: 'SAP Functional Consultant – Finance and Allocations',
+                    description: `<p>We are seeking a SAP Functional Consultant with deep experience in financial planning and allocations, capable of delivering cost-effective and accurate financial insights using SAP technologies.</p><ul><li>FICO</li><li>CO-PA</li><li>S/4 HANA</li><li>SAC</li></ul>`
+                }
+            };
+            // Function to open job modal
+            function openJobModal(jobId) {
+                console.log('openJobModal called with jobId:', jobId);
+                const job = jobDetails[jobId];
+                if (job) {
+                    modalTitle.textContent = job.title;
+                    modalContent.innerHTML = job.description;
+                } else {
+                    modalTitle.textContent = 'Job Details';
+                    modalContent.innerHTML = `<h4>Job ID: ${jobId}</h4><p>Details for job ID: ${jobId} would go here.</p>`;
+                }
+                jobModal.classList.add('show');
+                jobModal.style.display = 'flex';
+                document.body.classList.add('modal-open');
+            }
+
+            // Function to close job modal
+            function closeJobModal() {
+                jobModal.classList.remove('show');
+                jobModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+
+            // Function to filter jobs
+            function filterJobs() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedDepartment = departmentFilter.value;
+
+                jobCards.forEach(card => {
+                    const jobTitle = card.querySelector('.job-title').textContent.toLowerCase();
+                    const jobDepartment = card.dataset.department;
+                    const matchesSearch = jobTitle.includes(searchTerm);
+                    const matchesDepartment = selectedDepartment === 'All' || jobDepartment === selectedDepartment;
+
+                    card.style.display = matchesSearch && matchesDepartment ? 'flex' : 'none';
+                });
+            }
+
+            // Initial filter call
+            filterJobs();
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                if (event.target == jobModal) {
+                    closeJobModal();
+                }
+            });
+
+            // Apply for job (placeholder)
+            closeButton.addEventListener('click', closeJobModal);
+
+            // Make modal functions globally accessible for inline onclick
+            window.openJobModal = openJobModal;
+            window.closeJobModal = closeJobModal;
+            window.filterJobs = filterJobs;
+        });
+    </script>
+</body>
+</html>

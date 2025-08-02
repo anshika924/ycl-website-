@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YCL Featured Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --light-blue: #b3e5fc;
+      --primary-blue: #1976d2;
+      --dark-blue: #1565c0;
+    }
+    /* Header Styles */
+    .header {
+      background: #fff;
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e3e3e3;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.06);
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-img {
+      height: 70px;
+      width: 70px;
+      object-fit: contain;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(25,118,210,0.08);
+      margin-right: 10px;
+      border-radius: 0;
+      display: block;
+    }
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-link {
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: none;
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #111;
+    }
+    .nav-link.active::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #111;
+      border-radius: 2px;
+      margin-top: 2px;
+    }
+    /* Hero Banner */
+    .hero-banner {
+      margin-top: 80px;
+      width: 100%;
+      height: 320px;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-banner .hero-bg-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.6;
+    }
+    .hero-banner .hero-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 100%);
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 700px;
+      color: #fff;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-content h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      margin-bottom: 0.7rem;
+      letter-spacing: -1px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    /* Insights Grid */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 3rem auto 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .insight-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(25, 118, 210, 0.08);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+    }
+    .insight-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(25, 118, 210, 0.16);
+    }
+    .insight-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #f4f7fa;
+    }
+    .insight-content {
+      padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .insight-content h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 0.7rem 0;
+    }
+    .insight-content p {
+      font-size: 1.05rem;
+      color: #111;
+      flex: 1;
+      margin: 0 0 1.2rem 0;
+    }
+    .insight-content .read-more {
+      align-self: flex-start;
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+      border: 1px solid var(--primary-blue);
+    }
+    .insight-content .read-more:hover {
+      background: var(--primary-blue);
+      color: #fff;
+    }
+    /* Footer Styles */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      margin-top: 3rem;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 400;
+    }
+    .footer-links a:hover {
+      color: #b3e5fc;
+    }
+    .footer-section h3 {
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+    @media (max-width: 900px) {
+      .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .header { height: 64px; }
+      .logo-img { height: 36px; width: 36px; }
+      .hero-banner { height: 180px; }
+      .hero-content h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="image.jpg" alt="YCL Logo" class="logo-img">
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="aboutus.html" class="nav-link">ABOUT US</a>
+        <!-- <a href="services.html" class="nav-link">Services</a> -->
+        <a href="insights.html" class="nav-link active">INSIGHTS</a>
+        <!-- <a href="careers.html" class="nav-link">Careers</a> -->
+        <a href="contactform.html" class="nav-link">CONTACTS</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80" alt="AI Face Banner" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Featured Insights</h1>
+      <p>Explore how YCL is shaping the future of business with AI, analytics, and digital innovation.</p>
+    </div>
+  </section>
+  <main>
+    <div class="insights-grid">
+      <div class="insight-card">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="AI in Action">
+          <div class="insight-content">
+            <h2>AI in Action: YCL’s Impact on Business Transformation</h2>
+            <p>See how YCL leverages advanced AI and machine learning to help clients automate processes, optimize operations, and unlock new growth. Our tailored AI solutions are driving measurable results across industries.</p>
+          </div>
+        </div>
+        <div class="insight-card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Data to Decisions">
+          <div class="insight-content">
+            <h2>From Data to Decisions: YCL’s Analytics Excellence</h2>
+            <p>YCL empowers organizations to turn raw data into actionable insights. Our SAP and cloud analytics solutions enable smarter, faster decision-making—fueling innovation and competitive advantage.</p>
+          </div>
+        </div>
+        <div class="insight-card">
+          <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80" alt="Intelligent Automation">
+          <div class="insight-content">
+            <h2>Intelligent Automation: YCL’s Approach to Efficiency</h2>
+            <p>Discover how YCL’s intelligent automation strategies streamline workflows, reduce costs, and free up your teams to focus on what matters most. We deliver end-to-end automation, from RPA to AI-driven optimization.</p>
+          </div>
+        </div>
+        <div class="insight-card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Responsible AI">
+          <div class="insight-content">
+            <h2>Responsible AI: YCL’s Commitment to Trust & Ethics</h2>
+            <p>At YCL, we believe in building AI solutions that are transparent, fair, and trustworthy. Learn how our responsible AI framework ensures ethical innovation for every client.</p>
+          </div>
+        </div>
+        <div class="insight-card">
+          <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=800&q=80" alt="Predictive Power">
+          <div class="insight-content">
+            <h2>Predictive Power: YCL’s Forecasting for the Future</h2>
+            <p>YCL’s predictive analytics help clients anticipate market shifts, customer needs, and operational risks. Our expertise in SAP and cloud platforms delivers foresight for confident, future-ready strategies.</p>
+          </div>
+        </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid" style="display:flex;align-items:flex-start;justify-content:center;gap:64px;">
+        <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+          <h3>Contact Us</h3>
+          <p>The Brentano Suites, Prospect House 2 Athenaeum Rd, London N20 9AE</p>
+          <p>020 8922 3492</p>
+          <p>contact@yourconsultingltd.co.uk</p>
+        </div>
+        <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="whoWeAre.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section" style="min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="https://x.com/YourConsultingL" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/company/107845266/admin/dashboard/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/yourconsultinglimiteduk/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025. Your Consulting Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
